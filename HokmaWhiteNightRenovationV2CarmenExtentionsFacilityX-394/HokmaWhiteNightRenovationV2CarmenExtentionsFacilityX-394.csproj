@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Krafs.Publicizer.2.2.1\build\Krafs.Publicizer.props" Condition="Exists('..\packages\Krafs.Publicizer.2.2.1\build\Krafs.Publicizer.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A0207D49-139A-47E3-82FB-6EC7FCA1A375}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394</RootNamespace>
+    <AssemblyName>HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX-394</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony, Version=2.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lib.Harmony.2.3.3\lib\net472\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Library Of Ruina\LibraryOfRuina_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="UnityEngine.ImageConversionModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\LobotomyCorp\LobotomyCorp_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BattleUnitBuf_Ammo.cs" />
+    <Compile Include="BattleUnitBuf_Sanity.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="DiceCardAbility_atksp10.cs" />
+    <Compile Include="DiceCardAbility_atksp2.cs" />
+    <Compile Include="DiceCardAbility_atksp3.cs" />
+    <Compile Include="DiceCardAbility_atksp5.cs" />
+    <Compile Include="DiceCardAbility_atksp7.cs" />
+    <Compile Include="DiceCardAbility_atkspAll.cs" />
+    <Compile Include="DiceCardAbility_ayin_fmf_dice.cs" />
+    <Compile Include="DiceCardAbility_hokma_burnBoth21.cs" />
+    <Compile Include="DiceCardAbility_mutualDestroy35TempFragile.cs" />
+    <Compile Include="DiceCardAbility_yujin4.cs" />
+    <Compile Include="DiceCardSelfAbility_1pwper10sp.cs" />
+    <Compile Include="DiceCardSelfAbility_allyBaral.cs" />
+    <Compile Include="DiceCardSelfAbility_allyZena.cs" />
+    <Compile Include="DiceCardSelfAbility_ammo_AddBullet1AndDraw.cs" />
+    <Compile Include="DiceCardSelfAbility_ammo_AddBullet2.cs" />
+    <Compile Include="DiceCardSelfAbility_ammo_discard1.cs" />
+    <Compile Include="DiceCardSelfAbility_ammo_discard2draw1.cs" />
+    <Compile Include="DiceCardSelfAbility_ammo_discard4bullet.cs" />
+    <Compile Include="DiceCardSelfAbility_argalia_duel.cs" />
+    <Compile Include="DiceCardSelfAbility_ayin_fmf.cs" />
+    <Compile Include="DiceCardSelfAbility_ayin_frg.cs" />
+    <Compile Include="DiceCardSelfAbility_ayin_hor.cs" />
+    <Compile Include="DiceCardSelfAbility_ayin_IN_HELL_WE_LIVE_LAMENT.cs" />
+    <Compile Include="DiceCardSelfAbility_ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING.cs" />
+    <Compile Include="DiceCardSelfAbility_ayin_mk2.cs" />
+    <Compile Include="DiceCardSelfAbility_ayin_mur.cs" />
+    <Compile Include="DiceCardSelfAbility_ayin_sng.cs" />
+    <Compile Include="DiceCardSelfAbility_ayin_vin.cs" />
+    <Compile Include="DiceCardSelfAbility_ayin_wgb.cs" />
+    <Compile Include="DiceCardSelfAbility_cardPowerDown2targetDraw1Energy3.cs" />
+    <Compile Include="DiceCardSelfAbility_cardPowerDown2targetDraw1Energy3GloriaSingletonCostBuf.cs" />
+    <Compile Include="DiceCardSelfAbility_clawUltimate.cs" />
+    <Compile Include="DiceCardAbility_kimsatgat_tctb.cs" />
+    <Compile Include="DiceCardSelfAbility_disposal.cs" />
+    <Compile Include="DiceCardSelfAbility_energy3AndDraw2.cs" />
+    <Compile Include="DiceCardSelfAbility_fixedcost_adddice.cs" />
+    <Compile Include="DiceCardSelfAbility_kimsatgat_tctb4d.cs" />
+    <Compile Include="DiceCardSelfAbility_kimsatgat_ymf.cs" />
+    <Compile Include="DiceCardSelfAbility_negatePowerXEnergy1.cs" />
+    <Compile Include="DiceCardSelfAbility_negatePowerXEnergy2.cs" />
+    <Compile Include="DiceCardSelfAbility_negatePowerXEnergy3.cs" />
+    <Compile Include="DiceCardAbility_repeat1bs.cs" />
+    <Compile Include="DiceCardSelfAbility_rerollper20sp.cs" />
+    <Compile Include="DiceCardSelfAbility_theClaw_recoverNextRound.cs" />
+    <Compile Include="DiceCardSelfAbility_yanSwordbutactuallygoodthistime.cs" />
+    <Compile Include="DiceCardSelfAbility_zenaStagger.cs" />
+    <Compile Include="PassiveAbility_ammo_supply.cs" />
+    <Compile Include="PassiveAbility_AngelicaSoulMates.cs" />
+    <Compile Include="PassiveAbility_brokenArbiter.cs" />
+    <Compile Include="PassiveAbility_EyeOfDeath.cs" />
+    <Compile Include="PassiveAbility_fanatic_angel.cs" />
+    <Compile Include="PassiveAbility_hm_1.cs" />
+    <Compile Include="PassiveAbility_hm_2.cs" />
+    <Compile Include="PassiveAbility_hm_3.cs" />
+    <Compile Include="PassiveAbility_hm_4.cs" />
+    <Compile Include="PassiveAbility_hm_5.cs" />
+    <Compile Include="PassiveAbility_kimsatgat_resent.cs" />
+    <Compile Include="PassiveAbility_Lament_SP.cs" />
+    <Compile Include="PassiveAbility_matterdark.cs" />
+    <Compile Include="PassiveAbility_Orlando.cs" />
+    <Compile Include="PassiveAbility_Overbreathing.cs" />
+    <Compile Include="PassiveAbility_panic1.cs" />
+    <Compile Include="PassiveAbility_panic10.cs" />
+    <Compile Include="PassiveAbility_panic11.cs" />
+    <Compile Include="PassiveAbility_panic12.cs" />
+    <Compile Include="PassiveAbility_panic13.cs" />
+    <Compile Include="PassiveAbility_panic14.cs" />
+    <Compile Include="PassiveAbility_panic15.cs" />
+    <Compile Include="PassiveAbility_panic16.cs" />
+    <Compile Include="PassiveAbility_panic17.cs" />
+    <Compile Include="PassiveAbility_panic18.cs" />
+    <Compile Include="PassiveAbility_panic19.cs" />
+    <Compile Include="PassiveAbility_panic2.cs" />
+    <Compile Include="PassiveAbility_panic3.cs" />
+    <Compile Include="PassiveAbility_panic4.cs" />
+    <Compile Include="PassiveAbility_panic5.cs" />
+    <Compile Include="PassiveAbility_panic6.cs" />
+    <Compile Include="PassiveAbility_panic7.cs" />
+    <Compile Include="PassiveAbility_panic8.cs" />
+    <Compile Include="PassiveAbility_panic9.cs" />
+    <Compile Include="PassiveAbility_rrr_command.cs" />
+    <Compile Include="PassiveAbility_shiSP.cs" />
+    <Compile Include="PassiveAbility_Speed4.cs" />
+    <Compile Include="PassiveAbility_targetRequest.cs" />
+    <Compile Include="PassiveAbility_theClaw.cs" />
+    <Compile Include="PassiveAbility_theProxy.cs" />
+    <Compile Include="PassiveAbility_undeniableResearch.cs" />
+    <Compile Include="PassiveAbility_unSorrow.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <ItemGroup>
+      <Publicize Include="Assembly-CSharp" />
+      <Publicize Include="UnityEngine" />
+    </ItemGroup>
+    <Error Condition="!Exists('..\packages\Krafs.Publicizer.2.2.1\build\Krafs.Publicizer.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Krafs.Publicizer.2.2.1\build\Krafs.Publicizer.props'))" />
+    <Error Condition="!Exists('..\packages\Krafs.Publicizer.2.2.1\build\Krafs.Publicizer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Krafs.Publicizer.2.2.1\build\Krafs.Publicizer.targets'))" />
+  </Target>
+  <Import Project="..\packages\Krafs.Publicizer.2.2.1\build\Krafs.Publicizer.targets" Condition="Exists('..\packages\Krafs.Publicizer.2.2.1\build\Krafs.Publicizer.targets')" />
+</Project>
