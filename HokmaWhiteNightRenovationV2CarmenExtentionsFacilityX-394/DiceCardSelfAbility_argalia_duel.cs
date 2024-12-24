@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using UI;
 using UnityEngine;
-using static HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394.PassiveAbility_kimsatgat_resent;
 
 namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
 {

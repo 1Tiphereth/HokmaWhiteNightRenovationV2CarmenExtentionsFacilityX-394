@@ -17,7 +17,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
     public class Init : ModInitializer
     {
         bool _patched = false;
-
         public static string packageName = "HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX-394";
 
         public List<LorId> cards = new List<LorId>
@@ -63,13 +62,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             new LorId(packageName, 1021),
         };
 
-
-        internal static void ExclusiveAdder(LorId keypage, LorId card)
-        {
-            ItemXmlDataList.instance.GetCardItem(card, false).optionList.Add(CardOption.OnlyPage);
-            Singleton<BookXmlList>.Instance.GetData(keypage, true).EquipEffect.OnlyCard.Add(card.id);
-        }
-
         internal static void ReplaceCardInfo(LorId oldId, LorId newId)
         {
             DiceCardXmlInfo diceCardXmlInfo = ItemXmlDataList.instance.GetCardList().Find((DiceCardXmlInfo x) => x.id == newId);
@@ -99,20 +91,17 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 ItemXmlDataList.instance.GetCardList().RemoveAll((DiceCardXmlInfo x) => x.id == newId);
             }
         }
-
-        //public static void rarityChanger(LorId id, int value)
-        //{
-        //    ItemXmlDataList.instance.GetCardItem(id).Rarity = value;
-        //}
+        internal static void ExclusiveAdder(LorId keypage, LorId card)
+        {
+            ItemXmlDataList.instance.GetCardItem(card, false).optionList.Add(CardOption.OnlyPage);
+            Singleton<BookXmlList>.Instance.GetData(keypage, true).EquipEffect.OnlyCard.Add(card.id);
+        }
 
         public override void OnInitializeMod()
         {
             var harmony = new Harmony("no.comment");
             harmony.PatchAll();
 
-            Console.WriteLine("carmen: init mod");
-
-            //Singleton<SaveData>.Instance.GetData(packageName + "_");
             Singleton<AbnormalityCardDescXmlList>.Instance.GetAbnormalityCard("HappyTeddyBear_Lonely").abilityDesc = "[Single Ally]\r\nAll dice gain 3 Power in a clash.\nAll dice lose 2 Power in a one-sided attack.";
             Singleton<AbnormalityCardDescXmlList>.Instance.GetAbnormalityCard("ForsakenMurderer_Tie").abilityDesc = "[Single Ally]\r\nBlunt dice gain 1-3 Power.\r\nDeal +25% Blunt Stagger%.";
             Singleton<AbnormalityCardDescXmlList>.Instance.GetAbnormalityCard("SingingMachine_Music").abilityDesc = "[All Characters]\r\nAll characters deal +4-8 damage with attacks this reception. They also suffer +8 Stagger damage upon taking a hit.\r\nWhenever an ally defeats an enemy, they recover 15 HP and 30 Stagger Resist.";
@@ -221,37 +210,33 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 ItemXmlDataList.instance.GetCardItem(new LorId(502006), false).Script = "drawCard";
                 ItemXmlDataList.instance.GetCardItem(new LorId(403006), false).Script = "energy1";
             }
-            //ItemXmlDataList.instance.GetCardItem(new LorId(706203), false).DiceBehaviourList[0].Min = 8;
 
             Singleton<BookXmlList>.Instance.GetData(new LorId(packageName, 3)).EquipEffect.PassiveList.Add(new LorId(packageName, 20));
             Singleton<BookXmlList>.Instance.GetData(new LorId(packageName, 3)).EquipEffect.PassiveList.Add(new LorId(180005));
             Singleton<BookXmlList>.Instance.GetData(new LorId(packageName, 4)).EquipEffect.PassiveList.Add(new LorId(packageName, 20));
             Singleton<BookXmlList>.Instance.GetData(new LorId(packageName, 4)).EquipEffect.PassiveList.Add(new LorId(packageName, 24));
 
-
-            Singleton<BookXmlList>.Instance.GetData(8).EquipEffect.PassiveList.Remove(new LorId(10011));
-            Singleton<BookXmlList>.Instance.GetData(8).EquipEffect.PassiveList.Add(new LorId(packageName, 1));
             // keypage patches
             {
                 // aux
                 Singleton<BookXmlList>.Instance.GetData(240010).canNotEquip = false;
 
                 // zena
-                Singleton<DeckXmlList>.Instance.GetData(new LorId(packageName, 3)).cardIdList = new List<LorId>
-                {
-                    new LorId(packageName, 11),
-                    new LorId(packageName, 11),
-                    new LorId(packageName, 11),
+                //Singleton<DeckXmlList>.Instance.GetData(new LorId(packageName, 3)).cardIdList = new List<LorId>
+                //{
+                //    new LorId(packageName, 11),
+                //    new LorId(packageName, 11),
+                //    new LorId(packageName, 11),
 
-                    new LorId(packageName, 12),
-                    new LorId(packageName, 12),
+                //    new LorId(packageName, 12),
+                //    new LorId(packageName, 12),
 
-                    new LorId(packageName, 13),
-                    new LorId(packageName, 13),
+                //    new LorId(packageName, 13),
+                //    new LorId(packageName, 13),
 
-                    new LorId(packageName, 14),
-                    new LorId(packageName, 15),
-                };
+                //    new LorId(packageName, 14),
+                //    new LorId(packageName, 15),
+                //};
 
                 // Yujin Full Potentional
                 Singleton<BookXmlList>.Instance.GetData(240001).EquipEffect.PassiveList = new List<LorId>
@@ -265,7 +250,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     new LorId(packageName, 302),
                     new LorId(packageName, 303),
                     new LorId(241001),
-
                 };
                 Singleton<StageClassInfoList>.Instance.GetData(40001).waveList[1].enemyUnitIdList.Remove(new LorId(40001));
                 Singleton<BookXmlList>.Instance.GetData(140001).EquipEffect.PassiveList.Remove(new LorId(241001));
@@ -302,19 +286,37 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 //ItemXmlDataList.instance.GetCardItem(new LorId(702008), false).DiceBehaviourList[2].Script = "buterflyDice";
                 ItemXmlDataList.instance.GetCardItem(new LorId(702009), false).Script = "strength1";
 
-                // R Corp.
+                // Shi.
                 Singleton<BookXmlList>.Instance.GetData(140002).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
                 Singleton<BookXmlList>.Instance.GetData(240002).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
                 Singleton<BookXmlList>.Instance.GetData(140003).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
                 Singleton<BookXmlList>.Instance.GetData(240003).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
                 Singleton<BookXmlList>.Instance.GetData(140001).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
                 Singleton<BookXmlList>.Instance.GetData(240001).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
-                Singleton<BookXmlList>.Instance.GetData(150023).EquipEffect.PassiveList.Remove(new LorId(250023));
-                Singleton<BookXmlList>.Instance.GetData(150023).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
-                Singleton<BookXmlList>.Instance.GetData(150031).EquipEffect.PassiveList.Remove(new LorId(250023));
-                Singleton<BookXmlList>.Instance.GetData(150031).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
-                Singleton<BookXmlList>.Instance.GetData(250023).EquipEffect.PassiveList.Remove(new LorId(250023));
-                Singleton<BookXmlList>.Instance.GetData(250023).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
+
+                // Boris
+                Singleton<BookXmlList>.Instance.GetData(250007).EquipEffect.PassiveList.Add(new LorId(3009));
+                Singleton<BookXmlList>.Instance.GetData(250007).EquipEffect.PassiveList.Add(new LorId(240003));
+                Singleton<BookXmlList>.Instance.GetData(250007).EquipEffect.PassiveList.Add(new LorId(240005));
+                Singleton<BookXmlList>.Instance.GetData(250007).EquipEffect.PassiveList.Add(new LorId(220009));
+                Singleton<BookXmlList>.Instance.GetData(250007).EquipEffect.PassiveList.Add(new LorId(220010));
+                Singleton<BookXmlList>.Instance.GetData(250007).EquipEffect.PassiveList.Add(new LorId(230012));
+                Singleton<BookXmlList>.Instance.GetData(250007).EquipEffect.PassiveList.Add(new LorId(220006));
+                Singleton<BookXmlList>.Instance.GetData(250007).EquipEffect.MaxPlayPoint = 4;
+                Singleton<BookXmlList>.Instance.GetData(250007).EquipEffect.StartPlayPoint = 4;
+
+                ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[2].Script = "repeat3";
+                ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList.Insert(2, ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[2]);
+                ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[3].MotionDetail = MotionDetail.Z;
+                ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[3].EffectRes = "Thumb_Z";
+                ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[3].Detail = BehaviourDetail.Penetrate;
+
+                //Singleton<BookXmlList>.Instance.GetData(150023).EquipEffect.PassiveList.Remove(new LorId(250023));
+                //Singleton<BookXmlList>.Instance.GetData(150023).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
+                //Singleton<BookXmlList>.Instance.GetData(150031).EquipEffect.PassiveList.Remove(new LorId(250023));
+                //Singleton<BookXmlList>.Instance.GetData(150031).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
+                //Singleton<BookXmlList>.Instance.GetData(250023).EquipEffect.PassiveList.Remove(new LorId(250023));
+                //Singleton<BookXmlList>.Instance.GetData(250023).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
             }
 
             // ego changes
@@ -350,7 +352,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_sng", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 30\r\nUpon each successful hit, a random ally takes 3 Stagger damage and gains 1 Strength next Scene\r\nUpon defeating an enemy, all allies gain 2 Strength\r\n{On Corrosion}\r\nInflict 2 Paralysis [On Hit]" } });
                 ItemXmlDataList.instance.GetCardItem(new LorId(910013), false).Script = "ayin_sng";
 
-                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_IN_HELL_WE_LIVE_LAMENT", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 45\r\n[On Use] Synchronize with <color=#004cbf>The Funeral of</color> <color=#CCCCCC>the Dead Butterflies</color>" } });
                 Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 35\r\nEach die on this page is rolled (7 + Personal Emotional Level) times\r\nIncrease damage of each subsequent die by the (Dice# * 5)%\r\nIf the Personal Emotional Level is at 5 or Higher, Gain +2 Power\r\nDice# of 10 or more gain +50% Dmg Rate for each Dice# over 10 (max 2)\r\n{On Corrosion}\r\n{Indiscriminate}\r\nConvert this card into a Mass Attack" } });
                 ItemXmlDataList.instance.GetCardItem(new LorId(910014), false).Script = "ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING";
                 ItemXmlDataList.instance.GetCardItem(new LorId(910014), false).DiceBehaviourList[0].Script = "ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING_dice";
@@ -369,13 +370,13 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             {
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Malkuth", new BattleEffectText { Name = "Floor of History", Desc = "Inflict (3 * Personal Emotional Level) Burn to all enemies upon death", ID = "" });
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Yesod", new BattleEffectText { Name = "Floor of Technological Sciences", Desc = "Gain +2 SP Gain Efficiency", ID = "" });
-                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Hod", new BattleEffectText { Name = "Floor of Literature", Desc = "Inflict 1 Bleed next Scene [On Clash Win]", ID = "" });
-                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Netzach", new BattleEffectText { Name = "Floor of Art", Desc = "Recover 2 HP [On Hit]", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Hod", new BattleEffectText { Name = "Floor of Literature", Desc = "[On Clash Win] Inflict 1 Bleed next Scene", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Netzach", new BattleEffectText { Name = "Floor of Art", Desc = " [On Hit] Recover 2 HP", ID = "" });
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Tiph", new BattleEffectText { Name = "Floor of Natural Sciences", Desc = "When inflicting Negative Effects using Combat Pages this Scene, inflict 1 additional stack", ID = "" });
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Gebruh", new BattleEffectText { Name = "Floor of Language", Desc = "Deal +1% more Damager per This Unit's SP", ID = "" });
-                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Binah", new BattleEffectText { Name = "Floor of Philosophy", Desc = "Gain +5 SP Lose Efficiency", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Binah", new BattleEffectText { Name = "Floor of Philosophy", Desc = "\"At the start of the scene, gain 1 stack of Protection for every 15 positive SP this unit has. Upon winning a clash, recover 2 HP. At the end of the scene, gain 1 stack of All Power Up for every 3 clashes won (rounded up). Upon losing a clash, recover 3 Break.\"", ID = "" });
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Chesed", new BattleEffectText { Name = "Floor of Social Sciences", Desc = "Gain 3 Haste", ID = "" });
-                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Hokma", new BattleEffectText { Name = "Floor of Religion", Desc = "Deal 2 Fixed SP Damage [On Hit]", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Hokma", new BattleEffectText { Name = "Floor of Religion", Desc = " [On Hit] Deal 2 Fixed SP Damage", ID = "" });
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Keter", new BattleEffectText { Name = "Floor of General Works", Desc = "Increase Max HP by 10% and Stagger by 25%", ID = "" });
             }
 
@@ -586,13 +587,31 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             }
 
             //Singleton<BookXmlList>.Instance.GetData(250023).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4002));
+            Singleton<BookXmlList>.Instance.GetData(8).EquipEffect.PassiveList.Remove(new LorId(10011));
+            Singleton<BookXmlList>.Instance.GetData(8).EquipEffect.PassiveList.Add(new LorId(packageName, 1));
+            Singleton<DeckXmlList>.Instance._list.RemoveAll(x => x.id == 8);
+            Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+            {
+                _id = 8,
+                cardIdList = new List<LorId>
+                    {
+                        new LorId(706202),
+                        new LorId(706202),
+                        new LorId(706202),
 
+                        new LorId(706205),
+                        new LorId(706205),
+
+                        new LorId(706204),
+                        new LorId(706204),
+                        new LorId(706201),
+                        new LorId(706201),
+                    }
+            });
             foreach (BookXmlInfo bookXmlInfo in Singleton<BookXmlList>.Instance.GetList())
             {
                 bookXmlInfo.SuccessionPossibleNumber = 12;
             }
-
-
             //Singleton<ModContentManager>.Instance.InitModInfos();
         }
         [HarmonyPatch(typeof(VersionViewer), "Start")]
@@ -644,7 +663,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 // enemy
                 foreach (BookXmlInfo x in Singleton<BookXmlList>.Instance.GetList())
                 {
-                    x.EquipEffect.Hp = (int)(x.EquipEffect.Hp * (1 + x.Chapter * 0.13));
+                    x.EquipEffect.Hp = (int)(x.EquipEffect.Hp * (1 + x.Chapter * 0.07));
                     x.EquipEffect.Break = (int)(x.EquipEffect.Break * (1 + x.Chapter * 0.03));
 
                     int ll = 3;
@@ -654,6 +673,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     }
                     ll += x.Chapter / 2;
                     x.EquipEffect.MaxPlayPoint = ll;
+                    x.EquipEffect.StartPlayPoint = ll;
                     x.speedDiceNumber += x.Chapter / 3;
                 }
 
@@ -678,11 +698,13 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         int hp, br;
                         if (x.BookId == 8)
                         {
-                            hp = (int)(x.equipeffect.Hp * (1 + chapter * 0.17));
-                            br = (int)(x.equipeffect.Break * (1 + chapter * 0.8));
+                            hp = x.equipeffect.Hp;
+                            br = x.equipeffect.Break;
+                        } else
+                        {
+                            hp = (int)(x.equipeffect.Hp * (1 + chapter * 0.04));
+                            br = (int)(x.equipeffect.Break * (1 + chapter * 0.02));
                         }
-                        hp = (int)(x.equipeffect.Hp * (1 + chapter * 0.07));
-                        br = (int)(x.equipeffect.Break * (1 + chapter * 0.02));
                         int sp = (int)(chapter / 3);
 
                         int ll = 3;
@@ -696,28 +718,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         x.equipeffect.Break = br;
                         x.equipeffect.SpeedDiceNum += sp;
                         x.equipeffect.MaxPlayPoint = ll;
+                        x.equipeffect.StartPlayPoint = ll;
                         x.SetOriginalStat();
                         books.Add(x.BookId, (hp, br, sp));
                     }
                 }
-                Singleton<DeckXmlList>.Instance._list.RemoveAll(x => x.id == 8);
-                Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                {
-                    _id = 8,
-                    cardIdList = new List<LorId>
-                    {
-                        new LorId(706202),
-                        new LorId(706202),
-                        new LorId(706202),
-
-                        new LorId(706205),
-                        new LorId(706205),
-
-                        new LorId(706204),
-                        new LorId(706204),
-                        new LorId(706201),
-                    }
-                });
 
                 // custom decks
                 {
@@ -1227,6 +1232,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         });
                     }
                 }
+
                 Singleton<DropBookXmlList>.Instance.GetData(new LorId(250037)).DropItemList.Add(new BookDropItemInfo { id = new LorId(packageName, 301), itemType = DropItemType.Card });
                 Singleton<DropBookXmlList>.Instance.GetData(new LorId(250037)).DropItemList.Add(new BookDropItemInfo { id = new LorId(packageName, 302), itemType = DropItemType.Card });
                 Singleton<DropBookXmlList>.Instance.GetData(new LorId(250037)).DropItemList.Add(new BookDropItemInfo { id = new LorId(packageName, 303), itemType = DropItemType.Card });
@@ -1301,7 +1307,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             }
         }
 
-
         public class NetzachBuf : BattleUnitBuf
         {
             public override string keywordId => "Netzach";
@@ -1313,6 +1318,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
 
             }
         }
+
         public class TiphBuf : BattleUnitBuf
         {
             public override string keywordId => "Tiph";
@@ -1326,6 +1332,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 return 0;
             }
         }
+
         public class GebruhBuf : BattleUnitBuf
         {
             public override string keywordId => "Gebruh";
@@ -1339,14 +1346,44 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 });
             }
         }
+
         public class BinahBuf : BattleUnitBuf
         {
             public override string keywordId => "Binah";
+            internal static int _clashesWon = 0;
 
             public override void OnRoundStart()
             {
                 base.OnRoundStart();
-                base._owner.bufListDetail.AddReadyReadyBuf(new SpLoseBuf { stack = 5 });
+                //base._owner.bufListDetail.AddReadyReadyBuf(new SpLoseBuf { stack = 5 });
+                int sp = GetSP(GetOwnId(_owner));
+                if (sp >= 0)
+                {
+                    base._owner.bufListDetail.AddKeywordBufByEtc(KeywordBuf.Protection, (int)Mathf.Round(sp/15));
+                }
+                _clashesWon = 0;
+            }
+
+            public override void OnRoundEnd()
+            {
+                base.OnRoundEnd();
+                if (_clashesWon >= 3)
+                {
+                    base._owner.bufListDetail.AddKeywordBufByEtc(KeywordBuf.AllPowerUp, (int)Mathf.Ceil((float)_clashesWon/3));
+                }
+            }
+
+            public override void OnWinParrying(BattleDiceBehavior behavior)
+            {
+                base.OnWinParrying(behavior);
+                base._owner.RecoverHP(2);
+                _clashesWon++;
+            }
+
+            public override void OnLoseParrying(BattleDiceBehavior behavior)
+            {
+                base.OnLoseParrying(behavior);
+                base._owner.breakDetail.RecoverBreak(3);
             }
         }
 
@@ -1360,6 +1397,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 base._owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Quickness, 3);
             }
         }
+
         public class HokmaBuf : BattleUnitBuf
         {
             public override string keywordId => "Hokma";
@@ -1370,6 +1408,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 UpdateSP(GetOwnId(behavior.card?.target), -2, behavior.card?.target);
             }
         }
+
         public class KeterBuf : BattleUnitBuf
         {
             public override string keywordId => "Keter";
@@ -1619,6 +1658,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             }
             updateSPDisplay(__instance);
         }
+
         [HarmonyPatch(typeof(BattleUnitModel), "BeforeGiveDamage")]
         [HarmonyPostfix]
         public static void BattleUnitModel_BeforeGiveDamage_Post(BattleUnitModel __instance, BattleDiceBehavior behavior)
@@ -1630,8 +1670,8 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             }
             behavior.ApplyDiceStatBonus(new DiceStatBonus
             {
-                dmgRate = x * 7,
-                breakRate = x * 9,
+                dmgRate = x * 5,
+                breakRate = x * 3,
             });
         }
 

@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using static HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394.PassiveAbility_kimsatgat_resent;
 
 namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
 {
@@ -51,7 +50,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     power = 2
                 });
             }
-
 
             if (count > 9)
             {

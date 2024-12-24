@@ -62,7 +62,6 @@
     <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BattleUnitBuf_Ammo.cs" />
     <Compile Include="BattleUnitBuf_Sanity.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DiceCardAbility_atksp10.cs" />
@@ -73,21 +72,14 @@
     <Compile Include="DiceCardAbility_atkspAll.cs" />
     <Compile Include="DiceCardAbility_ayin_fmf_dice.cs" />
     <Compile Include="DiceCardAbility_hokma_burnBoth21.cs" />
-    <Compile Include="DiceCardAbility_mutualDestroy35TempFragile.cs" />
     <Compile Include="DiceCardAbility_yujin4.cs" />
     <Compile Include="DiceCardSelfAbility_1pwper10sp.cs" />
     <Compile Include="DiceCardSelfAbility_allyBaral.cs" />
     <Compile Include="DiceCardSelfAbility_allyZena.cs" />
-    <Compile Include="DiceCardSelfAbility_ammo_AddBullet1AndDraw.cs" />
-    <Compile Include="DiceCardSelfAbility_ammo_AddBullet2.cs" />
-    <Compile Include="DiceCardSelfAbility_ammo_discard1.cs" />
-    <Compile Include="DiceCardSelfAbility_ammo_discard2draw1.cs" />
-    <Compile Include="DiceCardSelfAbility_ammo_discard4bullet.cs" />
     <Compile Include="DiceCardSelfAbility_argalia_duel.cs" />
     <Compile Include="DiceCardSelfAbility_ayin_fmf.cs" />
     <Compile Include="DiceCardSelfAbility_ayin_frg.cs" />
     <Compile Include="DiceCardSelfAbility_ayin_hor.cs" />
-    <Compile Include="DiceCardSelfAbility_ayin_IN_HELL_WE_LIVE_LAMENT.cs" />
     <Compile Include="DiceCardSelfAbility_ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING.cs" />
     <Compile Include="DiceCardSelfAbility_ayin_mk2.cs" />
     <Compile Include="DiceCardSelfAbility_ayin_mur.cs" />
@@ -97,12 +89,9 @@
     <Compile Include="DiceCardSelfAbility_cardPowerDown2targetDraw1Energy3.cs" />
     <Compile Include="DiceCardSelfAbility_cardPowerDown2targetDraw1Energy3GloriaSingletonCostBuf.cs" />
     <Compile Include="DiceCardSelfAbility_clawUltimate.cs" />
-    <Compile Include="DiceCardAbility_kimsatgat_tctb.cs" />
     <Compile Include="DiceCardSelfAbility_disposal.cs" />
     <Compile Include="DiceCardSelfAbility_energy3AndDraw2.cs" />
     <Compile Include="DiceCardSelfAbility_fixedcost_adddice.cs" />
-    <Compile Include="DiceCardSelfAbility_kimsatgat_tctb4d.cs" />
-    <Compile Include="DiceCardSelfAbility_kimsatgat_ymf.cs" />
     <Compile Include="DiceCardSelfAbility_negatePowerXEnergy1.cs" />
     <Compile Include="DiceCardSelfAbility_negatePowerXEnergy2.cs" />
     <Compile Include="DiceCardSelfAbility_negatePowerXEnergy3.cs" />
@@ -111,20 +100,13 @@
     <Compile Include="DiceCardSelfAbility_theClaw_recoverNextRound.cs" />
     <Compile Include="DiceCardSelfAbility_yanSwordbutactuallygoodthistime.cs" />
     <Compile Include="DiceCardSelfAbility_zenaStagger.cs" />
-    <Compile Include="PassiveAbility_ammo_supply.cs" />
-    <Compile Include="PassiveAbility_AngelicaSoulMates.cs" />
     <Compile Include="PassiveAbility_brokenArbiter.cs" />
     <Compile Include="PassiveAbility_EyeOfDeath.cs" />
-    <Compile Include="PassiveAbility_fanatic_angel.cs" />
     <Compile Include="PassiveAbility_hm_1.cs" />
     <Compile Include="PassiveAbility_hm_2.cs" />
     <Compile Include="PassiveAbility_hm_3.cs" />
     <Compile Include="PassiveAbility_hm_4.cs" />
     <Compile Include="PassiveAbility_hm_5.cs" />
-    <Compile Include="PassiveAbility_kimsatgat_resent.cs" />
-    <Compile Include="PassiveAbility_Lament_SP.cs" />
-    <Compile Include="PassiveAbility_matterdark.cs" />
-    <Compile Include="PassiveAbility_Orlando.cs" />
     <Compile Include="PassiveAbility_Overbreathing.cs" />
     <Compile Include="PassiveAbility_panic1.cs" />
     <Compile Include="PassiveAbility_panic10.cs" />
@@ -153,8 +135,6 @@
     <Compile Include="PassiveAbility_targetRequest.cs" />
     <Compile Include="PassiveAbility_theClaw.cs" />
     <Compile Include="PassiveAbility_theProxy.cs" />
-    <Compile Include="PassiveAbility_undeniableResearch.cs" />
-    <Compile Include="PassiveAbility_unSorrow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
