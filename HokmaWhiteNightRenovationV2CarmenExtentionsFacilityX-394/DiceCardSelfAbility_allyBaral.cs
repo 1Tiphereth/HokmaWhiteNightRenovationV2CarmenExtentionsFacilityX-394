@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using UI;
+using UnityEngine;
 using static DiceCardAbility_forbidCardAtk;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.UI.CanvasScaler;
@@ -19,6 +20,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
         {
             public override void OnRoundEndTheLast()
             {
+                Debug.Log("binah: spawner" );
                 List<BattleUnitModel> list = BattleObjectManager.instance.GetList(base._owner.faction);
                 BattleUnitModel bUM = list.Find((BattleUnitModel x) => x.IsDead());
                 int num = -1;

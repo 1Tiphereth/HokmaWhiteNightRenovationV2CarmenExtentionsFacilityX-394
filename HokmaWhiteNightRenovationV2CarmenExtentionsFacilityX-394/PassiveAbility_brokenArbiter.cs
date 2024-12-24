@@ -28,13 +28,13 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 owner.personalEgoDetail.AddCard(706203);
             }
 
-            if (owner.emotionDetail.EmotionLevel >= 0 && !_hasZena)
+            if (owner.emotionDetail.EmotionLevel >= 3 && !_hasZena)
             {
                 owner.allyCardDetail.AddCardToHand(BattleDiceCardModel.CreatePlayingCard(ItemXmlDataList.instance.GetCardItem(new LorId(HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394.Init.packageName, 101), false)));
                 _hasZena = true;
             }
-            
-            if (owner.emotionDetail.EmotionLevel >= 0 && !_hasBaral)
+
+            if (owner.emotionDetail.EmotionLevel >= 5 && !_hasBaral)
             {
                 owner.allyCardDetail.AddCardToHand(BattleDiceCardModel.CreatePlayingCard(ItemXmlDataList.instance.GetCardItem(new LorId(HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394.Init.packageName, 100), false)));
                 _hasBaral = true;
@@ -46,7 +46,8 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             base.OnSucceedAttack(behavior);
             if (owner.emotionDetail.EmotionLevel >= 3)
             {
-                behavior.card.target.bufListDetail.AddKeywordBufByEtc(KeywordBuf.Fairy, 2);
+                behavior.card.target.bufListDetail.AddKeywordBufByEtc(KeywordBuf.Fairy, 1);
+                behavior.card.target.bufListDetail.AddKeywordBufByEtc(KeywordBuf.Bleeding, 1);
             }
             else
             {

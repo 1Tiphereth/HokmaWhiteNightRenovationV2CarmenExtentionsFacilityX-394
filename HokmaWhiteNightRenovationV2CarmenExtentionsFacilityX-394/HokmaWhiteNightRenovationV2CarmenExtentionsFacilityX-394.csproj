@@ -136,6 +136,8 @@
     <Compile Include="PassiveAbility_panic16.cs" />
     <Compile Include="PassiveAbility_panic17.cs" />
     <Compile Include="PassiveAbility_panic18.cs" />
+    <Compile Include="PassiveAbility_panic20.cs" />
+    <Compile Include="PassiveAbility_panic21.cs" />
     <Compile Include="PassiveAbility_panic19.cs" />
     <Compile Include="PassiveAbility_panic2.cs" />
     <Compile Include="PassiveAbility_panic3.cs" />

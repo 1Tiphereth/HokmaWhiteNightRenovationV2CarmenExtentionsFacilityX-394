@@ -59,7 +59,8 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             new LorId(packageName, 1017),
             new LorId(packageName, 1018),
             new LorId(packageName, 1019),
-
+            new LorId(packageName, 1020),
+            new LorId(packageName, 1021),
         };
 
 
@@ -118,76 +119,142 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             Singleton<AbnormalityCardDescXmlList>.Instance.GetAbnormalityCard("SingingMachine_Atk").abilityDesc = "[Single Ally]\r\nOffensive dice gain 2 Power.\r\nDefensive dice roll 1.";
             Singleton<AbnormalityCardDescXmlList>.Instance.GetAbnormalityCard("Matan_Seven").abilityDesc = "[Single Ally]\r\nDeal +1-7 damage with Offensive dice.\r\nWhen an Offensive die draws or loses in a clash, deal damage equal to the dice value times 2 to the opponent.\r\nEvery 7th Melee or Ranged page deals +7 Damage and targets random characters, including allies.";
 
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(607201), false).optionList.Remove(CardOption.NoInventory);
-            ItemXmlDataList.instance.GetCardItem(new LorId(607202), false).optionList.Remove(CardOption.NoInventory);
-            ItemXmlDataList.instance.GetCardItem(new LorId(607203), false).optionList.Remove(CardOption.NoInventory);
-            ItemXmlDataList.instance.GetCardItem(new LorId(607204), false).optionList.Remove(CardOption.NoInventory);
-            ItemXmlDataList.instance.GetCardItem(new LorId(607205), false).optionList.Remove(CardOption.NoInventory);
-
-
-            // aux
-            Singleton<BookXmlList>.Instance.GetData(240010).canNotEquip = false;
-
-            // zena
-            Singleton<DeckXmlList>.Instance.GetData(new LorId(packageName, 3)).cardIdList = new List<LorId>
+            // localization
             {
-                new LorId(packageName, 11),
-                new LorId(packageName, 11),
-                new LorId(packageName, 11),
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("negatePowerXEnergy1", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Restore 1 Light\r\nDice on this page and the page clashing with it are unaffected by Power gain or loss" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("negatePowerXEnergy2", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Restore 2 Light\r\nDice on this page and the page clashing with it are unaffected by Power gain or loss" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("negatePowerXEnergy3", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Restore 3 Light\r\nDice on this page and the page clashing with it are unaffected by Power gain or loss" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("zenaStagger", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Dice on this page do not deal damage, instead they deal more stagger damage equal to the damage value" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("theClaw_recoverNextRound", new BattleCardAbilityDesc { desc = new List<string> { "[Combat Start] Gain 2 Protection, Stagger Protection and Recover 50 HP and Stagger at the start of next Scene" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("clawUltimate", new BattleCardAbilityDesc { desc = new List<string> { "Discard All pages in hand to gain power equal to the amount of pages in hand *10 + 30 Power to all dice on this page, and deal 2x stagger damage" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("allyZena", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Spawn Zena next Scene." } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("allyBaral", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Spawn Baral next Scene." } });
 
-                new LorId(packageName, 12),
-                new LorId(packageName, 12),
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("repeat1bs", new BattleCardAbilityDesc { desc = new List<string> { "If all 9 Combat Pages of the Black Silence have been used, re-roll this die once" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("fixedcost_adddice", new BattleCardAbilityDesc { desc = new List<string> { "The Cost of this page cannot be changed.\r\nIf the natural roll of any die is Max, add a Slash die (Roll: 3-7) to the dice queue once" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("cardPowerDown2targetDraw1Energy3GloriaSingletonCostBuf", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Restore 3 Light; draw 1 page and reduce the Cost of a random card in hand whose cost is bigger then 0 and self for the next scene\r\n[Start of Clash] Reduce Power of all target's dice by 2" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("cardPowerDown2targetDraw1Energy3", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Restore 3 Light; draw 1 page\r\n[Start of Clash] Reduce Power of all target's dice by 2" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("mutualDestroy35TempFragile", new BattleCardAbilityDesc { desc = new List<string> { "[On Clash Win] Destroy all of opponent's dice and deal +2 more Damage with attacks on this page\r\n[On Clash Lose] Destroy all dice on this page and gain 3 Fragile" } });
 
-                new LorId(packageName, 13),
-                new LorId(packageName, 13),
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Sanity", new BattleEffectText { Name = "Sanity", Desc = "The amount of this unit's SP", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("SpGainBuf", new BattleEffectText { Name = "SP Gain", Desc = "Gain +{0} more Sanity upon Winning a Clash", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("SpLoseBuf", new BattleEffectText { Name = "SP Lose", Desc = "Lose +{0} more Sanity upon Losing a Clash", ID = "" });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("atksp2", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Deal 2 SP Damage" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("atksp3", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Deal 3 SP Damage" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("atksp5", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Deal 5 SP Damage" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("atksp7", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Deal 7 SP Damage" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("atksp10", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Deal 10 SP Damage" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("atkspAll", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Panic target" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("1pwper10sp", new BattleCardAbilityDesc { desc = new List<string> { "Gain +1 Power for every 10 SP on Self" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("rerollper20sp", new BattleCardAbilityDesc { desc = new List<string> { "Reroll all dice on this page for every 20 SP on Self" } });
 
-                new LorId(packageName, 14),
-                new LorId(packageName, 15),
-            };
+                // ego
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("argalia_duel", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Begin the duel..." } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("GazeAndAwe", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 45\r\n{On Awakening}\n\r\r\n{On Corrosion}\r\nABC" } });
+                
+                // custom
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Disposal", new BattleEffectText { Name = "Disposal Mode", Desc = "Upon acquiring this status effect gain 11 Charge, Recover all Light, and add a Copy of \"Disposal\" to hand and Gain 2 Extra Speed Dice\r\nAt the start of each scene gain 2 Strength, Haste, Protection and Break Protection, additionally Recover 2 extra Light and Draw 2 more Pages", ID = "" });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("disposal", new BattleCardAbilityDesc { desc = new List<string> { "Only usable at 20+ Charge. Spend all Charge to deal additional (3 * Charge)% Damage\n\rUpon defeating an enemy with this page, add a copy of 'Disposal' to hand and lower its Cost by 2 and gain 3 Strength, Protection and 7 Charge next Scene.\r\nIf target's HP is at 50% or lower, deal twice as much damage." } });
 
-            // binah
-            Singleton<DeckXmlList>.Instance.GetData(new LorId(packageName, 8)).cardIdList = new List<LorId>
+            }
+
+            // card patches
             {
-                new LorId(packageName, 706202),
-                new LorId(packageName, 706202),
-                new LorId(packageName, 706202),
+                ItemXmlDataList.instance.GetCardItem(new LorId(607201), false).optionList.Remove(CardOption.NoInventory);
+                ItemXmlDataList.instance.GetCardItem(new LorId(607202), false).optionList.Remove(CardOption.NoInventory);
+                ItemXmlDataList.instance.GetCardItem(new LorId(607203), false).optionList.Remove(CardOption.NoInventory);
+                ItemXmlDataList.instance.GetCardItem(new LorId(607204), false).optionList.Remove(CardOption.NoInventory);
+                ItemXmlDataList.instance.GetCardItem(new LorId(607205), false).optionList.Remove(CardOption.NoInventory);
+                ItemXmlDataList.instance.GetCardItem(new LorId(706203), false).optionList.Add(CardOption.EgoPersonal);
 
-                new LorId(packageName, 706205),
-                new LorId(packageName, 706205),
-
-                new LorId(packageName, 706204),
-                new LorId(packageName, 706204),
-                new LorId(packageName, 706201),
-                //new LorId(packageName, 706203),
-
-            };
+                ItemXmlDataList.instance.GetCardItem(new LorId(408009), false).DiceBehaviourList[0].Script = "atksp7";
+                ItemXmlDataList.instance.GetCardItem(new LorId(408008), false).DiceBehaviourList[0].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(408008), false).DiceBehaviourList[1].Script = "atksp3";
+                ItemXmlDataList.instance.GetCardItem(new LorId(408007), false).DiceBehaviourList[0].Script = "atkspAll";
+                ItemXmlDataList.instance.GetCardItem(new LorId(408006), false).DiceBehaviourList[1].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(408006), false).DiceBehaviourList[2].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(102001), false).DiceBehaviourList[2].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(104004), false).DiceBehaviourList[2].Script = "atksp3";
+                ItemXmlDataList.instance.GetCardItem(new LorId(100004), false).DiceBehaviourList[0].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(303008), false).DiceBehaviourList[1].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(303001), false).DiceBehaviourList[0].Script = "atksp3";
+                ItemXmlDataList.instance.GetCardItem(new LorId(303001), false).DiceBehaviourList[1].Script = "atksp3";
+                ItemXmlDataList.instance.GetCardItem(new LorId(303001), false).DiceBehaviourList[2].Script = "atksp3";
+                ItemXmlDataList.instance.GetCardItem(new LorId(303002), false).DiceBehaviourList[1].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(303002), false).DiceBehaviourList[2].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(303002), false).DiceBehaviourList[3].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(303005), false).DiceBehaviourList[0].Script = "atksp5";
+                ItemXmlDataList.instance.GetCardItem(new LorId(302004), false).DiceBehaviourList[0].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(302004), false).DiceBehaviourList[2].Script = "atksp3";
+                ItemXmlDataList.instance.GetCardItem(new LorId(302003), false).DiceBehaviourList[1].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(603004), false).DiceBehaviourList[0].Script = "atksp3";
+                ItemXmlDataList.instance.GetCardItem(new LorId(603004), false).DiceBehaviourList[1].Script = "atksp3";
+                ItemXmlDataList.instance.GetCardItem(new LorId(603004), false).DiceBehaviourList[2].Script = "atksp3";
+                ItemXmlDataList.instance.GetCardItem(new LorId(501003), false).DiceBehaviourList[0].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(501003), false).DiceBehaviourList[1].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(501002), false).DiceBehaviourList[0].Script = "atksp7";
+                ItemXmlDataList.instance.GetCardItem(new LorId(408013), false).Script = "1pwper10sp";
+                ItemXmlDataList.instance.GetCardItem(new LorId(408012), false).Script = "1pwper10sp";
+                ItemXmlDataList.instance.GetCardItem(new LorId(508011), false).Script = "rerollper20sp";
+                ItemXmlDataList.instance.GetCardItem(new LorId(608007), false).DiceBehaviourList[0].Script = "atksp3";
+                ItemXmlDataList.instance.GetCardItem(new LorId(608007), false).DiceBehaviourList[1].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(607003), false).DiceBehaviourList[0].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(607003), false).DiceBehaviourList[1].Script = "atksp2";
+                ItemXmlDataList.instance.GetCardItem(new LorId(701004), false).Script = "uniteAttack";
+                ItemXmlDataList.instance.GetCardItem(new LorId(701008), false).Script = "unitePower";
+                ItemXmlDataList.instance.GetCardItem(new LorId(505003), false).DiceBehaviourList[0].Min = -4;
+                ItemXmlDataList.instance.GetCardItem(new LorId(505003), false).DiceBehaviourList[1].Min = -2;
+                ItemXmlDataList.instance.GetCardItem(new LorId(605005), false).DiceBehaviourList[0].Min = -5;
+                ItemXmlDataList.instance.GetCardItem(new LorId(605005), false).DiceBehaviourList[1].Min = -5;
+                ItemXmlDataList.instance.GetCardItem(new LorId(605004), false).DiceBehaviourList[1].Min = -3;
+                ItemXmlDataList.instance.GetCardItem(new LorId(605004), false).DiceBehaviourList[2].Min = -2;
+                ItemXmlDataList.instance.GetCardItem(new LorId(605006), false).DiceBehaviourList[0].Min = -2;
+                ItemXmlDataList.instance.GetCardItem(new LorId(605006), false).DiceBehaviourList[1].Min = -2;
+                ItemXmlDataList.instance.GetCardItem(new LorId(605002), false).DiceBehaviourList[0].Min = -5;
+                ItemXmlDataList.instance.GetCardItem(new LorId(605002), false).DiceBehaviourList[1].Min = 10;
+                ItemXmlDataList.instance.GetCardItem(new LorId(501005), false).DiceBehaviourList[0].Min = -2;
+                ItemXmlDataList.instance.GetCardItem(new LorId(501005), false).DiceBehaviourList[1].Min = -3;
+                ItemXmlDataList.instance.GetCardItem(new LorId(501005), false).DiceBehaviourList[2].Min = -2;
+                ItemXmlDataList.instance.GetCardItem(new LorId(501007), false).DiceBehaviourList[0].Min = -3;
+                ItemXmlDataList.instance.GetCardItem(new LorId(501001), false).DiceBehaviourList[0].Min = -4;
+                ItemXmlDataList.instance.GetCardItem(new LorId(608004), false).Script = "disposal";
+                ItemXmlDataList.instance.GetCardItem(new LorId(502006), false).Script = "drawCard";
+                ItemXmlDataList.instance.GetCardItem(new LorId(403006), false).Script = "energy1";
+            }
             //ItemXmlDataList.instance.GetCardItem(new LorId(706203), false).DiceBehaviourList[0].Min = 8;
 
             Singleton<BookXmlList>.Instance.GetData(new LorId(packageName, 3)).EquipEffect.PassiveList.Add(new LorId(packageName, 20));
             Singleton<BookXmlList>.Instance.GetData(new LorId(packageName, 3)).EquipEffect.PassiveList.Add(new LorId(180005));
-
             Singleton<BookXmlList>.Instance.GetData(new LorId(packageName, 4)).EquipEffect.PassiveList.Add(new LorId(packageName, 20));
             Singleton<BookXmlList>.Instance.GetData(new LorId(packageName, 4)).EquipEffect.PassiveList.Add(new LorId(packageName, 24));
 
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("negatePowerXEnergy1", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Restore 1 Light\r\nDice on this page and the page clashing with it are unaffected by Power gain or loss" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("negatePowerXEnergy2", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Restore 2 Light\r\nDice on this page and the page clashing with it are unaffected by Power gain or loss" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("negatePowerXEnergy3", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Restore 3 Light\r\nDice on this page and the page clashing with it are unaffected by Power gain or loss" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("zenaStagger", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Dice on this page do not deal damage, instead they deal more stagger damage equal to the damage value" } });
 
-
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("theClaw_recoverNextRound", new BattleCardAbilityDesc { desc = new List<string> { "[Combat Start] Gain 2 Protection, Stagger Protection and Recover 50 HP and Stagger at the start of next Scene" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("clawUltimate", new BattleCardAbilityDesc { desc = new List<string> { "Discard All pages in hand to gain power equal to the amount of pages in hand *10 + 30 Power to all dice on this page, and deal 2x stagger damage" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("allyZena", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Spawn Zena next Scene." } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("allyBaral", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Spawn Baral next Scene." } });
-
-            // The Black Silence
-            //Singleton<BookXmlList>.Instance.GetData(new LorId(packageName, 3)).EquipEffect.PassiveList.Add(new LorId(packageName, ));
-            //ItemXmlDataList.instance.GetCardItem(new LorId(702010), false).DiceBehaviourList[0].Min = -11;
-            //ItemXmlDataList.instance.GetCardItem(new LorId(702010), false).DiceBehaviourList[0].Dice = -21;
+            Singleton<BookXmlList>.Instance.GetData(8).EquipEffect.PassiveList.Remove(new LorId(10011));
+            Singleton<BookXmlList>.Instance.GetData(8).EquipEffect.PassiveList.Add(new LorId(packageName, 1));
+            // keypage patches
             {
-            // Yujin Full Potentional
-            Singleton<BookXmlList>.Instance.GetData(240001).EquipEffect.PassiveList = new List<LorId>
+                // aux
+                Singleton<BookXmlList>.Instance.GetData(240010).canNotEquip = false;
+
+                // zena
+                Singleton<DeckXmlList>.Instance.GetData(new LorId(packageName, 3)).cardIdList = new List<LorId>
+                {
+                    new LorId(packageName, 11),
+                    new LorId(packageName, 11),
+                    new LorId(packageName, 11),
+
+                    new LorId(packageName, 12),
+                    new LorId(packageName, 12),
+
+                    new LorId(packageName, 13),
+                    new LorId(packageName, 13),
+
+                    new LorId(packageName, 14),
+                    new LorId(packageName, 15),
+                };
+
+                // Yujin Full Potentional
+                Singleton<BookXmlList>.Instance.GetData(240001).EquipEffect.PassiveList = new List<LorId>
                 {
                     new LorId(10004),
 
@@ -200,243 +267,119 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     new LorId(241001),
 
                 };
+                Singleton<StageClassInfoList>.Instance.GetData(40001).waveList[1].enemyUnitIdList.Remove(new LorId(40001));
+                Singleton<BookXmlList>.Instance.GetData(140001).EquipEffect.PassiveList.Remove(new LorId(241001));
+                Singleton<BookXmlList>.Instance.GetData(140001).EquipEffect.Break = 69;
+                Singleton<StageClassInfoList>.Instance.GetData(40001).waveList.Add(new StageWaveInfo { formationId = 1, enemyUnitIdList = new List<LorId> { new LorId(40001) }, availableNumber = 1 });
 
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("yujin4", new BattleCardAbilityDesc { desc = new List<string> { "If the natural roll is Max, and is 4 or higher, add [+45 power]" } });
-            ItemXmlDataList.instance.GetCardItem(501001).DiceBehaviourList[0].Script = "yujin4";
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("yujin4", new BattleCardAbilityDesc { desc = new List<string> { "If the natural roll is Max, and is 4 or higher, add [+45 power]" } });
+                ItemXmlDataList.instance.GetCardItem(501001).DiceBehaviourList[0].Script = "yujin4";
 
-            // Yan
-            ItemXmlDataList.instance.GetCardItem(new LorId(611001), false).DiceBehaviourList[0].Min = 22;
-            ReplaceCardInfo(new LorId(611002), new LorId(packageName, 300));
+                // Yan - 250051
+                ItemXmlDataList.instance.GetCardItem(new LorId(611001), false).DiceBehaviourList[0].Min = 22;
+                ReplaceCardInfo(new LorId(611002), new LorId(packageName, 300));
+                ItemXmlDataList.instance.GetCardItem(new LorId(611006), false).DiceBehaviourList[0].Min = 7;
+                ItemXmlDataList.instance.GetCardItem(new LorId(611006), false).DiceBehaviourList[1].Min = 8;
+                ItemXmlDataList.instance.GetCardItem(new LorId(611006), false).DiceBehaviourList[2].Min = 8;
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("yanSwordbutactuallygoodthistime", new BattleCardAbilityDesc { desc = new List<string> { "The Cost of this page equals the user's Max Light.\r\n[On Use] All dice on this page gain Power equal to the Cost of this page; restore all Light" } });
+                ItemXmlDataList.instance.GetCardItem(new LorId(611005), false).Script = "yanSwordbutactuallygoodthistime";
+                Singleton<BookXmlList>.Instance.GetData(250051).EquipEffect.PassiveList.Remove(new LorId(250151));
+                Singleton<BookXmlList>.Instance.GetData(250051).EquipEffect.PassiveList.Add(new LorId(packageName, 26));
+                Singleton<BookXmlList>.Instance.GetData(250051).EquipEffect.PassiveList.Add(new LorId(250115));
+                Singleton<BookXmlList>.Instance.GetData(250051).EquipEffect.PassiveList.Add(new LorId(240018));
 
-            ItemXmlDataList.instance.GetCardItem(new LorId(611006), false).DiceBehaviourList[0].Min = 7;
-            ItemXmlDataList.instance.GetCardItem(new LorId(611006), false).DiceBehaviourList[1].Min = 8;
-            ItemXmlDataList.instance.GetCardItem(new LorId(611006), false).DiceBehaviourList[2].Min = 8;
+                // The Black Silence - 102
+                ItemXmlDataList.instance.GetCardItem(new LorId(702001), false).Script = "cardPowerDown2targetDraw1Energy3";
+                ItemXmlDataList.instance.GetCardItem(new LorId(702001), false).DiceBehaviourList[0].Script = "binding1pw";
+                ItemXmlDataList.instance.GetCardItem(new LorId(702002), false).DiceBehaviourList[0].Min = 16;
+                ItemXmlDataList.instance.GetCardItem(new LorId(702003), false).DiceBehaviourList[0].Script = "binding1pw";
+                ItemXmlDataList.instance.GetCardItem(new LorId(702004), false).DiceBehaviourList.Add(new DiceBehaviour { Detail = BehaviourDetail.Slash, Min = 3, Dice = 7, MotionDetail = MotionDetail.H, EffectRes = "BlackSilence_H" });
+                ItemXmlDataList.instance.GetCardItem(new LorId(702005), false).DiceBehaviourList[0].Script = "repeat1bs";
+                ItemXmlDataList.instance.GetCardItem(new LorId(702006), false).Script = "fixedcost_adddice";
+                ItemXmlDataList.instance.GetCardItem(new LorId(702007), false).DiceBehaviourList[0].Script = "bleeding2pw";
+                ItemXmlDataList.instance.GetCardItem(new LorId(702008), false).DiceBehaviourList[0].Script = "powerUpNext2pl";
+                ItemXmlDataList.instance.GetCardItem(new LorId(702008), false).DiceBehaviourList[1].Script = "powerUpNext2pl";
+                //ItemXmlDataList.instance.GetCardItem(new LorId(702008), false).DiceBehaviourList[2].Script = "buterflyDice";
+                ItemXmlDataList.instance.GetCardItem(new LorId(702009), false).Script = "strength1";
 
-            //ItemXmlDataList.instance.GetCardItem(new LorId(611007), false).DiceBehaviourList[2].Min = 8;
+                // R Corp.
+                Singleton<BookXmlList>.Instance.GetData(140002).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
+                Singleton<BookXmlList>.Instance.GetData(240002).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
+                Singleton<BookXmlList>.Instance.GetData(140003).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
+                Singleton<BookXmlList>.Instance.GetData(240003).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
+                Singleton<BookXmlList>.Instance.GetData(140001).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
+                Singleton<BookXmlList>.Instance.GetData(240001).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
+                Singleton<BookXmlList>.Instance.GetData(150023).EquipEffect.PassiveList.Remove(new LorId(250023));
+                Singleton<BookXmlList>.Instance.GetData(150023).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
+                Singleton<BookXmlList>.Instance.GetData(150031).EquipEffect.PassiveList.Remove(new LorId(250023));
+                Singleton<BookXmlList>.Instance.GetData(150031).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
+                Singleton<BookXmlList>.Instance.GetData(250023).EquipEffect.PassiveList.Remove(new LorId(250023));
+                Singleton<BookXmlList>.Instance.GetData(250023).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
+            }
 
-
-
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("yanSwordbutactuallygoodthistime", new BattleCardAbilityDesc { desc = new List<string> { "The Cost of this page equals the user's Max Light.\r\n[On Use] All dice on this page gain Power equal to the Cost of this page; restore all Light" } });
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(611005), false).Script = "yanSwordbutactuallygoodthistime";
-
-            Singleton<BookXmlList>.Instance.GetData(250051).EquipEffect.PassiveList.Remove(new LorId(250151));
-            Singleton<BookXmlList>.Instance.GetData(250051).EquipEffect.PassiveList.Add(new LorId(packageName, 26));
-            Singleton<BookXmlList>.Instance.GetData(250051).EquipEffect.PassiveList.Add(new LorId(250115));
-            Singleton<BookXmlList>.Instance.GetData(250051).EquipEffect.PassiveList.Add(new LorId(240018));
-
-            //ExclusiveAdder(new LorId(250051), new LorId(packageName, 301));
-            //ExclusiveAdder(new LorId(250051), new LorId(packageName, 302));
-            //ExclusiveAdder(new LorId(250051), new LorId(packageName, 303));
-
-            // The Black Silence’s Page - 102
-            ItemXmlDataList.instance.GetCardItem(new LorId(702001), false).Script = "cardPowerDown2targetDraw1Energy3";
-            ItemXmlDataList.instance.GetCardItem(new LorId(702001), false).DiceBehaviourList[0].Script = "binding1pw";
-            ItemXmlDataList.instance.GetCardItem(new LorId(702002), false).DiceBehaviourList[0].Min = 16;
-            ItemXmlDataList.instance.GetCardItem(new LorId(702003), false).DiceBehaviourList[0].Script = "binding1pw";
-            ItemXmlDataList.instance.GetCardItem(new LorId(702004), false).DiceBehaviourList.Add(new DiceBehaviour { Detail = BehaviourDetail.Slash, Min = 3, Dice = 7, MotionDetail = MotionDetail.H, EffectRes = "BlackSilence_H" });
-            ItemXmlDataList.instance.GetCardItem(new LorId(702005), false).DiceBehaviourList[0].Script = "repeat1bs";
-            ItemXmlDataList.instance.GetCardItem(new LorId(702006), false).Script = "fixedcost_adddice";
-            ItemXmlDataList.instance.GetCardItem(new LorId(702007), false).DiceBehaviourList[0].Script = "bleeding2pw";
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(702008), false).DiceBehaviourList[0].Script = "powerUpNext2pl";
-            ItemXmlDataList.instance.GetCardItem(new LorId(702008), false).DiceBehaviourList[1].Script = "powerUpNext2pl";
-            //ItemXmlDataList.instance.GetCardItem(new LorId(702008), false).DiceBehaviourList[2].Script = "buterflyDice";
-            ItemXmlDataList.instance.GetCardItem(new LorId(702009), false).Script = "strength1";
-
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("repeat1bs", new BattleCardAbilityDesc { desc = new List<string> { "If all 9 Combat Pages of the Black Silence have been used, re-roll this die once" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("fixedcost_adddice", new BattleCardAbilityDesc { desc = new List<string> { "The Cost of this page cannot be changed.\r\nIf the natural roll of any die is Max, add a Slash die (Roll: 3-7) to the dice queue once" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("cardPowerDown2targetDraw1Energy3GloriaSingletonCostBuf", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Restore 3 Light; draw 1 page and reduce the Cost of a random card in hand whose cost is bigger then 0 and self for the next scene\r\n[Start of Clash] Reduce Power of all target's dice by 2" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("cardPowerDown2targetDraw1Energy3", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Restore 3 Light; draw 1 page\r\n[Start of Clash] Reduce Power of all target's dice by 2" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("mutualDestroy35TempFragile", new BattleCardAbilityDesc { desc = new List<string> { "[On Clash Win] Destroy all of opponent's dice and deal +2 more Damage with attacks on this page\r\n[On Clash Lose] Destroy all dice on this page and gain 3 Fragile" } });
-
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("atksp2", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Deal 2 SP Damage" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("atksp3", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Deal 3 SP Damage" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("atksp5", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Deal 5 SP Damage" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("atksp7", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Deal 7 SP Damage" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("atksp10", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Deal 10 SP Damage" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("atkspAll", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Panic target" } });
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(408009), false).DiceBehaviourList[0].Script = "atksp7";
-            ItemXmlDataList.instance.GetCardItem(new LorId(408008), false).DiceBehaviourList[0].Script = "atksp2";
-            ItemXmlDataList.instance.GetCardItem(new LorId(408008), false).DiceBehaviourList[1].Script = "atksp3";
-            ItemXmlDataList.instance.GetCardItem(new LorId(408007), false).DiceBehaviourList[0].Script = "atkspAll";
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(408006), false).DiceBehaviourList[1].Script = "atksp2";
-            ItemXmlDataList.instance.GetCardItem(new LorId(408006), false).DiceBehaviourList[2].Script = "atksp2";
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(102001), false).DiceBehaviourList[2].Script = "atksp2";
-            ItemXmlDataList.instance.GetCardItem(new LorId(104004), false).DiceBehaviourList[2].Script = "atksp3";
-            ItemXmlDataList.instance.GetCardItem(new LorId(100004), false).DiceBehaviourList[0].Script = "atksp2";
-
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(303008), false).DiceBehaviourList[1].Script = "atksp2";
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(303001), false).DiceBehaviourList[0].Script = "atksp3";
-            ItemXmlDataList.instance.GetCardItem(new LorId(303001), false).DiceBehaviourList[1].Script = "atksp3";
-            ItemXmlDataList.instance.GetCardItem(new LorId(303001), false).DiceBehaviourList[2].Script = "atksp3";
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(303002), false).DiceBehaviourList[1].Script = "atksp2";
-            ItemXmlDataList.instance.GetCardItem(new LorId(303002), false).DiceBehaviourList[2].Script = "atksp2";
-            ItemXmlDataList.instance.GetCardItem(new LorId(303002), false).DiceBehaviourList[3].Script = "atksp2";
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(303005), false).DiceBehaviourList[0].Script = "atksp5";
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(302004), false).DiceBehaviourList[0].Script = "atksp2";
-            ItemXmlDataList.instance.GetCardItem(new LorId(302004), false).DiceBehaviourList[2].Script = "atksp3";
-
-
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(302003), false).DiceBehaviourList[1].Script = "atksp2";
-
-
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(603004), false).DiceBehaviourList[0].Script = "atksp3";
-            ItemXmlDataList.instance.GetCardItem(new LorId(603004), false).DiceBehaviourList[1].Script = "atksp3";
-            ItemXmlDataList.instance.GetCardItem(new LorId(603004), false).DiceBehaviourList[2].Script = "atksp3";
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(501003), false).DiceBehaviourList[0].Script = "atksp2";
-            ItemXmlDataList.instance.GetCardItem(new LorId(501003), false).DiceBehaviourList[1].Script = "atksp2";
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(501002), false).DiceBehaviourList[0].Script = "atksp7";
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(408013), false).Script = "1pwper10sp";
-            ItemXmlDataList.instance.GetCardItem(new LorId(408012), false).Script = "1pwper10sp";
-            ItemXmlDataList.instance.GetCardItem(new LorId(508011), false).Script = "rerollper20sp";
-
-
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(608007), false).DiceBehaviourList[0].Script = "atksp3";
-            ItemXmlDataList.instance.GetCardItem(new LorId(608007), false).DiceBehaviourList[1].Script = "atksp2";
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(607003), false).DiceBehaviourList[0].Script = "atksp2";
-            ItemXmlDataList.instance.GetCardItem(new LorId(607003), false).DiceBehaviourList[1].Script = "atksp2";
-
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(701004), false).Script = "uniteAttack";
-            ItemXmlDataList.instance.GetCardItem(new LorId(701008), false).Script = "unitePower";
-
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("1pwper10sp", new BattleCardAbilityDesc { desc = new List<string> { "Gain +1 Power for every 10 SP on Self" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("rerollper20sp", new BattleCardAbilityDesc { desc = new List<string> { "Reroll all dice on this page for every 20 SP on Self" } });
-        }
-
-
+            // ego changes
             {
 
-            // malkuth
+                // malkuth
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_fmf", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 15\r\n{On Awakening}\n\rInflict Burn Break to enemies [On Hit]\r\n{On Corrosion}\n\r{Indiscriminate}\r\nAdd a second die of [(15-30)] to this page which Inflicts (7 + Personal Emotional Level) Burn [On Hit]" } });
+                ItemXmlDataList.instance.GetCardItem(new LorId(910001), false).Script = "ayin_fmf";
 
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_fmf", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 15\r\n{On Awakening}\n\rInflict Burn Break to enemies [On Hit]\r\n{On Corrosion}\n\r{Indiscriminate}\r\nAdd a second die of [(15-30)] to this page which Inflicts (7 + Personal Emotional Level) Burn [On Hit]" } });
-            ItemXmlDataList.instance.GetCardItem(new LorId(910001), false).Script = "ayin_fmf";
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_frg", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 25\r\n{On Awakening}\n\rDice on this page do not deal damage, instead they deal more stagger damage equal to the damage value\r\n{On Corrosion}\r\nTransform all Dice on this page to Negative Roll Dice" } });
+                ItemXmlDataList.instance.GetCardItem(new LorId(910002), false).Script = "ayin_frg";
 
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_frg", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 25\r\n{On Awakening}\n\rDice on this page do not deal damage, instead they deal more stagger damage equal to the damage value\r\n{On Corrosion}\r\nTransform all Dice on this page to Negative Roll Dice" } });
-            ItemXmlDataList.instance.GetCardItem(new LorId(910002), false).Script = "ayin_frg";
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_wgb", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 15\r\n{On Awakening}\r\nGain 3 Protection [On Use]\r\n{On Corrosion}\r\n{Indiscriminate}\r\nTargets the unit with least HP." } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_wgb_dice", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Consume 15 SP; If the natural roll of this die is Max Heal 3 HP, else Inflict 1 Bleed to Target; Recycle this die until the user has ran out of Positive SP (max. 5)" } });
+                ItemXmlDataList.instance.GetCardItem(new LorId(910003), false).Script = "ayin_wgb";
+                ItemXmlDataList.instance.GetCardItem(new LorId(910003), false).DiceBehaviourList[0].Script = "ayin_wgb_dice";
+                ItemXmlDataList.instance.GetCardItem(new LorId(910003), false).DiceBehaviourList[0].Dice = 8;
+                ItemXmlDataList.instance.GetCardItem(new LorId(910003), false).DiceBehaviourList[0].Min = -3;
 
-            //ItemXmlDataList.instance.GetCardItem(new LorId(1), false).DiceBehaviourList[0].Min = -8;
-            //ItemXmlDataList.instance.GetCardItem(new LorId(1), false).DiceBehaviourList[0].Dice = 20;
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_hor", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 35\r\n{On Awakening}\n\rInflict 3 Paralysis next Scene [On Hit]\r\n{On Corrosion}\r\nInflict 7 Fragile and Gain 7 Fragile instead" } });
+                ItemXmlDataList.instance.GetCardItem(new LorId(910004), false).Script = "ayin_hor";
 
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_wgb", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 15\r\n{On Awakening}\r\nGain 3 Protection [On Use]\r\n{On Corrosion}\r\n{Indiscriminate}\r\nTargets the unit with least HP." } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_wgb_dice", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Consume 15 SP; If the natural roll of this die is Max Heal 3 HP, else Inflict 1 Bleed to Target; Recycle this die until the user has ran out of Positive SP (max. 5)" } });
-            ItemXmlDataList.instance.GetCardItem(new LorId(910003), false).Script = "ayin_wgb";
-            ItemXmlDataList.instance.GetCardItem(new LorId(910003), false).DiceBehaviourList[0].Script = "ayin_wgb_dice";
-            ItemXmlDataList.instance.GetCardItem(new LorId(910003), false).DiceBehaviourList[0].Dice = 8;
-            ItemXmlDataList.instance.GetCardItem(new LorId(910003), false).DiceBehaviourList[0].Min = -3;
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_vin", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 30\r\n{On Awakening}\n\rInflict 2 Bind next Scene [On Hit]\r\n{On Corrosion}\r\nInflict 2 Burn Instead" } });
+                ItemXmlDataList.instance.GetCardItem(new LorId(910005), false).Script = "ayin_vin";
 
+                // yesod
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_mur", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 20\r\n{On Awakening}\n\rDice on this page gain 2 Power\r\n{On Corrosion}\r\nBreak all dice on this page and add a new Blunt Dice [(-7~15)] which Spends all of the user's Stagger Resist to deal Stagger Damage damage equal to what's spend" } });
+                ItemXmlDataList.instance.GetCardItem(new LorId(910011), false).Script = "ayin_mur";
 
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_hor", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 35\r\n{On Awakening}\n\rInflict 3 Paralysis next Scene [On Hit]\r\n{On Corrosion}\r\nInflict 7 Fragile and Gain 7 Fragile instead" } });
-            ItemXmlDataList.instance.GetCardItem(new LorId(910004), false).Script = "ayin_hor";
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_mk2", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 25\r\n{On Awakening}\n\rSpend all charge to gain Power equal to (Charge Spent/4)\r\n{On Corrosion}\r\n{Indiscriminate}\r\nSpend all charge to deal extra Damage equal to (Charge Spent/3)" } });
+                ItemXmlDataList.instance.GetCardItem(new LorId(910012), false).Script = "ayin_mk2";
 
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_sng", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 30\r\nUpon each successful hit, a random ally takes 3 Stagger damage and gains 1 Strength next Scene\r\nUpon defeating an enemy, all allies gain 2 Strength\r\n{On Corrosion}\r\nInflict 2 Paralysis [On Hit]" } });
+                ItemXmlDataList.instance.GetCardItem(new LorId(910013), false).Script = "ayin_sng";
 
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_vin", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 30\r\n{On Awakening}\n\rInflict 2 Bind next Scene [On Hit]\r\n{On Corrosion}\r\nInflict 2 Burn Instead" } });
-            ItemXmlDataList.instance.GetCardItem(new LorId(910005), false).Script = "ayin_vin";
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_IN_HELL_WE_LIVE_LAMENT", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 45\r\n[On Use] Synchronize with <color=#004cbf>The Funeral of</color> <color=#CCCCCC>the Dead Butterflies</color>" } });
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 35\r\nEach die on this page is rolled (7 + Personal Emotional Level) times\r\nIncrease damage of each subsequent die by the (Dice# * 5)%\r\nIf the Personal Emotional Level is at 5 or Higher, Gain +2 Power\r\nDice# of 10 or more gain +50% Dmg Rate for each Dice# over 10 (max 2)\r\n{On Corrosion}\r\n{Indiscriminate}\r\nConvert this card into a Mass Attack" } });
+                ItemXmlDataList.instance.GetCardItem(new LorId(910014), false).Script = "ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING";
+                ItemXmlDataList.instance.GetCardItem(new LorId(910014), false).DiceBehaviourList[0].Script = "ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING_dice";
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING_dice", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Deal either 3 damage or 3 Stagger damage to target" } });
 
-            // yesod
+                //ItemXmlDataList.instance.GetCardItem(new LorId(1), false).Script = "ayin_IN_HELL_WE_LIVE_LAMENT";
+                //ItemXmlDataList.instance.GetCardItem(new LorId(2), false).Script = "ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING";
+                //ItemXmlDataList.instance.GetCardItem(new LorId(2), false).Script = "argalia_duel";
 
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_mur", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 20\r\n{On Awakening}\n\rDice on this page gain 2 Power\r\n{On Corrosion}\r\nBreak all dice on this page and add a new Blunt Dice [(-7~15)] which Spends all of the user's Stagger Resist to deal Stagger Damage damage equal to what's spend" } });
-            ItemXmlDataList.instance.GetCardItem(new LorId(910011), false).Script = "ayin_mur";
+                // hod
+                //Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_sde", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 25\r\n[Combat Start] Enemies do not lose Bleed stacks after rolling Offensive dice for this Scene\r\n{On Corrosion}\r\n" } });
+                //ItemXmlDataList.instance.GetCardItem(new LorId(910013), false).Script = "ayin_sng";
+            }
 
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_mk2", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 25\r\n{On Awakening}\n\rSpend all charge to gain Power equal to (Charge Spent/4)\r\n{On Corrosion}\r\n{Indiscriminate}\r\nSpend all charge to deal extra Damage equal to (Charge Spent/3)" } });
-            ItemXmlDataList.instance.GetCardItem(new LorId(910012), false).Script = "ayin_mk2";
+            // floor specific buffs
+            {
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Malkuth", new BattleEffectText { Name = "Floor of History", Desc = "Inflict (3 * Personal Emotional Level) Burn to all enemies upon death", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Yesod", new BattleEffectText { Name = "Floor of Technological Sciences", Desc = "Gain +2 SP Gain Efficiency", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Hod", new BattleEffectText { Name = "Floor of Literature", Desc = "Inflict 1 Bleed next Scene [On Clash Win]", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Netzach", new BattleEffectText { Name = "Floor of Art", Desc = "Recover 2 HP [On Hit]", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Tiph", new BattleEffectText { Name = "Floor of Natural Sciences", Desc = "When inflicting Negative Effects using Combat Pages this Scene, inflict 1 additional stack", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Gebruh", new BattleEffectText { Name = "Floor of Language", Desc = "Deal +1% more Damager per This Unit's SP", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Binah", new BattleEffectText { Name = "Floor of Philosophy", Desc = "Gain +5 SP Lose Efficiency", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Chesed", new BattleEffectText { Name = "Floor of Social Sciences", Desc = "Gain 3 Haste", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Hokma", new BattleEffectText { Name = "Floor of Religion", Desc = "Deal 2 Fixed SP Damage [On Hit]", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Keter", new BattleEffectText { Name = "Floor of General Works", Desc = "Increase Max HP by 10% and Stagger by 25%", ID = "" });
+            }
 
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_sng", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 30\r\nUpon each successful hit, a random ally takes 3 Stagger damage and gains 1 Strength next Scene\r\nUpon defeating an enemy, all allies gain 2 Strength\r\n{On Corrosion}\r\nInflict 2 Paralysis [On Hit]" } });
-            ItemXmlDataList.instance.GetCardItem(new LorId(910013), false).Script = "ayin_sng";
-
-
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_IN_HELL_WE_LIVE_LAMENT", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 45\r\n[On Use] Synchronize with <color=#004cbf>The Funeral of</color> <color=#CCCCCC>the Dead Butterflies</color>" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 35\r\nEach die on this page is rolled (7 + Personal Emotional Level) times\r\nIncrease damage of each subsequent die by the (Dice# * 5)%\r\nIf the Personal Emotional Level is at 5 or Higher, Gain +2 Power\r\nDice# of 10 or more gain +50% Dmg Rate for each Dice# over 10 (max 2)\r\n{On Corrosion}\r\n{Indiscriminate}\r\nConvert this card into a Mass Attack" } });
-            ItemXmlDataList.instance.GetCardItem(new LorId(910014), false).Script = "ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING";
-            ItemXmlDataList.instance.GetCardItem(new LorId(910014), false).DiceBehaviourList[0].Script = "ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING_dice";
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING_dice", new BattleCardAbilityDesc { desc = new List<string> { "[On Hit] Deal either 3 damage or 3 Stagger damage to target" } });
-
-            //ItemXmlDataList.instance.GetCardItem(new LorId(910014), false).Script = "ayin_IN_HELL_WE_LIVE_LAMENT";
-            //ItemXmlDataList.instance.GetCardItem(new LorId(910014), false).Artwork = "Butterfly_Casket";
-            //ItemXmlDataList.instance.GetCardItem(new LorId(910014), false).DiceBehaviourList[0].Script = "binding5atk";
-            //ItemXmlDataList.instance.GetCardItem(new LorId(910014), false).DiceBehaviourList[0].Min = 6;
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("argalia_duel", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Begin the duel..." } });
-
-
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("GazeAndAwe", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 45\r\n{On Awakening}\n\r\r\n{On Corrosion}\r\nABC" } });
-
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(1), false).Script = "ayin_IN_HELL_WE_LIVE_LAMENT";
-            ItemXmlDataList.instance.GetCardItem(new LorId(2), false).Script = "ayin_LAMENT_IF_YOU_WANTED_ME_TO_DINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDINGDING";
-            ItemXmlDataList.instance.GetCardItem(new LorId(2), false).Script = "argalia_duel";
-
-            // hod
-            //Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ayin_sde", new BattleCardAbilityDesc { desc = new List<string> { "{Sanity Cost} - 25\r\n[Combat Start] Enemies do not lose Bleed stacks after rolling Offensive dice for this Scene\r\n{On Corrosion}\r\n" } });
-            //ItemXmlDataList.instance.GetCardItem(new LorId(910013), false).Script = "ayin_sng";
-        }
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(505003), false).DiceBehaviourList[0].Min = -4;
-            ItemXmlDataList.instance.GetCardItem(new LorId(505003), false).DiceBehaviourList[1].Min = -2;
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(605005), false).DiceBehaviourList[0].Min = -5;
-            ItemXmlDataList.instance.GetCardItem(new LorId(605005), false).DiceBehaviourList[1].Min = -5;
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(605004), false).DiceBehaviourList[1].Min = -3;
-            ItemXmlDataList.instance.GetCardItem(new LorId(605004), false).DiceBehaviourList[2].Min = -2;
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(605006), false).DiceBehaviourList[0].Min = -2;
-            ItemXmlDataList.instance.GetCardItem(new LorId(605006), false).DiceBehaviourList[1].Min = -2;
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(605002), false).DiceBehaviourList[0].Min = -5;
-            ItemXmlDataList.instance.GetCardItem(new LorId(605002), false).DiceBehaviourList[1].Min = 10;
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(501005), false).DiceBehaviourList[0].Min = -2;
-            ItemXmlDataList.instance.GetCardItem(new LorId(501005), false).DiceBehaviourList[1].Min = -3;
-            ItemXmlDataList.instance.GetCardItem(new LorId(501005), false).DiceBehaviourList[2].Min = -2;
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(501007), false).DiceBehaviourList[0].Min = -3;
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(501001), false).DiceBehaviourList[0].Min = -4;
-
-
-
-            Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Sanity", new BattleEffectText { Name = "Sanity", Desc = "The amount of this unit's SP", ID = "" });
-            Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("SpGainBuf", new BattleEffectText { Name = "SP Gain", Desc = "Gain +{0} more Sanity upon Winning a Clash", ID = "" });
-            Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("SpLoseBuf", new BattleEffectText { Name = "SP Lose", Desc = "Lose +{0} more Sanity upon Losing a Clash", ID = "" });
-
-
-            Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Malkuth", new BattleEffectText { Name = "Floor of History", Desc = "Inflict (3 * Personal Emotional Level) Burn to all enemies upon death", ID = "" });
-            Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Yesod", new BattleEffectText { Name = "Floor of Technological Sciences", Desc = "Gain +2 SP Gain Efficiency", ID = "" });
-            Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Hod", new BattleEffectText { Name = "Floor of Literature", Desc = "Inflict 1 Bleed next Scene [On Clash Win]", ID = "" });
-            Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Netzach", new BattleEffectText { Name = "Floor of Art", Desc = "Recover 2 HP [On Hit]", ID = "" });
-            Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Tiph", new BattleEffectText { Name = "Floor of Natural Sciences", Desc = "When inflicting Negative Effects using Combat Pages this Scene, inflict 1 additional stack", ID = "" });
-            Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Gebruh", new BattleEffectText { Name = "Floor of Language", Desc = "Deal +1% more Damager per This Unit's SP", ID = "" });
-            Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Binah", new BattleEffectText { Name = "Floor of Philosophy", Desc = "Gain +5 SP Lose Efficiency", ID = "" });
-            Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Chesed", new BattleEffectText { Name = "Floor of Social Sciences", Desc = "Gain 3 Haste", ID = "" });
-            Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Hokma", new BattleEffectText { Name = "Floor of Religion", Desc = "Deal 2 Fixed SP Damage [On Hit]", ID = "" });
-            Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Keter", new BattleEffectText { Name = "Floor of General Works", Desc = "Increase Max HP by 10% and Stagger by 25%", ID = "" });
-
-            Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Disposal", new BattleEffectText { Name = "Disposal Mode", Desc = "Upon acquiring this status effect gain 11 Charge, Recover all Light, and add a Copy of \"Disposal\" to hand and Gain 2 Extra Speed Dice\r\nAt the start of each scene gain 2 Strength, Haste, Protection and Break Protection, additionally Recover 2 extra Light and Draw 2 more Pages", ID = "" });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("disposal", new BattleCardAbilityDesc { desc = new List<string> { "Only usable at 20+ Charge. Spend all Charge to deal additional (3 * Charge)% Damage\n\rUpon defeating an enemy with this page, add a copy of 'Disposal' to hand and lower its Cost by 2 and gain 3 Strength, Protection and 7 Charge next Scene.\r\nIf target's HP is at 50% or lower, deal twice as much damage." } });
-
-
-            Singleton<StageClassInfoList>.Instance.GetData(40001).waveList[1].enemyUnitIdList.Remove(new LorId(40001));
-            Singleton<BookXmlList>.Instance.GetData(140001).EquipEffect.PassiveList.Remove(new LorId(241001));
-            Singleton<BookXmlList>.Instance.GetData(140001).EquipEffect.Break = 69;
-
-            Singleton<StageClassInfoList>.Instance.GetData(40001).waveList.Add(new StageWaveInfo { formationId = 1, enemyUnitIdList = new List<LorId> { new LorId(40001) }, availableNumber = 1 });
-
+            // panic types
             {
                 // revenge
                 List<int> panic2ls = new List<int> { 100006, 100010, 120008, 130007, 130024, 200006, 200010, 220008, 230007, 230024, 143003, 243003, 150006, 250006, 150015, 250015, 150016, 250016, 150017, 250017, 156001, 256001 };
@@ -493,8 +436,12 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 List<int> panic19ls = new List<int> { 140001, 240001 };
 
                 // Forceful Arbitration
-                List<int> panic20ls = new List<int> { 8 };
+                List<int> panic20ls = new List<int> { 8, 3, 4, 180001, 180002 };
 
+                // Sorrow and despair
+                List<int> panic21ls = new List<int> { 102, 170001, 180003, 1410012 };
+
+                List<int> nopanic = new List<int> { /*180001, 180002*/ };
 
                 // Hana: Unity
                 // +3 SP Gain Efficiency, if at max SP gain 1 Protection and 1 Strength.
@@ -525,7 +472,10 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 foreach (BookXmlInfo book in Singleton<BookXmlList>.Instance.GetList())
                 {
                     int id = book.id.id;
-                    if (panic2ls.Contains(id))
+                    if (nopanic.Contains(id))
+                    {
+                    }
+                    else if (panic2ls.Contains(id))
                     {
                         sfInsert(book.EquipEffect.PassiveList, 0, spList[2]);
                     }
@@ -597,6 +547,14 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     {
                         sfInsert(book.EquipEffect.PassiveList, 0, spList[19]);
                     }
+                    else if (panic20ls.Contains(id))
+                    {
+                        sfInsert(book.EquipEffect.PassiveList, 0, spList[20]);
+                    }
+                    else if (panic21ls.Contains(id))
+                    {
+                        sfInsert(book.EquipEffect.PassiveList, 0, spList[21]);
+                    }
                     else if (hm_4.Contains(id))
                     {
                         sfInsert(book.EquipEffect.PassiveList, 1, new LorId(packageName, 2004));
@@ -627,52 +585,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 }
             }
 
-            ItemXmlDataList.instance.GetCardItem(new LorId(608004), false).DiceBehaviourList[0].Min = 20;
-            ItemXmlDataList.instance.GetCardItem(new LorId(608004), false).DiceBehaviourList[1].Min = 15;
-            ItemXmlDataList.instance.GetCardItem(new LorId(608004), false).DiceBehaviourList[1].Dice = 25;
-
-            //Singleton<BookXmlList>.Instance.GetData(141001).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
-            //Singleton<BookXmlList>.Instance.GetData(241001).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
-
-            Singleton<BookXmlList>.Instance.GetData(140002).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
-            Singleton<BookXmlList>.Instance.GetData(240002).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
-
-            Singleton<BookXmlList>.Instance.GetData(140003).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
-            Singleton<BookXmlList>.Instance.GetData(240003).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
-
-
-            Singleton<BookXmlList>.Instance.GetData(140001).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
-            Singleton<BookXmlList>.Instance.GetData(240001).EquipEffect.PassiveList.Insert(2, new LorId(packageName, 3001));
-
-
-            Singleton<BookXmlList>.Instance.GetData(150023).EquipEffect.PassiveList.Remove(new LorId(250023));
-            Singleton<BookXmlList>.Instance.GetData(150023).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
-
-            Singleton<BookXmlList>.Instance.GetData(150031).EquipEffect.PassiveList.Remove(new LorId(250023));
-            Singleton<BookXmlList>.Instance.GetData(150031).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
-
-
-            Singleton<BookXmlList>.Instance.GetData(250023).EquipEffect.PassiveList.Remove(new LorId(250023));
-            Singleton<BookXmlList>.Instance.GetData(250023).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
             //Singleton<BookXmlList>.Instance.GetData(250023).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4002));
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(608004), false).Script = "disposal";
-
-            Singleton<PassiveXmlList>.Instance.GetData(250005).script = "ammo_suply";
-            Singleton<PassiveXmlList>.Instance.GetData(250005).desc = "[Wave Start] Gain 5 Ammo\r\n After every three successful attacks with Melee Combat Pages, add a random Ammunition to hand and gain 1 Ammo";
-
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ammo_AddBullet1AndDraw", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Add a random Ammunition to hand and gain 1 Ammo; draw 1 page" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ammo_AddBullet2", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Add 2 random Ammunition and 2 Ammo to hand" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ammo_discard1", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Discard a page with the lowest Cost\r\nIf an Ammunition was discarded, all Offensive dice on this page gain +1 Power\r\nConsume 1 Ammo when shooting with a Ranged Die" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ammo_discard2draw1", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Discard 2 pages with the lowest Cost from hand, and draw a page\r\nAll dice on this page gain +1 Power for each Ammunition discarded\r\nConsume 1 Ammo when shooting with a Ranged Die" } });
-            Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("ammo_discard4bullet", new BattleCardAbilityDesc { desc = new List<string> { "[On Use] Discard up to four 0-Cost pages from hand and use all Ammo on Self\r\nOffensive dice on this page gain +1 Power for each Ammunition discarded this way and +1 Power for every Ammo used" } });
-
-            ItemXmlDataList.instance.GetCardItem(new LorId(602001), false).Script = "ammo_AddBullet1AndDraw";
-            ItemXmlDataList.instance.GetCardItem(new LorId(602002), false).Script = "ammo_AddBullet2";
-            ItemXmlDataList.instance.GetCardItem(new LorId(602003), false).Script = "ammo_discard1";
-            ItemXmlDataList.instance.GetCardItem(new LorId(602004), false).Script = "ammo_discard2draw1";
-            ItemXmlDataList.instance.GetCardItem(new LorId(602006), false).Script = "ammo_discard4bullet";
-            ItemXmlDataList.instance.GetCardItem(new LorId(602009), false).Script = "ammo_discard1";
 
             foreach (BookXmlInfo bookXmlInfo in Singleton<BookXmlList>.Instance.GetList())
             {
@@ -718,8 +631,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             {
                 foreach (BookModel x in BookInventoryModel.Instance.GetBookListAll())
                 {
-                    //x.equipeffect.Hp = 5;
-                    //x.equipeffect.Break = 5;
                     if (x.BookId == 8)
                     {
                         x._classInfo.EquipEffect.Hp = 30 + (LibraryModel.Instance.GetChapter() * 43);
@@ -730,11 +641,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     }
                 }
 
-                //foreach (BookXmlInfo x in Singleton<BookXmlList>.Instance.GetList())
-                //{
-                //    x.EquipEffect.Hp = 1;
-                //    x.EquipEffect.Break = 2;
-                //}
                 // enemy
                 foreach (BookXmlInfo x in Singleton<BookXmlList>.Instance.GetList())
                 {
@@ -794,86 +700,48 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         books.Add(x.BookId, (hp, br, sp));
                     }
                 }
-
-                //Singleton<BookXmlList>.Instance.GetData(8).RangeType = EquipRangeType.Range;
-                //Singleton<BookXmlList>.Instance.GetData(8).categoryList.Clear();
-
-                //Singleton<BookXmlList>.Instance.GetData(8).optionList.Clear();
-                //Singleton<BookXmlList>.Instance.GetData(8).optionList.Add(BookOption.Basic);
-
-
-                //if (LibraryModel.Instance.GetChapter() - 1 > 0)
-                //{
-                //    LibraryModel.Instance.GetFloor(SephirahType.Binah).SetTemporaryLevel(LibraryModel.Instance.GetChapter() - 1);
-                //}
-                //else
-                //{
-                //    LibraryModel.Instance.GetFloor(SephirahType.Binah).SetTemporaryLevel(0);
-                //}
-
-                Singleton<BookXmlList>.Instance.GetData(8).EquipEffect.PassiveList.Remove(new LorId(10011));
-                Singleton<BookXmlList>.Instance.GetData(8).EquipEffect.PassiveList.Add(new LorId(packageName, 1));
-
-                List<int> nuhuhdeck = new List<int>
+                Singleton<DeckXmlList>.Instance._list.RemoveAll(x => x.id == 8);
+                Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
                 {
-                    150051,100003,100001,110006,120008,120006,130007,130024,141001,140001,140009,140010,140005,140027,140003,150010,156001,150002,150018,150037,150036,150022,150051,150023
-                };
-                foreach (DeckXmlInfo x in Singleton<DeckXmlList>.Instance._list.ToList())
-                {
-                    if (x.id.id > 100000 & x.id.id < 200000)
+                    _id = 8,
+                    cardIdList = new List<LorId>
                     {
-                        if (!nuhuhdeck.Contains(x.id.id))
+                        new LorId(706202),
+                        new LorId(706202),
+                        new LorId(706202),
+
+                        new LorId(706205),
+                        new LorId(706205),
+
+                        new LorId(706204),
+                        new LorId(706204),
+                        new LorId(706201),
+                    }
+                });
+
+                // custom decks
+                {
+                    List<int> nuhuhdeck = new List<int>
+                    {
+                    150051,100003,100001,110006,120008,120006,130007,130024,141001,140001,140009,140010,140005,140027,140003,150010,156001,150002,150018,150037,150036,150022,150051,150023,150007
+                    };
+                    foreach (DeckXmlInfo x in Singleton<DeckXmlList>.Instance._list.ToList())
+                    {
+                        if (x.id.id > 100000 & x.id.id < 200000)
                         {
-                            Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo { _id = x.id.id + 100000, cardIdList = x.cardIdList });
+                            if (!nuhuhdeck.Contains(x.id.id))
+                            {
+                                Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo { _id = x.id.id + 100000, cardIdList = x.cardIdList });
+                            }
+                            Singleton<BookXmlList>.Instance.GetData(new LorId(x.id.id + 100000), false).categoryList.Add(BookCategory.DeckFixed);
                         }
-                        Singleton<BookXmlList>.Instance.GetData(new LorId(x.id.id + 100000), false).categoryList.Add(BookCategory.DeckFixed);
                     }
-                }
-
-                Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                {
-                    _id = 250023,
-                    cardIdList = new List<LorId>
+                    // Rats
                     {
-                        new LorId(608014),
-                        new LorId(608014),
-                        new LorId(608014),
-
-                        new LorId(608013),
-                        new LorId(608013),
-                        new LorId(608013),
-
-                        new LorId(608015),
-                        new LorId(608009),
-                        new LorId(608004),
-                    }
-                });
-
-                // Draw an additional card if the librarian doesn't have any draw cards.
-                Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                {
-                    _id = 200003,
-                    cardIdList = new List<LorId>
-                    {
-                        new LorId(101004),
-                        new LorId(101004),
-                        new LorId(101002),
-
-                        new LorId(101006),
-                        new LorId(101005),
-                        new LorId(101005),
-
-                        new LorId(101003),
-                        new LorId(101003),
-                        new LorId(101001),
-                    }
-                });
-                // Rats
-                {
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 200003,
-                        cardIdList = new List<LorId>
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 200003,
+                            cardIdList = new List<LorId>
                 {
                     new LorId(101004),
                     new LorId(101004),
@@ -887,11 +755,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     new LorId(101003),
                     new LorId(101001),
                 }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 200002,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 200002,
+                            cardIdList = new List<LorId>
                 {
                     new LorId(101004),
                     new LorId(101004),
@@ -908,11 +776,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     new LorId(10),
                     new LorId(11),
                 }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 200001,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 200001,
+                            cardIdList = new List<LorId>
                 {
                     new LorId(101004),
                     new LorId(101004),
@@ -926,15 +794,15 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     new LorId(101003),
                     new LorId(101001),
                 }
-                    });
-                }
+                        });
+                    }
 
-                // Urban Legend
-                {
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                    // Urban Legend
                     {
-                        _id = 210006,
-                        cardIdList = new List<LorId>
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 210006,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(202009),
                         new LorId(202009),
@@ -948,11 +816,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         new LorId(202011),
                         new LorId(202012),
                     }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 220006,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 220006,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(302002),
                         new LorId(302002),
@@ -967,11 +835,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         new LorId(302004),
                         new LorId(302004),
                     }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 220008,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 220008,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(303009),
                         new LorId(303009),
@@ -986,15 +854,15 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         new LorId(303001),
 
                     }
-                    });
-                }
+                        });
+                    }
 
-                // Urban Plague
-                {
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                    // Urban Plague
                     {
-                        _id = 230007,
-                        cardIdList = new List<LorId>
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 230007,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(403006),
                         new LorId(403006),
@@ -1010,11 +878,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
 
                         new LorId(403001),
                     }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 230024,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 230024,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(408005),
                         new LorId(408005),
@@ -1028,20 +896,15 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         new LorId(408001),
                         new LorId(408003),
                     }
-                    });
-                }
+                        });
+                    }
 
-
-                ItemXmlDataList.instance.GetCardItem(new LorId(502006), false).Script = "drawCard";
-                ItemXmlDataList.instance.GetCardItem(new LorId(403006), false).Script = "energy1";
-
-
-                // Urban Nightmare
-                {
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                    // Urban Nightmare
                     {
-                        _id = 241001,
-                        cardIdList = new List<LorId>
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 241001,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(501007),
                         new LorId(501007),
@@ -1052,11 +915,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         new LorId(501005),
                         new LorId(501005),
                     }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 240001,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 240001,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(501007),
                         new LorId(501007),
@@ -1071,11 +934,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
 
                         new LorId(501001),
                     }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 240009,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 240009,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(503003),
                         new LorId(503003),
@@ -1089,11 +952,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         new LorId(503001),
                         new LorId(503001),
                     }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 240010,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 240010,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(503003),
                         new LorId(503003),
@@ -1107,11 +970,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         new LorId(503010),
                         new LorId(503010),
                     }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 240005,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 240005,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(502007),
                         new LorId(502007),
@@ -1125,11 +988,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         new LorId(502003),
                         new LorId(502001),
                     }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 240027,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 240027,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(403006),
                         new LorId(403006),
@@ -1144,11 +1007,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
 
                         new LorId(508010),
                     }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 243003,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 243003,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(512001),
                         new LorId(512001),
@@ -1163,15 +1026,15 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         new LorId(512004),
                         new LorId(512006),
                     }
-                    });
-                }
+                        });
+                    }
 
-                // Sotc
-                {
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                    // Sotc
                     {
-                        _id = 250010,
-                        cardIdList = new List<LorId>
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 250010,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(603007),
                         new LorId(603007),
@@ -1185,11 +1048,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
 
                         new LorId(603001),
                     }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 256001,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 256001,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(616001),
                         new LorId(616001),
@@ -1203,11 +1066,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
 
                         new LorId(616006),
                     }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 250002,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 250002,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(601007),
                         new LorId(601007),
@@ -1221,11 +1084,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         new LorId(601001),
                         new LorId(601008),
                     }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 250018,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 250018,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(601007),
                         new LorId(601011),
@@ -1239,12 +1102,12 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         new LorId(601001),
                         new LorId(606002),
                     }
-                    });
+                        });
 
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 250037,
-                        cardIdList = new List<LorId>
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 250037,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(601007),
                         new LorId(601007),
@@ -1258,12 +1121,12 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         new LorId(606002),
                         new LorId(610011),
                     }
-                    });
+                        });
 
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 250036,
-                        cardIdList = new List<LorId>
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 250036,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(601007),
                         new LorId(601007),
@@ -1283,11 +1146,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
 
                         new LorId(601011),
                     }
-                    });
-                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
-                    {
-                        _id = 250022,
-                        cardIdList = new List<LorId>
+                        });
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 250022,
+                            cardIdList = new List<LorId>
                     {
                         new LorId(607004),
                         new LorId(607004),
@@ -1305,54 +1168,65 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         new LorId(607003),
                         new LorId(607005),
                     }
-                    });
+                        });
 
                     Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
                     {
                         _id = 250051,
                         cardIdList = new List<LorId>
-                    {
-
-
-
-                        new LorId(605007),
-                        new LorId(611004),
-                        new LorId(611005),
-
-                        new LorId(611007),
-                        new LorId(605006),
-                        new LorId(605004),
-                        //new LorId(605007),
-                        //new LorId(611005),
-
-                        //new LorId(611007),
-                        new LorId(611006),
-                        new LorId(611003),
-                        new LorId(611002),
-                        new LorId(611001),
-
-                        new LorId(packageName, 302),
-                        //// hidden
-                        //new LorId(611004),
-                    }
+                        {
+                            new LorId(605007),
+                            new LorId(611004),
+                            new LorId(611005),
+                            new LorId(611007),
+                            new LorId(605006),
+                            new LorId(605004),
+                            new LorId(611006),
+                            new LorId(611003),
+                            new LorId(611002),
+                            new LorId(611001),
+                            new LorId(packageName, 302),
+                        }
                     });
+                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                    {
+                        _id = 250007,
+                        cardIdList = new List<LorId>
+                        {
+                            new LorId(602012),
+                            new LorId(602012),
+                            new LorId(602007),
+                            new LorId(602007),
+
+                            new LorId(602008),
+                            new LorId(602008),
+                            new LorId(602008),
+
+                            new LorId(602010),
+                            new LorId(602010),
+                        }
+                    });
+
+                    Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                    {
+                        _id = 250023,
+                        cardIdList = new List<LorId>
+                            {
+                                new LorId(608014),
+                                new LorId(608014),
+                                new LorId(608014),
+
+                                new LorId(608013),
+                                new LorId(608013),
+                                new LorId(608013),
+
+                                new LorId(608015),
+                                new LorId(608009),
+                                new LorId(608004),
+                            }
+                        });
+                    }
                 }
-
-                Singleton<DeckXmlList>.Instance.GetData(8).cardIdList = new List<LorId>
-                {
-                    new LorId(607202),
-                    new LorId(607202),
-                    new LorId(607202),
-
-                    new LorId(607205),
-                    new LorId(607205),
-
-                    new LorId(607201),
-                    new LorId(607201),
-
-                    new LorId(607204),
-                    new LorId(607204),
-                };
                 Singleton<DropBookXmlList>.Instance.GetData(new LorId(250037)).DropItemList.Add(new BookDropItemInfo { id = new LorId(packageName, 301), itemType = DropItemType.Card });
                 Singleton<DropBookXmlList>.Instance.GetData(new LorId(250037)).DropItemList.Add(new BookDropItemInfo { id = new LorId(packageName, 302), itemType = DropItemType.Card });
                 Singleton<DropBookXmlList>.Instance.GetData(new LorId(250037)).DropItemList.Add(new BookDropItemInfo { id = new LorId(packageName, 303), itemType = DropItemType.Card });
@@ -1500,7 +1374,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
         {
             public override string keywordId => "Keter";
 
-
             public override StatBonus GetStatBonus()
             {
                 return new StatBonus
@@ -1581,8 +1454,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     __instance.bufListDetail.AddBufWithoutDuplication(new KeterBuf());
 
                 }
-                __instance.personalEgoDetail.AddCard(new LorId(packageName, 501));
-                //__instance.allyCardDetail.addc
+                //__instance.personalEgoDetail.AddCard(new LorId(packageName, 501));
             }
         }
 
@@ -1774,71 +1646,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
 
         }
 
-        [HarmonyPatch(typeof(BattleDiceBehavior), "GetDiceMin")]
-        [HarmonyPrefix]
-        public static bool nrollPatch1(int __result, BattleDiceBehavior __instance)
-        {
-            int num = __instance.behaviourInCard.Min;
-            num += __instance._statBonus.min;
-            __result = num;
-            Debug.Log("min: " + __result);
-            return false;
-        }
-
-        [HarmonyPatch(typeof(BattleDiceBehavior), "GetDiceMax")]
-        [HarmonyPrefix]
-        public static bool nrollPatch2(int __result, BattleDiceBehavior __instance)
-        {
-            int num = __instance.behaviourInCard.Dice;
-            num += __instance._statBonus.face * 3;
-            num += __instance._statBonus.max;
-            __result = num;
-            Debug.Log("max: " + __result);
-            return false;
-        }
-        //[HarmonyPatch(typeof(BattleDiceCard_BehaviourDescUI), "SetText")]
-        //[HarmonyPrefix]
-        //public static bool BattleDiceCard_BehaviourDescUI_SetText_Pre(BattleDiceCard_BehaviourDescUI __instance, DiceBehaviour behaviour)
-        //{
-        //    if (__instance.txt_range == null)
-        //    {
-        //        return false;
-        //    }
-        //    if (behaviour.Min < 0)
-        //    {
-        //        __instance.txt_range.text = string.Format("^{0}~{1}$", behaviour.GetMinText(), behaviour.GetMaxText());
-        //    }
-        //    else
-        //    {
-        //        __instance.txt_range.text = string.Format("{0}-{1}", behaviour.GetMinText(), behaviour.GetMaxText());
-        //    }
-        //    Color color = UIColorManager.Manager.BehaviourColors[(int)behaviour.Type];
-        //    __instance.txt_range.color = color;
-        //    return false;
-        //}
-
-        //[HarmonyPatch(typeof(UIDetailCardDescSlot), "SetText")]
-        //[HarmonyPrefix]
-        //public static bool UIDetailCardDescSlot_SetText_Pre(UIDetailCardDescSlot __instance, DiceBehaviour behaviour)
-        //{
-        //    if (__instance.txt_range == null)
-        //    {
-        //        return false;
-        //    }
-        //    if (behaviour.Min < 0)
-        //    {
-        //        __instance.txt_range.text = string.Format("{0}~{1}", behaviour.GetMinText(), behaviour.GetMaxText());
-        //    }
-        //    else
-        //    {
-        //        __instance.txt_range.text = string.Format("{0}-{1}", behaviour.GetMinText(), behaviour.GetMaxText());
-        //    }
-        //    Color color = UIColorManager.Manager.BehaviourColors[(int)behaviour.Type];
-        //    __instance.txt_range.color = color;
-        //    return false;
-        //}
-
-
         [HarmonyPatch(typeof(BattleDiceBehavior), "UpdateDiceFinalValue")]
         [HarmonyPrefix]
         public static bool nrollPatch3(BattleDiceBehavior __instance)
@@ -1896,7 +1703,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             int diceMin = min;
             int diceMax = max;
             int num = Mathf.Min(diceMin, diceMax);
-            Debug.Log("rolldice: min: " + min + " max: " + max);
+            //Debug.Log("rolldice: min: " + min + " max: " + max);
             if (diceMin <= 0)
             {
                 if (__instance.owner.bufListDetail.GetActivatedBuf(KeywordBuf.IndexRelease) != null)
@@ -1982,8 +1789,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 UpdateSP(ids, enemyDeath);
             }
             updateSPDisplay(__instance);
-            //int sp = (int)[ids];
-
         }
 
 
@@ -1993,59 +1798,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
         {
             updateSPDisplay(__instance);
         }
-
-        //[HarmonyPatch(typeof(UIColorManager), "GetCardRarityColor")]
-        //[HarmonyPrefix]
-        //public static bool UIColorManager_GetCardRarityColor_Post(Color __result, UIColorManager __instance, Rarity rarity)
-        //{
-        //    __result = new Color(79, 158, 233);
-        //    return false;
-        //}
-
-
-        //[HarmonyPostfix]
-        //[HarmonyPatch(typeof(UIDetailEgoCardSlot), "SetData")]
-        //public static void UIDetailEgoCardSlot_SetData_Post(UIDetailEgoCardSlot __instance, DiceCardItemModel cardmodel)
-        //{
-        //    Color colorFrame = new Color(79, 158, 233);
-        //    Color colorLineardodge = new Color(0,255,0);
-        //    //__instance.colorFrame = UIColorManager.Manager.CardEgoCostColor;
-        //    //__instance.colorLineardodge = UIColorManager.Manager.CardEgoLinearColor;
-        //    __instance.colorFrame = colorFrame;
-        //    __instance.colorLineardodge = colorFrame;
-
-        //    __instance.SetFrameColor(colorFrame);
-        //    __instance.SetLinearDodgeColor(colorLineardodge);
-        //    __instance.costNumbers.SetContentColor(colorFrame);
-        //}
-
-        //[HarmonyPostfix]
-        //[HarmonyPatch(typeof(UIEgoCardPreviewSlot), "Init")]
-        //public static void UIEgoCardPreviewSlot_Init_Post(UIEgoCardPreviewSlot __instance, DiceCardItemModel cardModel)
-        //{
-        //    Color color;
-        //    //if (__instance.CardModel.ClassInfo.isLockInBattle())
-        //    //{
-        //    //    color = UIColorManager.Manager.GetUIColor(UIColor.Disabled);
-        //    //}
-        //    //else
-        //    {
-        //        if (cardModel.GetID() == 910001)
-        //        {
-        //            color = new Color(79, 158, 233);
-        //        } else
-        //        {
-        //            color = UIColorManager.Manager.CardEgoColor;
-        //        }
-        //    }
-        //    __instance.frame.color = color;
-        //    __instance.cardName.color = color;
-        //    __instance.cardCost.color = color;
-        //    __instance.cardName.GetComponent<TextMeshProMaterialSetter>().underlayColor = color;
-        //    __instance.cardName.GetComponent<TextMeshProMaterialSetter>().InitMaterialProperty();
-        //    __instance.cardCost.GetComponent<TextMeshProMaterialSetter>().underlayColor = color;
-        //    __instance.cardCost.GetComponent<TextMeshProMaterialSetter>().InitMaterialProperty();
-        //}
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(BookModel), "SetXmlInfo")]
@@ -2087,15 +1839,19 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
         [HarmonyPostfix]
         public static void GameSceneManager_ActivateUIController_Post()
         {
-            if (!BookInventoryModel.Instance.GetBookListAll().Exists(x => x.BookId == new LorId(packageName, 3)))
-            {
-                BookInventoryModel.Instance.CreateBook(new LorId(packageName, 3));
-            }
+            //BookInventoryModel.Instance.CreateBook(new LorId(packageName, 3));
+            //BookInventoryModel.Instance.CreateBook(new LorId(packageName, 4));
+            //BookInventoryModel.Instance.CreateBook(new LorId(packageName, 5));
 
-            if (!BookInventoryModel.Instance.GetBookListAll().Exists(x => x.BookId == new LorId(packageName, 5)))
-            {
-                BookInventoryModel.Instance.CreateBook(new LorId(packageName, 5));
-            }
+            //if (!BookInventoryModel.Instance.GetBookListAll().Exists(x => x.BookId == new LorId(packageName, 3)))
+            //{
+            //    BookInventoryModel.Instance.CreateBook(new LorId(packageName, 3));
+            //}
+
+            //if (!BookInventoryModel.Instance.GetBookListAll().Exists(x => x.BookId == new LorId(packageName, 5)))
+            //{
+            //    BookInventoryModel.Instance.CreateBook(new LorId(packageName, 5));
+            //}
         }
 
         [HarmonyPrefix]
@@ -2107,11 +1863,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             {
                 __result = true;
             }
-            //else if (__instance._enemyUnitId != -1)
-            //{
-            //    __result = false;
-            //}
-
             return false;
         }
 
@@ -2128,25 +1879,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
         //        __instance._currentFloor = sephirah;
         //    }
         //    return false;
-        //}
-
-        //[HarmonyPatch(typeof(LibraryModel), "Init")]
-        //[HarmonyPostfix]
-        //public static void LibraryModel_Init_Pre()
-        //{
-        //    //LibraryModel.Instance._openedSephirah.Add(SephirahType.Binah);
-        //    //LibraryModel.Instance._floorList.Clear();
-        //    //LibraryModel.Instance._openedSephirah.Clear();
-        //    //LibraryModel.Instance.GetOpenedFloorList().Clear();
-        //    //LibraryModel.Instance.AddFloor(SephirahType.Binah);
-        //    if (!LibraryModel.Instance.IsOpenedSephirah(SephirahType.Binah))
-        //    {
-        //        LibraryModel.Instance.OpenSephirah(SephirahType.Binah);
-        //    }
-        //    //LibraryModel.Instance.Floor
-        //    //LibraryModel.Instance.OpenSephirah(SephirahType.Binah);
-        //    //LibraryModel.Instance.GetFloor(SephirahType.Binah).SetTemporaryLevel(0);
-
         //}
 
         public static void Automata(int stage)
@@ -2177,30 +1909,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 GlobalGameManager.Instance.LoadBattleScene();
             }
         }
-
-        //[HarmonyPrefix]
-        //[HarmonyPatch(typeof(DiceBehaviour), "GetMinText")]
-        //public static bool DiceBehaviour_GetMinText_Pre(ref string __result, ref DiceBehaviour __instance)
-        //{
-        //    if (__instance.Min == -11)
-        //    {
-        //        __result = "?";
-        //        return false;
-        //    }
-        //    return true;
-        //}
-
-        //[HarmonyPrefix]
-        //[HarmonyPatch(typeof(DiceBehaviour), "GetMaxText")]
-        //public static bool DiceBehaviour_GetMaxText_Pre(ref string __result, ref DiceBehaviour __instance)
-        //{
-        //    if (__instance.Dice == -21)
-        //    {
-        //        __result = "?";
-        //        return false;
-        //    }
-        //    return true;
-        //}
 
         //[HarmonyPostfix]
         //[HarmonyPatch(typeof(BattleObjectLayer), "AddUnit")]
@@ -2266,36 +1974,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
         //    }
         //}
 
-        //[HarmonyPostfix]
-        //[HarmonyPatch(typeof(BattleUnitModel), "SpendCardAndCost")]
-        //static void InstantPatcher(BattleDiceCardModel card)
-        //{
-        //    if (card.owner.passiveDetail.PassiveList.Any(x => x is PassiveAbility_undeniableResearch))
-        //    {
-        //        if (card.GetSpec().Ranged == CardRange.Instance)
-        //        {
-        //            switch (card.GetID().id)
-        //            {
-        //                case 701021:
-        //                    card.owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Strength, 1);
-        //                    break;
-        //                case 701022:
-        //                    card.owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Protection, 2);
-        //                    card.owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.BreakProtection, 2);
-        //                    break;
-        //                case 701023:
-        //                    card.owner.cardSlotDetail.RecoverPlayPointByCard(1);
-        //                    break;
-        //                case 701024:
-        //                    card.owner.allyCardDetail.DrawCards(1);
-        //                    break;
-        //                default:
-        //                    break;
-        //            }
-        //        }
-        //    }
-        //}
-
         [HarmonyPostfix]
         [HarmonyPatch(typeof(LibraryModel), "LoadFromSaveData")]
         static void LastPatch()
@@ -2355,145 +2033,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
         }
 
         [HarmonyPrefix]
-        [HarmonyPatch(typeof(EmotionCardAbility_teddy3), "BeforeRollDice")]
-        static bool EmotionCardAbility_teddy3_BeforeRollDice_Pre(BattleDiceBehavior behavior, ref EmotionCardAbility_teddy3 __instance)
-        {
-            //__instance.BeforeRollDice(behavior);
-            if (behavior.IsParrying())
-            {
-                int power = 3;
-                behavior.ApplyDiceStatBonus(new DiceStatBonus
-                {
-                    power = power
-                });
-                __instance._owner.battleCardResultLog?.SetCreatureAbilityEffect("1/Teddy_Heart");
-                behavior.card.target?.battleCardResultLog?.SetCreatureEffectSound("Creature/Teddy_Guard");
-            }
-            else
-            {
-                int num = 2;
-                behavior.ApplyDiceStatBonus(new DiceStatBonus
-                {
-                    power = -num
-                });
-            }
-            return false;
-        }
-
-        [HarmonyPrefix]
-        [HarmonyPatch(typeof(EmotionCardAbility_murderer2), "BeforeRollDice")]
-        static bool EmotionCardAbility_murderer2_BeforeRollDice_Pre(BattleDiceBehavior behavior, ref EmotionCardAbility_teddy3 __instance)
-        {
-            if (behavior.Detail == BehaviourDetail.Hit)
-            {
-                int num = RandomUtil.Range(1, 3);
-                behavior.ApplyDiceStatBonus(new DiceStatBonus
-                {
-                    power = num,
-                    breakRate = 25
-                });
-            }
-            return false;
-        }
-
-        [HarmonyPrefix]
-        [HarmonyPatch(typeof(EmotionCardAbility_singingMachine), "OnTakeDamageByAttack")]
-        static bool EmotionCardAbility_singingMachine_OnTakeDamageByAttack_Pre(BattleDiceBehavior atkDice, int dmg, ref EmotionCardAbility_singingMachine __instance)
-        {
-            int damage = 8;
-            __instance._owner.breakDetail.TakeBreakDamage(damage, DamageType.Emotion);
-            return false;
-        }
-
-
-        [HarmonyPrefix]
-        [HarmonyPatch(typeof(EmotionCardAbility_singingMachine), "OnKill")]
-        static bool EmotionCardAbility_singingMachine_OnKill_Pre(BattleUnitModel target, ref EmotionCardAbility_singingMachine __instance)
-        {
-            //__instance.OnKill(target);
-            if (__instance._owner.faction == Faction.Player && target != null && target.faction == Faction.Enemy)
-            {
-                __instance._owner.battleCardResultLog?.SetAfterActionEvent(__instance.Filter);
-                __instance._owner.RecoverHP(15);
-                __instance._owner.breakDetail.RecoverBreak(30);
-            }
-            return false;
-        }
-
-        [HarmonyPrefix]
-        [HarmonyPatch(typeof(EmotionCardAbility_singingMachine3), "BeforeRollDice")]
-        static bool EmotionCardAbility_singingMachine3_BeforeRollDice_Pre(BattleDiceBehavior behavior, ref EmotionCardAbility_singingMachine3 __instance)
-        {
-            __instance.BeforeRollDice(behavior);
-            if (__instance.IsAttackDice(behavior.Detail))
-            {
-                behavior.ApplyDiceStatBonus(new DiceStatBonus
-                {
-                    power = 2
-                });
-            }
-            else if (__instance.IsDefenseDice(behavior.Detail))
-            {
-                behavior.ApplyDiceStatBonus(new DiceStatBonus
-                {
-                    max = -300
-                });
-            }
-
-            return false;
-        }
-
-
-        [HarmonyPrefix]
-        [HarmonyPatch(typeof(EmotionCardAbility_freischutz2), "OnStartBattle")]
-        static bool EmotionCardAbility_freischutz2_OnStartBattle_Pre(ref EmotionCardAbility_freischutz2 __instance)
-        {
-            __instance.OnStartBattle();
-            foreach (BattlePlayingCardDataInUnitModel item in __instance._owner.cardSlotDetail.cardAry)
-            {
-                if (item == null || (item.card.XmlData.Spec.Ranged != CardRange.Far && item.card.XmlData.Spec.Ranged != 0))
-                {
-                    continue;
-                }
-                BattleUnitBuf battleUnitBuf = __instance._owner.bufListDetail.GetActivatedBufList().Find((BattleUnitBuf x) => x is BattleUnitBuf_Freischutz_Emotion_Seventh_Bullet);
-                if (battleUnitBuf == null)
-                {
-                    BattleUnitBuf_Freischutz_Emotion_Seventh_Bullet battleUnitBuf_Freischutz_Emotion_Seventh_Bullet = new BattleUnitBuf_Freischutz_Emotion_Seventh_Bullet();
-                    __instance._owner.bufListDetail.AddBuf(battleUnitBuf_Freischutz_Emotion_Seventh_Bullet);
-                    battleUnitBuf_Freischutz_Emotion_Seventh_Bullet.Add();
-                }
-                else
-                {
-                    if (!(battleUnitBuf as BattleUnitBuf_Freischutz_Emotion_Seventh_Bullet).Add())
-                    {
-                        continue;
-                    }
-                    List<BattleUnitModel> aliveList = BattleObjectManager.instance.GetAliveList();
-                    List<BattleUnitModel> list = new List<BattleUnitModel>();
-                    foreach (BattleUnitModel item2 in aliveList)
-                    {
-                        if (item2 != __instance._owner && item2.speedDiceResult.Count > 0 && item2.IsTargetable(__instance._owner))
-                        {
-                            list.Add(item2);
-                        }
-                    }
-                    if (list.Count > 0)
-                    {
-                        item.targetSlotOrder = UnityEngine.Random.Range(0, (item.target = list[UnityEngine.Random.Range(0, list.Count)]).speedDiceResult.Count);
-                        item.currentBehavior.ApplyDiceStatBonus(new DiceStatBonus
-                        {
-                            dmg = 7
-                        });
-                    }
-                    __instance._seventhBullets.Add(item);
-                }
-            }
-
-            return false;
-        }
-
-
-        [HarmonyPrefix]
         [HarmonyPatch(typeof(DiceCardAbility_forbidCardAtk.BattleUnitBuf_costUp4), "GetCardCostAdder")]
         static bool DiceCardAbility_BattleUnitBuf_costUp4_forbidCardAtk_GetCardCostAdder_Pre(BattleDiceCardModel card, ref int __result)
         {
@@ -2521,25 +2060,25 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             return __result;
         }
 
-        //[HarmonyPrefix]
-        //[HarmonyPatch(typeof(KeywordUI), "Init")]
-        //public static bool KeywordUI_Init_Pre(string name, string desc, ref KeywordUI __instance)
-        //{
-        //    __instance._desc = desc;
-        //    if (Singleton<BattleEffectTextsXmlList>.Instance.GetEffectTextName(name) != "")
-        //    {
-        //        __instance._name = "<color=#6a5acd>" + name + "</color>";
-        //    }
-        //    else
-        //    {
-        //        __instance._name = "<color=#FF3333>" + name + "</color>";
+        [HarmonyPrefix]
+        [HarmonyPatch(typeof(KeywordUI), "Init")]
+        public static bool KeywordUI_Init_Pre(string name, string desc, ref KeywordUI __instance)
+        {
+            __instance._desc = desc;
+            if (Singleton<BattleEffectTextsXmlList>.Instance.GetEffectTextName(name) != "")
+            {
+                __instance._name = "<color=#6a5acd>" + name + "</color>";
+            }
+            else
+            {
+                __instance._name = "<color=#FF3333>" + name + "</color>";
 
-        //    }
-        //    __instance.KeywordNameText.text = __instance._name;
-        //    __instance.KeywordDescText.text = __instance._desc;
-        //    __instance.gameObject.SetActive(true);
-        //    return false;
-        //}
+            }
+            __instance.KeywordNameText.text = __instance._name;
+            __instance.KeywordDescText.text = __instance._desc;
+            __instance.gameObject.SetActive(true);
+            return false;
+        }
 
         [HarmonyPrefix]
         [HarmonyPatch(typeof(KeywordListUI), "Init")]
@@ -2632,38 +2171,4 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             return false;
         }
     }
-
-
-
-    //  Blunt dice gain 2-3 Power. Speed is reduced by 3. Deal +25% Blunt Stagger%.
-    //    [HarmonyPatch(typeof(EmotionCardAbility_murderer2))]
-    //    static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator il)
-    //    {
-    //        var code = new List<CodeInstruction>(instructions);
-
-    //        for (int i = 0; i < code.Count - 1; i++) // -1 since we will be checking i + 1
-    //        {
-    //            if (code[i].opcode == OpCodes.Ldc_I4_1 && code[i + 1].opcode == OpCodes.Ldc_I4_3)
-    //            {
-    //                code[i] = new CodeInstruction(OpCodes.Ldc_I4, 2);
-    //            }
-    //            else if (code[i].Is(OpCodes.Stfld, AccessTools.Field(typeof(DiceStatBonus), nameof(DiceStatBonus.power))) && code[i + 1].Is(OpCodes.Callvirt, AccessTools.Field(typeof(BattleDiceBehavior), nameof(BattleDiceBehavior.ApplyDiceStatBonus))))
-    //            {
-
-    //                CodeInstruction call = code[i + 1];
-    //                code[i + 1] = new CodeInstruction(OpCodes.Ldc_I4, 0.25);
-    //                code[i + 2] = new CodeInstruction(OpCodes.Ldc_I4_S, 25);
-    //                code[i + 2] = new CodeInstruction(OpCodes.Stfld, AccessTools.Field(typeof(DiceStatBonus), nameof(DiceStatBonus.breakRate)));
-    //                code[i + 3] = call;
-    //                code[i + 4] = new CodeInstruction(OpCodes.Ret);
-    //            }
-    //            else if (code[i] == new CodeInstruction(OpCodes.Ldc_I4_S, -100))
-    //            {
-    //                code[i] = new CodeInstruction(OpCodes.Ldc_I4_S, -3);
-    //            }
-    //        }
-    //        return code;
-    //    }
-    //}
-
 }
