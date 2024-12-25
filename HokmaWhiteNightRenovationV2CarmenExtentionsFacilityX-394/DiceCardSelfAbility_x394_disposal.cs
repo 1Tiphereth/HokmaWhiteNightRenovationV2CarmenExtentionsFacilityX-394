@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
 {
-    public class DiceCardSelfAbility_disposal : DiceCardSelfAbilityBase
+    public class DiceCardSelfAbility_x394_disposal : DiceCardSelfAbilityBase
     {
         public override string[] Keywords => new string[1] { "WarpCharge" };
 

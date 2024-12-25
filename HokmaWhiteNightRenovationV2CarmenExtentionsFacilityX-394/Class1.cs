@@ -143,8 +143,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 
                 // custom
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Disposal", new BattleEffectText { Name = "Disposal Mode", Desc = "Upon acquiring this status effect gain 11 Charge, Recover all Light, and add a Copy of \"Disposal\" to hand and Gain 2 Extra Speed Dice\r\nAt the start of each scene gain 2 Strength, Haste, Protection and Break Protection, additionally Recover 2 extra Light and Draw 2 more Pages", ID = "" });
-                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("disposal", new BattleCardAbilityDesc { desc = new List<string> { "Only usable at 20+ Charge. Spend all Charge to deal additional (3 * Charge)% Damage\n\rUpon defeating an enemy with this page, add a copy of 'Disposal' to hand and lower its Cost by 2 and gain 3 Strength, Protection and 7 Charge next Scene.\r\nIf target's HP is at 50% or lower, deal twice as much damage." } });
-
+                Singleton<BattleCardAbilityDescXmlList>.Instance._dictionary.Add("x394_disposal", new BattleCardAbilityDesc { desc = new List<string> { "Only usable at 20+ Charge. Spend all Charge to deal additional (3 * Charge)% Damage\n\rUpon defeating an enemy with this page, add a copy of 'Disposal' to hand and lower its Cost by 2 and gain 3 Strength, Protection and 7 Charge next Scene.\r\nIf target's HP is at 50% or lower, deal twice as much damage" } });
             }
 
             // card patches
@@ -205,10 +204,13 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 ItemXmlDataList.instance.GetCardItem(new LorId(501005), false).DiceBehaviourList[1].Min = -3;
                 ItemXmlDataList.instance.GetCardItem(new LorId(501005), false).DiceBehaviourList[2].Min = -2;
                 ItemXmlDataList.instance.GetCardItem(new LorId(501007), false).DiceBehaviourList[0].Min = -3;
-                ItemXmlDataList.instance.GetCardItem(new LorId(501001), false).DiceBehaviourList[0].Min = -4;
-                ItemXmlDataList.instance.GetCardItem(new LorId(608004), false).Script = "disposal";
+                //ItemXmlDataList.instance.GetCardItem(new LorId(501001), false).DiceBehaviourList[0].Min = -4;
+                ItemXmlDataList.instance.GetCardItem(new LorId(608004), false).Script = "x394_disposal";
                 ItemXmlDataList.instance.GetCardItem(new LorId(502006), false).Script = "drawCard";
                 ItemXmlDataList.instance.GetCardItem(new LorId(403006), false).Script = "energy1";
+                ItemXmlDataList.instance.GetCardItem(new LorId(706204), false).Spec.Cost = 2;
+                ItemXmlDataList.instance.GetCardItem(new LorId(706205), false).Spec.Cost = 1;
+                //ItemXmlDataList.instance.GetCardItem(new LorId(706202), false).DiceBehaviourList[] = 2;
             }
 
             Singleton<BookXmlList>.Instance.GetData(new LorId(packageName, 3)).EquipEffect.PassiveList.Add(new LorId(packageName, 20));
@@ -305,18 +307,32 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 Singleton<BookXmlList>.Instance.GetData(250007).EquipEffect.MaxPlayPoint = 4;
                 Singleton<BookXmlList>.Instance.GetData(250007).EquipEffect.StartPlayPoint = 4;
 
+
+                foreach (var d in ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList)
+                {
+                    if (d.Detail != BehaviourDetail.Guard)
+                    {
+                        d.Min += 1;
+                        d.Dice += 2;
+                        d.Detail = BehaviourDetail.Hit;
+                        //d.MotionDetail = MotionDetail.H;
+                        //d.EffectRes = "Thumb_H";
+                    }
+                }
+
+                //ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).Script = "kali";
                 ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[2].Script = "repeat3";
                 ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList.Insert(2, ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[2]);
-                ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[3].MotionDetail = MotionDetail.Z;
-                ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[3].EffectRes = "Thumb_Z";
-                ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[3].Detail = BehaviourDetail.Penetrate;
+                //ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[3].MotionDetail = MotionDetail.Z;
+                //ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[3].EffectRes = "Thumb_Z";
+                //ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[3].Detail = BehaviourDetail.Penetrate;
 
-                //Singleton<BookXmlList>.Instance.GetData(150023).EquipEffect.PassiveList.Remove(new LorId(250023));
-                //Singleton<BookXmlList>.Instance.GetData(150023).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
-                //Singleton<BookXmlList>.Instance.GetData(150031).EquipEffect.PassiveList.Remove(new LorId(250023));
-                //Singleton<BookXmlList>.Instance.GetData(150031).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
-                //Singleton<BookXmlList>.Instance.GetData(250023).EquipEffect.PassiveList.Remove(new LorId(250023));
-                //Singleton<BookXmlList>.Instance.GetData(250023).EquipEffect.PassiveList.Insert(4, new LorId(packageName, 4001));
+                Singleton<BookXmlList>.Instance.GetData(150023).EquipEffect.PassiveList.Remove(new LorId(250023));
+                Singleton<BookXmlList>.Instance.GetData(150023).EquipEffect.PassiveList.Add(new LorId(packageName, 4001));
+                Singleton<BookXmlList>.Instance.GetData(150031).EquipEffect.PassiveList.Remove(new LorId(250023));
+                Singleton<BookXmlList>.Instance.GetData(150031).EquipEffect.PassiveList.Add(new LorId(packageName, 4001));
+                Singleton<BookXmlList>.Instance.GetData(250023).EquipEffect.PassiveList.Remove(new LorId(250023));
+                Singleton<BookXmlList>.Instance.GetData(250023).EquipEffect.PassiveList.Add(new LorId(packageName, 4001));
             }
 
             // ego changes
@@ -371,10 +387,10 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Malkuth", new BattleEffectText { Name = "Floor of History", Desc = "Inflict (3 * Personal Emotional Level) Burn to all enemies upon death", ID = "" });
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Yesod", new BattleEffectText { Name = "Floor of Technological Sciences", Desc = "Gain +2 SP Gain Efficiency", ID = "" });
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Hod", new BattleEffectText { Name = "Floor of Literature", Desc = "[On Clash Win] Inflict 1 Bleed next Scene", ID = "" });
-                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Netzach", new BattleEffectText { Name = "Floor of Art", Desc = " [On Hit] Recover 2 HP", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Netzach", new BattleEffectText { Name = "Floor of Art", Desc = "[On Hit] Recover 2 HP", ID = "" });
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Tiph", new BattleEffectText { Name = "Floor of Natural Sciences", Desc = "When inflicting Negative Effects using Combat Pages this Scene, inflict 1 additional stack", ID = "" });
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Gebruh", new BattleEffectText { Name = "Floor of Language", Desc = "Deal +1% more Damager per This Unit's SP", ID = "" });
-                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Binah", new BattleEffectText { Name = "Floor of Philosophy", Desc = "\"At the start of the scene, gain 1 stack of Protection for every 15 positive SP this unit has. Upon winning a clash, recover 2 HP. At the end of the scene, gain 1 stack of All Power Up for every 3 clashes won (rounded up). Upon losing a clash, recover 3 Break.\"", ID = "" });
+                Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Binah", new BattleEffectText { Name = "Floor of Philosophy", Desc = "At the start of the scene, gain 1 stack of Protection for every 15 positive SP this unit has. Upon winning a clash, recover 2 HP. At the end of the scene, gain 1 Strength for every 3 clashes won (rounded up). Upon losing a clash, recover 3 Break.", ID = "" });
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Chesed", new BattleEffectText { Name = "Floor of Social Sciences", Desc = "Gain 3 Haste", ID = "" });
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Hokma", new BattleEffectText { Name = "Floor of Religion", Desc = " [On Hit] Deal 2 Fixed SP Damage", ID = "" });
                 Singleton<BattleEffectTextsXmlList>.Instance._dictionary.Add("Keter", new BattleEffectText { Name = "Floor of General Works", Desc = "Increase Max HP by 10% and Stagger by 25%", ID = "" });
@@ -442,7 +458,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 // Sorrow and despair
                 List<int> panic21ls = new List<int> { 102, 170001, 180003, 1410012 };
 
-                List<int> nopanic = new List<int> { /*180001, 180002*/ };
+                List<int> nopanic = new List<int> { /*180001, 180002*/8 };
 
                 // Hana: Unity
                 // +3 SP Gain Efficiency, if at max SP gain 1 Protection and 1 Strength.
@@ -653,35 +669,44 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     if (x.BookId == 8)
                     {
                         x._classInfo.EquipEffect.Hp = 30 + (LibraryModel.Instance.GetChapter() * 43);
-                        x._classInfo.EquipEffect.Break = 15 + (LibraryModel.Instance.GetChapter() * 25);
-                        x._speedDiceNum = 1 + (LibraryModel.Instance.GetChapter() / 2);
+                        x._classInfo.EquipEffect.Break = 15 + (LibraryModel.Instance.GetChapter() * 32);
+                        x._classInfo.speedDiceNumber = 1 + (LibraryModel.Instance.GetChapter() / 2);
                         x._classInfo.EquipEffect.StartPlayPoint = 4 + (LibraryModel.Instance.GetChapter() / 2);
+                        x._classInfo.EquipEffect.MaxPlayPoint = 4 + (LibraryModel.Instance.GetChapter() / 2);
                         x.SetOriginalStat();
+                        x.SetOriginalPlayPoint();
+                        x.SetOriginalSpeedNum();
                     }
                 }
 
                 // enemy
                 foreach (BookXmlInfo x in Singleton<BookXmlList>.Instance.GetList())
                 {
-                    x.EquipEffect.Hp = (int)(x.EquipEffect.Hp * (1 + x.Chapter * 0.07));
-                    x.EquipEffect.Break = (int)(x.EquipEffect.Break * (1 + x.Chapter * 0.03));
+                    //x.EquipEffect.Hp = (int)(x.EquipEffect.Hp * (1 + x.Chapter * 0.07));
+                    //x.EquipEffect.Break = (int)(x.EquipEffect.Break * (1 + x.Chapter * 0.03));
 
                     int ll = 3;
+                    if (x.EquipEffect.MaxPlayPoint != 3 && x.Rarity != Rarity.Unique)
+                    {
+                        ll = x.EquipEffect.MaxPlayPoint;
+                    }
                     if (x.Rarity == Rarity.Unique)
                     {
-                        ll = 4;
+                        if (ll < 4)
+                        {
+                            ll = 4;
+                        }
                     }
                     ll += x.Chapter / 2;
                     x.EquipEffect.MaxPlayPoint = ll;
                     x.EquipEffect.StartPlayPoint = ll;
-                    x.speedDiceNumber += x.Chapter / 3;
+                    x.speedDiceNumber += x.Chapter / 4;
                 }
 
                 // librarian
                 Hashtable books = new Hashtable();
                 foreach (BookModel x in BookInventoryModel.Instance.GetBookListAll())
                 {
-
                     if (books.Contains(x.BookId))
                     {
                         (int, int, int) stats = ((int, int, int))books[x.BookId];
@@ -700,20 +725,32 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         {
                             hp = x.equipeffect.Hp;
                             br = x.equipeffect.Break;
-                        } else
-                        {
-                            hp = (int)(x.equipeffect.Hp * (1 + chapter * 0.04));
-                            br = (int)(x.equipeffect.Break * (1 + chapter * 0.02));
                         }
-                        int sp = (int)(chapter / 3);
+                        else
+                        {
+                            hp = x.equipeffect.Hp;
+                            br = x.equipeffect.Break;
+                            //hp = (int)(x.equipeffect.Hp * (1 + chapter * 0.04));
+                            //br = (int)(x.equipeffect.Break * (1 + chapter * 0.02));
+                        }
+                        int sp = (int)(chapter / 4);
 
                         int ll = 3;
-                        if (rarity == Rarity.Unique)
+                        if (x.equipeffect.MaxPlayPoint != 3 && rarity != Rarity.Unique)
                         {
-                            ll = 4;
+                            ll = x.equipeffect.MaxPlayPoint;
+                        }
+                        else
+                        {
+                            if (rarity == Rarity.Unique)
+                            {
+                                if (ll < 4)
+                                {
+                                    ll = 4;
+                                }
+                            }
                         }
                         ll += chapter / 2;
-
                         x.equipeffect.Hp = hp;
                         x.equipeffect.Break = br;
                         x.equipeffect.SpeedDiceNum += sp;
@@ -1369,7 +1406,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 base.OnRoundEnd();
                 if (_clashesWon >= 3)
                 {
-                    base._owner.bufListDetail.AddKeywordBufByEtc(KeywordBuf.AllPowerUp, (int)Mathf.Ceil((float)_clashesWon/3));
+                    base._owner.bufListDetail.AddKeywordBufByEtc(KeywordBuf.Strength, (int)Mathf.Ceil((float)_clashesWon/3));
                 }
             }
 
@@ -1857,28 +1894,28 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
         [HarmonyPatch(typeof(LibraryModel), "LoadFromSaveData")]
         public static void LibraryModel_LoadFromSaveData()
         {
-            foreach (LorId card in Singleton<Init>.Instance.cards)
-            {
-                if (Singleton<InventoryModel>.Instance.GetCardList().Find((DiceCardItemModel x) => x.GetID() == card) == null)
-                {
-                    if (ItemXmlDataList.instance.GetCardItem(card, false).Rarity == Rarity.Unique)
-                    {
-                        Singleton<InventoryModel>.Instance.AddCard(card, 1);
-                    }
-                    else
-                    {
-                        Singleton<InventoryModel>.Instance.AddCard(card, 3);
-                    }
-                }
+            //foreach (LorId card in Singleton<Init>.Instance.cards)
+            //{
+            //    if (Singleton<InventoryModel>.Instance.GetCardList().Find((DiceCardItemModel x) => x.GetID() == card) == null)
+            //    {
+            //        if (ItemXmlDataList.instance.GetCardItem(card, false).Rarity == Rarity.Unique)
+            //        {
+            //            Singleton<InventoryModel>.Instance.AddCard(card, 1);
+            //        }
+            //        else
+            //        {
+            //            Singleton<InventoryModel>.Instance.AddCard(card, 3);
+            //        }
+            //    }
 
-                //Singleton<InventoryModel>.Instance.AddCard(card, 3);
-            }
+            //    //Singleton<InventoryModel>.Instance.AddCard(card, 3);
+            //}
         }
 
-        [HarmonyPatch(typeof(GameSceneManager), "ActivateUIController")]
-        [HarmonyPostfix]
-        public static void GameSceneManager_ActivateUIController_Post()
-        {
+        //[HarmonyPatch(typeof(GameSceneManager), "ActivateUIController")]
+        //[HarmonyPostfix]
+        //public static void GameSceneManager_ActivateUIController_Post()
+        //{
             //BookInventoryModel.Instance.CreateBook(new LorId(packageName, 3));
             //BookInventoryModel.Instance.CreateBook(new LorId(packageName, 4));
             //BookInventoryModel.Instance.CreateBook(new LorId(packageName, 5));
@@ -1892,7 +1929,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             //{
             //    BookInventoryModel.Instance.CreateBook(new LorId(packageName, 5));
             //}
-        }
+        //}
 
         [HarmonyPrefix]
         [HarmonyPatch(typeof(UnitDataModel), "IsLockUnit")]
@@ -2015,7 +2052,8 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
         //}
 
         [HarmonyPostfix]
-        [HarmonyPatch(typeof(LibraryModel), "LoadFromSaveData")]
+        //[HarmonyPatch(typeof(LibraryModel), "LoadFromSaveData")]
+        [HarmonyPatch(typeof(GameSceneManager), "ActivateUIController")]
         static void LastPatch()
         {
             Singleton<Init>.Instance.patch();

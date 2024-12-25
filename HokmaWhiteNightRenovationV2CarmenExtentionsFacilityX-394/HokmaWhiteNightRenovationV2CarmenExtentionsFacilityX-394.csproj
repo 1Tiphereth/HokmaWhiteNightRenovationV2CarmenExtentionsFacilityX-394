@@ -89,7 +89,7 @@
     <Compile Include="DiceCardSelfAbility_cardPowerDown2targetDraw1Energy3.cs" />
     <Compile Include="DiceCardSelfAbility_cardPowerDown2targetDraw1Energy3GloriaSingletonCostBuf.cs" />
     <Compile Include="DiceCardSelfAbility_clawUltimate.cs" />
-    <Compile Include="DiceCardSelfAbility_disposal.cs" />
+    <Compile Include="DiceCardSelfAbility_x394_disposal.cs" />
     <Compile Include="DiceCardSelfAbility_energy3AndDraw2.cs" />
     <Compile Include="DiceCardSelfAbility_fixedcost_adddice.cs" />
     <Compile Include="DiceCardSelfAbility_negatePowerXEnergy1.cs" />

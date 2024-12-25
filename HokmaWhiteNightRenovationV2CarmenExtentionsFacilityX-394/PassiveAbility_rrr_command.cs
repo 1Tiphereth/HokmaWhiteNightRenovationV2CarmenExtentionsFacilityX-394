@@ -79,7 +79,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 c = activatedBuf.stack;
             }
 
-
             behavior.ApplyDiceStatBonus(new DiceStatBonus
             {
                 dmgRate = 2 * c,
