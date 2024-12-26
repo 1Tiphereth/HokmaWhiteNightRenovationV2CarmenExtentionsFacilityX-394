@@ -82,10 +82,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     if (!(gameObject2 == null))
                     {
                         FarAreaeffect_EGO_Butterfly_Black component2 = gameObject2.GetComponent<FarAreaeffect_EGO_Butterfly_Black>();
-                        if (component2 != null)
-                        {
-                            component2.animator.Play("Butterfly_Ego_White", 0, 0.333f);
-                        }
+                        component2?.animator.Play("Butterfly_Ego_White", 0, 0.333f);
                         if (gameObject2 != null)
                         {
                             gameObject2.AddComponent<AutoDestruct>().time = 1f;
@@ -102,10 +99,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 if (!(gameObject == null))
                 {
                     FarAreaeffect_EGO_Butterfly_White component = gameObject.GetComponent<FarAreaeffect_EGO_Butterfly_White>();
-                    if (component != null)
-                    {
-                        component.animator.Play("Butterfly_Ego_White", 0, 0.333f);
-                    }
+                    component?.animator.Play("Butterfly_Ego_White", 0, 0.333f);
                     if (gameObject != null)
                     {
                         gameObject.AddComponent<AutoDestruct>().time = 1f;
