@@ -1093,7 +1093,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     {
                         150051, 100003, 100001, 110006, 120008, 120006, 130007, 130024, 141001, 140001, 140009, 140010,
                         140005, 140027, 140003, 150010, 156001, 150002, 150018, 150037, 150036, 150022, 150051, 150023,
-                        150007
+                        150007, 140019, 140020, 140021
                     };
                     foreach (DeckXmlInfo x in Singleton<DeckXmlList>.Instance._list.ToList())
                     {
@@ -1108,6 +1108,40 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                             Singleton<BookXmlList>.Instance.GetData(new LorId(x.id.id + 100000), false).categoryList
                                 .Add(BookCategory.DeckFixed);
                         }
+                    }
+
+
+                    // deck changes
+                    {
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 200004).cardIdList.Add(new LorId(100003));
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 201001).cardIdList.Add(new LorId(100003));
+
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 200005).cardIdList.Add(new LorId(100003));
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 200006).cardIdList.Add(new LorId(100003));
+
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 200007).cardIdList.Add(new LorId(103005));
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 200008).cardIdList.Add(new LorId(103005));
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 200009).cardIdList.Add(new LorId(103005));
+
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 200010).cardIdList.Add(new LorId(104004));
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 200011).cardIdList.Add(new LorId(104004));
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 200012).cardIdList.Add(new LorId(104004));
+
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 210001).cardIdList.Add(new LorId(201005));
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 210002).cardIdList.Add(new LorId(201003));
+
+                        //210006
+                        //Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 210006).cardIdList.Add(new LorId(202003));
+                        //Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 220001).cardIdList.Add(new LorId(202005));
+                        //Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 210004).cardIdList.Add(new LorId(202003));
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 210003).cardIdList.Add(new LorId(202007));
+
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 221001).cardIdList.Add(new LorId(301010));
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 220001).cardIdList.Add(new LorId(301001));
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 220002).cardIdList.Add(new LorId(301004));
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 220003).cardIdList.Add(new LorId(301005));
+                        Singleton<DeckXmlList>.Instance._list.Find(x => x._id == 220004).cardIdList.Add(new LorId(301008));
+
                     }
 
                     // Rats
@@ -1147,8 +1181,8 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                                 new LorId(101003),
                                 new LorId(101001),
 
-                                new LorId(10),
-                                new LorId(11),
+                                //new LorId(10),
+                                //new LorId(11),
                             }
                         });
                         Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
@@ -1263,13 +1297,72 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
 
                                 new LorId(408002),
                                 new LorId(408002),
-                                //new LorId(408002),
+                                new LorId(408002),
 
                                 new LorId(408001),
                                 new LorId(408001),
                                 new LorId(408003),
                             }
                         });
+
+                        // w corp cleanup
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 240019,
+                            cardIdList = new List<LorId>
+                            {
+                                new LorId(506007),
+                                new LorId(506006),
+                                new LorId(506005),
+
+                                new LorId(506002),
+                                new LorId(506002),
+                                new LorId(506001),
+
+                                new LorId(506003),
+                                new LorId(506003),
+                                new LorId(506004),
+                            }
+                        });
+
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 240020,
+                            cardIdList = new List<LorId>
+                            {
+                                new LorId(506007),
+                                new LorId(506006),
+
+                                new LorId(506002),
+                                new LorId(506002),
+                                new LorId(506001),
+
+                                new LorId(506003),
+                                new LorId(506003),
+                                new LorId(506004),
+                                new LorId(506004),
+                            }
+                        });
+
+                        Singleton<DeckXmlList>.Instance._list.Add(new DeckXmlInfo
+                        {
+                            _id = 240021,
+                            cardIdList = new List<LorId>
+                            {
+                                new LorId(506006),
+                                new LorId(506006),
+                                new LorId(506007),
+
+                                new LorId(506002),
+                                new LorId(506002),
+                                new LorId(506001),
+
+                                new LorId(506003),
+                                new LorId(506003),
+                                new LorId(506004),
+                            }
+                        });
+
                     }
 
                     // Urban Nightmare
@@ -1281,6 +1374,9 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                             {
                                 new LorId(501007),
                                 new LorId(501007),
+                                new LorId(501007),
+
+                                new LorId(501006),
                                 new LorId(501006),
                                 new LorId(501006),
 
@@ -1411,13 +1507,13 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                             {
                                 new LorId(603007),
                                 new LorId(603007),
-
                                 new LorId(603006),
                                 new LorId(603006),
 
                                 new LorId(603005),
                                 new LorId(603005),
                                 new LorId(603003),
+                                new LorId(603002),
 
                                 new LorId(603001),
                             }
@@ -1599,6 +1695,15 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                             }
                         });
                     }
+
+
+                    // enemy debuffs
+                    Singleton<BookXmlList>.Instance.GetData(121005).EquipEffect.HpReduction = 47;
+                    Singleton<BookXmlList>.Instance.GetData(121005).EquipEffect.HBResist = AtkResist.Vulnerable;
+                    Singleton<BookXmlList>.Instance.GetData(121005).EquipEffect.PBResist = AtkResist.Vulnerable;
+                    Singleton<BookXmlList>.Instance.GetData(121005).EquipEffect.SBResist = AtkResist.Vulnerable;
+
+                    Singleton<BookXmlList>.Instance.GetData(131001).EquipEffect.HpReduction = 53;
                 }
 
                 Singleton<DropBookXmlList>.Instance.GetData(new LorId(250037)).DropItemList.Add(new BookDropItemInfo
@@ -1611,8 +1716,8 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             }
         }
 
-        static public int pWin = 5;
-        static public int pLose = -3;
+        static public int pWin = 7;
+        static public int pLose = -5;
         static public int allyDeath = -15;
         static public int enemyDeath = 10;
         static public int baseSp = 0;
@@ -2283,10 +2388,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
         public static bool CharLocker(ref bool __result, ref UnitDataModel __instance)
         {
             __result = false;
-            if (__instance._ownerSephirah == SephirahType.Binah && !__instance.isSephirah)
-            {
-                __result = true;
-            }
+            // not yet
+            //if (__instance._ownerSephirah == SephirahType.Binah && !__instance.isSephirah)
+            //{
+            //    __result = true;
+            //}
 
             return false;
         }
