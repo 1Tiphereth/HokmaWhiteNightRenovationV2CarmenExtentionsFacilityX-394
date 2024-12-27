@@ -1696,7 +1696,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                         });
                     }
 
-
                     // enemy debuffs
                     Singleton<BookXmlList>.Instance.GetData(121005).EquipEffect.HpReduction = 47;
                     Singleton<BookXmlList>.Instance.GetData(121005).EquipEffect.HBResist = AtkResist.Vulnerable;
