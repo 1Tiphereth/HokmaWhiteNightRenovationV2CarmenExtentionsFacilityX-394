@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiceCardXmlRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Version>1.1</Version>
+  <Card ID="1">
+    <Name>CombatPage_1</Name>
+    <TextId>-1</TextId>
+    <Artwork>NothingThere_Goodbye.png</Artwork>
+    <Rarity>Unique</Rarity>
+    <Spec Range="Near" Cost="4" Affection="One" EmotionLimit="0" />
+    <Script>strength3</Script>
+    <ScriptDesc />
+    <BehaviourList>
+      <Behaviour Min="6" Dice="11" Type="Atk" Detail="Slash" Motion="J" MotionDefault="N" EffectRes="" Script="bleeding1atk" ActionScript="" Desc="" />
+      <Behaviour Min="5" Dice="10" Type="Atk" Detail="Penetrate" Motion="Z" MotionDefault="N" EffectRes="" Script="bleeding2atk" ActionScript="" Desc="" />
+      <Behaviour Min="4" Dice="9" Type="Atk" Detail="Hit" Motion="H" MotionDefault="N" EffectRes="" Script="bleeding3atk" ActionScript="" Desc="" />
+      <Behaviour Min="7" Dice="10" Type="Def" Detail="Guard" Motion="G" MotionDefault="N" EffectRes="" Script="bleeding2pw" ActionScript="" Desc="" />
+    </BehaviourList>
+    <Chapter>5</Chapter>
+    <SpecialEffect />
+    <SkinChange />
+    <SkinChangeType>EGO</SkinChangeType>
+    <SkinHeight>0</SkinHeight>
+    <MapChange />
+    <Priority>0</Priority>
+    <PriorityScript />
+    <Category>None</Category>
+    <MaxCooltimeForEgo>9</MaxCooltimeForEgo>
+    <MaxNum>150</MaxNum>
+  </Card>
+  <Card ID="2">
+    <Name>CombatPage_2</Name>
+    <TextId>-1</TextId>
+    <Artwork>Ozma_Boom.png</Artwork>
+    <Rarity>Common</Rarity>
+    <Spec Range="Far" Cost="3" Affection="One" EmotionLimit="0" />
+    <Script />
+    <ScriptDesc />
+    <BehaviourList>
+      <Behaviour Min="4" Dice="8" Type="Atk" Detail="Penetrate" Motion="Z" MotionDefault="N" EffectRes="" Script="test_mydice" ActionScript="" Desc="" />
+      <Behaviour Min="4" Dice="8" Type="Atk" Detail="Penetrate" Motion="Z" MotionDefault="N" EffectRes="" Script="paralysis1atk" ActionScript="" Desc="" />
+      <Behaviour Min="4" Dice="8" Type="Atk" Detail="Penetrate" Motion="Z" MotionDefault="N" EffectRes="" Script="paralysis3atk" ActionScript="" Desc="" />
+    </BehaviourList>
+    <Chapter>5</Chapter>
+    <SpecialEffect />
+    <SkinChange />
+    <SkinChangeType>EGO</SkinChangeType>
+    <SkinHeight>0</SkinHeight>
+    <MapChange />
+    <Priority>0</Priority>
+    <PriorityScript />
+    <Category>None</Category>
+    <MaxCooltimeForEgo>9</MaxCooltimeForEgo>
+    <MaxNum>150</MaxNum>
+  </Card>
+  <Card ID="34">
+    <Name>Near1</Name>
+    <TextId>-1</TextId>
+    <Artwork>Zwei2.png</Artwork>
+    <Rarity>Unique</Rarity>
+    <Spec Range="Near" Cost="1" Affection="One" EmotionLimit="0" />
+    <Script>energy4</Script>
+    <ScriptDesc />
+    <BehaviourList>
+      <Behaviour Min="4" Dice="9" Type="Atk" Detail="Slash" Motion="J" MotionDefault="N" EffectRes="" Script="" ActionScript="" Desc="" />
+      <Behaviour Min="4" Dice="9" Type="Atk" Detail="Penetrate" Motion="Z" MotionDefault="N" EffectRes="" Script="" ActionScript="" Desc="" />
+      <Behaviour Min="4" Dice="9" Type="Atk" Detail="Hit" Motion="H" MotionDefault="N" EffectRes="" Script="" ActionScript="" Desc="" />
+    </BehaviourList>
+    <Chapter>5</Chapter>
+    <SpecialEffect />
+    <SkinChange />
+    <SkinChangeType>EGO</SkinChangeType>
+    <SkinHeight>0</SkinHeight>
+    <MapChange />
+    <Priority>0</Priority>
+    <PriorityScript />
+    <Category>None</Category>
+    <MaxCooltimeForEgo>9</MaxCooltimeForEgo>
+    <MaxNum>150</MaxNum>
+  </Card>
+    <Card ID="11">
+    <Name>Thin Line</Name>
+    <Artwork>Arbiter1.png</Artwork>
+    <Rarity>Rare</Rarity>
+    <Option>OnlyPage</Option>
+    <Keyword>onlypage_hana_Keyword</Keyword>
+    <Spec Range="Far" Cost="1" />
+    <Script>negatePowerXEnergy2</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="7" Dice="9" Type="Atk" Detail="Slash" Motion="J" EffectRes="TheHead_FarAtk3" Script="fairy1atk" ActionScript="thehead_faratk3" Desc="???" />
+      <Behaviour Min="5" Dice="8" Type="Atk" Detail="Hit" Motion="J" EffectRes="TheHead_FarAtk2" Script="fairy1atk" ActionScript="thehead_faratk3" Desc="???" />
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="12">
+    <Name>Line</Name>
+    <Artwork>Arbiter2.png</Artwork>
+    <Rarity>Rare</Rarity>
+    <Spec Range="Far" Cost="2" />
+    <Script>negatePowerXEnergy3</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="10" Dice="13" Type="Atk" Detail="Penetrate" Motion="H" EffectRes="TheHead_FarAtk2" Script="forbidReuseDice" ActionScript="thehead_faratk2" Desc="???" />
+      <Behaviour Min="6" Dice="8" Type="Atk" Detail="Penetrate" Motion="H" EffectRes="TheHead_FarAtk2" Script="fairy2atk" ActionScript="thehead_faratk2" Desc="???" />
+      <Behaviour Min="5" Dice="6" Type="Def" Detail="Guard" Motion="G" EffectRes="" Script="" ActionScript="" Desc=""/>
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="13">
+    <Name>Thick Line</Name>
+    <Artwork>Arbiter2.png</Artwork>
+    <Rarity>Unique</Rarity>
+    <Spec Range="Far" Cost="3" />
+    <Script>zenaStagger</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="15" Dice="20" Type="Atk" Detail="Hit" Motion="Z" EffectRes="TheHead_FarAtk1" Script="sealTargetAtk" ActionScript="thehead_faratk1" Desc="???" />
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="14">
+    <Name>Shockwave</Name>
+    <Artwork>Arbiter3.png</Artwork>
+    <Rarity>Unique</Rarity>
+    <Spec Range="FarArea" Cost="5" Affection ="Team"/>
+    <Script></Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="27" Dice="30" Type="Atk" Detail="Hit" Motion="S4" EffectRes="" Script="gloriaDice" ActionScript="thehead_shockwaveAtk" Desc="" />
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="15">
+    <Name>Birdcage</Name>
+    <Artwork>Arbiter1.png</Artwork>
+    <Rarity>Unique</Rarity>
+    <Spec Range="Far" Cost="4" />
+    <Script></Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="6" Dice="10" Type="Atk" Detail="Slash" Motion="H" EffectRes="TheHead_FarAtk3" Script="forbidCardAtk" ActionScript="thehead_faratk3" Desc="" />
+      <Behaviour Min="8" Dice="13" Type="Atk" Detail="Hit" Motion="Z" EffectRes="TheHead_FarAtk1" Script="sealTargetAtk" ActionScript="thehead_faratk1" Desc="???" />
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+
+<Card ID="80">
+    <Name>Trail</Name>
+    <Artwork>Claw1.png</Artwork>
+    <Rarity>Unique</Rarity>
+    <Spec Range="Special" Cost="2" />
+    <Script>ClawEffect</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="7" Dice="11" Type="Atk" Detail="Slash" Motion="Z" EffectRes="FX_Mon_Claw_Piercing" Script="" ActionScript="theclaw_teleportAtk" Desc="???" />
+      <Behaviour Min="7" Dice="10" Type="Atk" Detail="Hit" Motion="Z" EffectRes="FX_Mon_Claw_Piercing" Script="bleed3atk" ActionScript="theclaw_teleportAtk" Desc="???" />
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>-1</Priority>
+  </Card>
+  <Card ID="81">
+    <Name>Extirpation</Name>
+    <Artwork>Claw1.png</Artwork>
+    <Rarity>Unique</Rarity>
+    <Spec Range="Special" Cost="1" />
+    <Script></Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="8" Dice="18" Type="Atk" Detail="Penetrate" Motion="Z" EffectRes="" Script="damage3atk" ActionScript="theclaw_strongpiercingAtk" Desc="???" />
+      <Behaviour Min="5" Dice="8" Type="Def" Detail="Guard" Motion="G" EffectRes="" Script="" ActionScript="" Desc=""/>
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="82">
+    <Name>Serum R</Name>
+    <Artwork>Claw2.png</Artwork>
+    <Rarity>Unique</Rarity>
+    <Spec Range="Special" Cost="3" />
+    <Script>clawOrangeSerum</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="11" Dice="20" Type="Atk" Detail="Hit" Motion="Z" EffectRes="" Script="" ActionScript="theclaw_chargeAtk" Desc="???" />
+      <Behaviour Min="5" Dice="9" Type="Def" Detail="Guard" Motion="G" EffectRes="" Script="" ActionScript="" Desc=""/>
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="83">
+    <Name>Serum W</Name>
+    <Artwork>Claw4.png</Artwork>
+    <Rarity>Unique</Rarity>
+    <Spec Range="Special" Cost="5" />
+    <Script>clawUltimate</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="30" Dice="30" Type="Atk" Detail="Slash" Motion="Z" EffectRes="" Script="powerDouble" ActionScript="theclaw_ultimateAtk" Desc="???" />
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="84">
+    <Name>Tri-serum Cocktail</Name>
+    <Artwork>Claw3.png</Artwork>
+    <Rarity>Unique</Rarity>
+    <Spec Range="Near" Cost="4" />
+    <Script>clawAllSerum</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>      
+      <Behaviour Min="12" Dice="14" Type="Atk" Detail="Slash" Motion="Z" EffectRes="" Script="" ActionScript="theclaw_struggleAtk" Desc="???" />
+      <Behaviour Min="12" Dice="14" Type="Atk" Detail="Hit" Motion="Z" EffectRes="" Script="immuneDestory" ActionScript="theclaw_struggleAtk" Desc="???" />
+      <Behaviour Min="12" Dice="14" Type="Atk" Detail="Hit" Motion="Z" EffectRes="" Script="immuneDestory" ActionScript="theclaw_struggleAtk" Desc="???" />
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="85">
+    <Name>Serum K</Name>
+    <Artwork>Claw5.png</Artwork>
+    <Rarity>Unique</Rarity>
+    <Spec Range="Near" Cost="2" />
+    <Script>theClaw_recoverNextRound</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="6" Dice="16" Type="Atk" Detail="Slash" Motion="Z" EffectRes="FX_Mon_Claw_Piercing" Script="" ActionScript="" Desc="???" />
+      <Behaviour Min="9" Dice="9" Type="Def" Detail="Guard" Motion="G" EffectRes="" Script="" ActionScript="" Desc=""/>
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+
+  <Card ID="50">
+    <Name>Corrosive Sin</Name>
+    <Artwork>LongBird_Scale.png</Artwork>
+    <Rarity>Common</Rarity>
+    <Spec Range="Far" Cost="1" />
+    <Script></Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="3" Dice="6" Type="Standby" Detail="Guard" Motion="G" EffectRes="" Script="" ActionScript="" Desc="" />
+      <Behaviour Min="3" Dice="6" Type="Standby" Detail="Guard" Motion="G" EffectRes="" Script="" ActionScript="" Desc="" />
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="51">
+    <Name>Dimensional Peck</Name>
+    <Artwork>SmallBird_Beak.png</Artwork>
+    <Rarity>Uncommon</Rarity>
+    <Spec Range="Far" Cost="2" />
+    <Script>energy1</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="4" Dice="6" Type="Atk" Detail="Hit" Motion="H" EffectRes="TheHead_FarAtk1" Script="forbidCardAtk" ActionScript="thehead_faratk3" Desc="" />
+      <Behaviour Min="3" Dice="7" Type="Atk" Detail="Hit" Motion="H" EffectRes="TheHead_FarAtk2" Script="forbidCardAtk" ActionScript="thehead_faratk3" Desc="" />
+      <Behaviour Min="2" Dice="8" Type="Atk" Detail="Hit" Motion="H" EffectRes="TheHead_FarAtk3" Script="forbidCardAtk" ActionScript="thehead_faratk3" Desc="" />
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="52">
+    <Name>Unproven Sins</Name>
+    <Artwork>LongBird_Sin.png</Artwork>
+    <Rarity>Rare</Rarity>
+    <Spec Range="Far" Cost="3" />
+    <Script>allyBuf</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="6" Dice="8" Type="Atk" Detail="Slash" Motion="H" EffectRes="TheHead_FarAtk3" Script="sin1" ActionScript="thehead_faratk3" Desc="" />
+      <Behaviour Min="6" Dice="8" Type="Atk" Detail="Hit" Motion="Z" EffectRes="TheHead_FarAtk1" Script="sin1" ActionScript="thehead_faratk1" Desc="???" />
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="100">
+    <Name>Ally: Baral</Name>
+    <Artwork>Claw1.png</Artwork>
+    <Rarity>Unique</Rarity>
+    <Spec Range="Far" Cost="3" />
+    <Script>allyBaral</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="7" Dice="7" Type="Def" Detail="Guard" Motion="G" EffectRes="" Script="" ActionScript="" Desc=""/>
+      <Behaviour Min="7" Dice="7" Type="Def" Detail="Guard" Motion="G" EffectRes="" Script="" ActionScript="" Desc=""/>
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="101">
+    <Name>Ally: Zena</Name>
+    <Artwork>Arbiter1.png</Artwork>
+    <Rarity>Unique</Rarity>
+    <Spec Range="Far" Cost="3" />
+    <Script>allyZena</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="6" Dice="6" Type="Standby" Detail="Guard" Motion="G" EffectRes="" Script="" ActionScript="" Desc=""/>
+      <Behaviour Min="6" Dice="6" Type="Standby" Detail="Guard" Motion="G" EffectRes="" Script="" ActionScript="" Desc=""/>
+    </BehaviourList>
+    <Chapter>7</Chapter>
+    <Priority>0</Priority>
+  </Card>
+<Card ID="300">
+  <Name>Baleful Brand</Name>
+  <Artwork>Yan2</Artwork>
+  <Rarity>Unique</Rarity>
+  <Option>OnlyPage</Option>
+  <Keyword>onlypage_yan_Keyword</Keyword>
+  <Spec Range="Near" Cost="3" />
+  <Script></Script>
+  <ScriptDesc></ScriptDesc>
+  <BehaviourList>
+    <Behaviour Min="6" Dice="10" Type="Atk" Detail="Penetrate" Motion="S1" EffectRes="" Script="yanOnly1Dice" ActionScript="Yan_BrandAtk" Desc="" />
+    <Behaviour Min="4" Dice="8" Type="Atk" Detail="Slash" Motion="J" EffectRes="YanLibrarian_J" Script="" ActionScript="" Desc="" />
+    <Behaviour Min="5" Dice="9" Type="Def" Detail="Guard" Motion="G" EffectRes="YanLibrarian_G" Script="" ActionScript="" Desc="" />
+  </BehaviourList>
+  <Chapter>6</Chapter>
+  <Priority>0</Priority>
+</Card>
+  <Card ID="301">
+    <Name>Giant Fist</Name>
+    <Artwork>Yan_punch</Artwork>
+    <Rarity>Rare</Rarity>
+    <Spec Range="Near" Cost="3" />
+    <Script></Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="9" Dice="17" Type="Atk" Detail="Penetrate" Motion="Z" EffectRes="" Script="damage5atk" ActionScript="" Desc="" />
+      <Behaviour Min="5" Dice="8" Type="Def" Detail="Guard" Motion="G" EffectRes="" Script="" ActionScript="" Desc="" />
+      <Behaviour Min="4" Dice="7" Type="Standby" Detail="Penetrate" Motion="Z" EffectRes="" Script="" ActionScript="" Desc="" />
+    </BehaviourList>
+    <Chapter>6</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="302">
+    <Name>Compress</Name>
+    <Artwork>Yan_hand</Artwork>
+    <Rarity>Rare</Rarity>
+    <Spec Range="Near" Cost="2" />
+    <Script></Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="3" Dice="6" Type="Def" Detail="Guard" Motion="G" EffectRes="" Script="" ActionScript="" Desc="" />
+      <Behaviour Min="4" Dice="8" Type="Atk" Detail="Hit" Motion="J" EffectRes="" Script="paralysis2atk" ActionScript="" Desc="" />
+      <Behaviour Min="4" Dice="7" Type="Atk" Detail="Hit" Motion="J" EffectRes="" Script="weak1atk" ActionScript="" Desc="" />
+    </BehaviourList>
+    <Chapter>6</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="303">
+    <Name>Flurry of Fists</Name>
+    <Artwork>Yan_move</Artwork>
+    <Rarity>Rare</Rarity>
+    <Spec Range="Near" Cost="3" />
+    <Script></Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="4" Dice="8" Type="Atk" Detail="Penetrate" Motion="Z" EffectRes="" Script="bleeding3atk" ActionScript="" Desc="" />
+      <Behaviour Min="4" Dice="7" Type="Atk" Detail="Penetrate" Motion="Z" EffectRes="" Script="damage3atk" ActionScript="" Desc="" />
+      <Behaviour Min="3" Dice="6" Type="Def" Detail="Guard" Motion="G" EffectRes="" Script="" ActionScript="" Desc="" />
+    </BehaviourList>
+    <Chapter>6</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="304">
+    <Name>Open Revenge</Name>
+    <Artwork>Yan5</Artwork>
+    <Rarity>Unique</Rarity>
+    <Option>OnlyPage</Option>
+    <Keyword>onlypage_esther_Keyword</Keyword>
+    <Spec Range="Near" Cost="4" />
+    <Script>estherCard</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="3" Dice="7" Type="Atk" Detail="Slash" Motion="H" EffectRes="" Script="estherDice" ActionScript="Esther" Desc="" />
+    </BehaviourList>
+    <Chapter>6</Chapter>
+    <Priority>15</Priority>
+  </Card>
+    <Card ID="305">
+    <Name>Eradication</Name>
+    <Artwork>IndexSecond1</Artwork>
+    <Rarity>Unique</Rarity>
+    <Option>EgoPersonal</Option>
+    <Keyword>onlypage_gloria_Keyword</Keyword>
+    <Spec Range="FarArea" Cost="5" Affection="Team"/>
+    <Script>gloriaCard</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="12" Dice="23" Type="Atk" Detail="Hit" Motion="H" EffectRes="" Script="gloriaDice" ActionScript="Gloria" Desc="" />
+    </BehaviourList>
+    <Chapter>6</Chapter>
+    <Priority>0</Priority>
+  </Card>
+  <Card ID="306">
+    <Name>Castigation</Name>
+    <Artwork>IndexSecond2</Artwork>
+    <Rarity>Unique</Rarity>
+    <Option>EgoPersonal</Option>
+    <Keyword>onlypage_esther_Keyword</Keyword>
+    <Spec Range="Near" Cost="4" />
+    <Script>estherCard</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="3" Dice="7" Type="Atk" Detail="Penetrate" Motion="H" EffectRes="" Script="estherDice" ActionScript="Esther" Desc="" />
+      <Behaviour Min="2" Dice="7" Type="Standby" Detail="Penetrate" Motion="Z" EffectRes="IndexUnit_Z" Script="" ActionScript="" Desc="" />
+    </BehaviourList>
+    <Chapter>6</Chapter>
+    <Priority>15</Priority>
+  </Card>
+  <Card ID="307">
+    <Name>Decapitation</Name>
+    <Artwork>IndexSecond3</Artwork>
+    <Rarity>Unique</Rarity>
+    <Option>EgoPersonal</Option>
+    <Keyword>onlypage_hubert_Keyword</Keyword>
+    <Spec Range="Far" Cost="3" />
+    <Script>hubertCard</Script>
+    <ScriptDesc></ScriptDesc>
+    <BehaviourList>
+      <Behaviour Min="13" Dice="25" Type="Atk" Detail="Slash" Motion="H" EffectRes="Hubert_SpecialAtk" Script="hubertDice" ActionScript="Hubert" Desc="" />
+    </BehaviourList>
+    <Chapter>6</Chapter>
+    <Priority>15</Priority>
+  </Card>
+</DiceCardXmlRoot>

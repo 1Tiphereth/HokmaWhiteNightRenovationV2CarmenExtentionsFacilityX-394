@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StageModRarityInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Existがfalseなファイルは読み込まない -->
+  
+  <!-- レアリティ情報 -->
+  <RarityInfo Exist="true">
+    <Path>\Color\RarityInfo.xml</Path>
+  </RarityInfo>
+  <!-- バトルページ情報 -->
+  <CardInfo Exist="true">
+    <Path>\Color\CardInfo.xml</Path>
+  </CardInfo>
+  <!-- コアページ情報 -->
+  <!-- <EquipPageInfo Exist="true">
+    <Path>\Sample\EquipPageInfo.xml</Path>
+  </EquipPageInfo> -->
+  <!-- パッシブ情報 -->
+  <!-- <PassiveInfo Exist="true">
+    <Path>\Sample\PassiveList.xml</Path>
+  </PassiveInfo> -->
+  <!-- Util内で使用する画像 -->
+  <!-- <RariryArtwork Exist="true">
+    <Path>\Sample\Artwork</Path>
+  </RariryArtwork> -->
+  <!-- レアリティの書き換え -->
+  <RarityChangeInfo Exist="false">
+    <Path>\Color\RarityChangeInfo.xml</Path>
+  </RarityChangeInfo>
+</StageModRarityInfo>

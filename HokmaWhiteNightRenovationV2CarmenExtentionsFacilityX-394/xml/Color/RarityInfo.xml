@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CardRarityXmlRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Rarity ID="1">
+    <!-- レアリティの名前 -->
+    <RarityName>SampleRed</RarityName>
+    <!-- バトルページ/コアページ/パッシブの枠の色 -->
+    <!-- ※バトルページのデフォルトのフレーム画像が黒いので完全な白にはならないので要注意 -->
+    <RarityColorR>255</RarityColorR>
+    <RarityColorG>0</RarityColorG>
+    <RarityColorB>0</RarityColorB>
+    <!-- バトルページの縁取り部分の色 -->
+    <RarityLinearColorR>255</RarityLinearColorR>
+    <RarityLinearColorG>0</RarityLinearColorG>
+    <RarityLinearColorB>0</RarityLinearColorB>
+    <RarityLinearColorA>0</RarityLinearColorA>
+    <!-- 射程アイコンの色 -->
+    <RarityRangeIconColorR>255</RarityRangeIconColorR>
+    <RarityRangeIconColorG>0</RarityRangeIconColorG>
+    <RarityRangeIconColorB>0</RarityRangeIconColorB>
+    <!-- バトルページの効果の文の色 -->
+    <AbilityDescColorR>255</AbilityDescColorR>
+    <AbilityDescColorG>255</AbilityDescColorG>
+    <AbilityDescColorB>255</AbilityDescColorB>
+    <!-- バトルページの効果の文のキーワードの色(的中など) -->
+    <AbilityKeywordColorR>255</AbilityKeywordColorR>
+    <AbilityKeywordColorG>0</AbilityKeywordColorG>
+    <AbilityKeywordColorB>0</AbilityKeywordColorB>
+    <!-- 射程アイコンの置き換え(Range= Near:近接 Far:遠距離 Special:特殊(蜘蛛EGOなど) FarArea:合算広域 FarAreaEach:個別広域 Instance:装着)-->
+    <!-- Artworkフォルダに置いた画像の名前を拡張子抜きで指定する -->
+    <RangeIcon Range="Near">LeftPage_MeleeAttack</RangeIcon>
+    <!-- デッキに入れられる枚数(バトルページの場合)/入手可能な上限(コアページの場合) -->
+    <DeckLimit>3</DeckLimit>
+    <!-- 本からのドロップ率と本に含まれるページを全部ドロップされるまでに何枚入手可能かの指定 -->
+    <DropRate>0.1</DropRate>
+    <DropMax>1</DropMax>
+    <!-- ページのエフェクト Rainbow:虹色 Glow:点滅 None:無効 -->
+    <FrameEffect>None</FrameEffect>
+    <!-- 左のページフレーム、右のページフレーム、ページ画像の縁取り部分の画像置き換え-->
+    <!-- Artworkフォルダに置いた画像の名前を拡張子抜きで指定する -->
+    <LeftFrame>DefaultLeftPage_Base</LeftFrame>
+    <RightFrame>DefaultRightPage_Base</RightFrame>
+    <FrontFrame>UIBattlePage_Cover</FrontFrame>
+    <!-- trueにするとページ画像の縁取り部分にフレームの色を反映する -->
+    <FrontFrameApplyColor>false</FrontFrameApplyColor>
+  </Rarity>
+  <Rarity ID="1">
+    <RarityName>ZAYIN</RarityName>
+    <RarityColorR>0</RarityColorR>
+    <RarityColorG>255</RarityColorG>
+    <RarityColorB>0</RarityColorB>
+  </Rarity>
+  <Rarity ID="2">
+    <RarityName>TETH</RarityName>
+    <RarityColorR>0</RarityColorR>
+    <RarityColorG>0</RarityColorG>
+    <RarityColorB>255</RarityColorB>
+  </Rarity>
+  <Rarity ID="3">
+    <RarityName>HE</RarityName>
+    <RarityColorR>255</RarityColorR>
+    <RarityColorG>255</RarityColorG>
+    <RarityColorB>0</RarityColorB>
+  </Rarity>
+  <Rarity ID="4">
+    <RarityName>WAW</RarityName>
+    <RarityColorR>255</RarityColorR>
+    <RarityColorG>0</RarityColorG>
+    <RarityColorB>255</RarityColorB>
+  </Rarity>
+  <Rarity ID="5">
+    <RarityName>ALEPH</RarityName>
+    <RarityColorR>255</RarityColorR>
+    <RarityColorG>0</RarityColorG>
+    <RarityColorB>0</RarityColorB>
+  </Rarity>
+</CardRarityXmlRoot>

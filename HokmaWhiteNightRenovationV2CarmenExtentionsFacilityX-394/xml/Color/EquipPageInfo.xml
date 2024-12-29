@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BookXmlRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Version>1.1</Version>
+  <!-- Data配下に配置していたものと基本的に書き方は一緒 -->
+  <Book ID="1">
+    <Name>サンプル用ページ</Name>
+    <TextId>-1</TextId>
+    <BookIcon />
+    <EquipEffect>
+      <HpReduction>0</HpReduction>
+      <HP>97</HP>
+      <DeadLine>0</DeadLine>
+      <Break>59</Break>
+      <SpeedMin>2</SpeedMin>
+      <Speed>7</Speed>
+      <SpeedDiceNum>0</SpeedDiceNum>
+      <SResist>Endure</SResist>
+      <PResist>Normal</PResist>
+      <HResist>Normal</HResist>
+      <SBResist>Normal</SBResist>
+      <PBResist>Normal</PBResist>
+      <HBResist>Endure</HBResist>
+      <MaxPlayPoint>4</MaxPlayPoint>
+      <StartPlayPoint>4</StartPlayPoint>
+      <AddedStartDraw>0</AddedStartDraw>
+      <Passive Pid="@origin">10008</Passive>
+      <Passive>1</Passive>
+      <!-- Data配下に置いていた場合と異なりPidが指定可能。Pid未指定ならこのXMLが置いてあるModのものになる。 -->
+      <!-- ※バニラのページを専用ページにしたければ@originを指定する -->
+      <OnlyCard>1</OnlyCard>
+    </EquipEffect>
+    <!-- RarityInfoで定義したレアリティを指定可能 -->
+    <Rarity>SampleRed</Rarity>
+    <CharacterSkin>Kali</CharacterSkin>
+    <CharacterSkinType>Lor</CharacterSkinType>
+    <SkinGender>N</SkinGender>
+    <Chapter>7</Chapter>
+    <Episode>-1</Episode>
+    <RangeType>Hybrid</RangeType>
+    <NotEquip>false</NotEquip>
+    <RandomFace>false</RandomFace>
+    <SpeedDiceNum>1</SpeedDiceNum>
+    <SuccessionPossibleNumber>9</SuccessionPossibleNumber>
+  </Book>
+</BookXmlRoot>

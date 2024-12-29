@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BookXmlRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Version>1.1</Version>
+  <Book ID="3">
+    <Name>Zena</Name>
+    <TextId>270321</TextId>
+    <Option>Basic</Option>
+    <Category>DeckFixed</Category>
+    <EquipEffect>
+      <HP>125</HP>
+      <Break>65</Break>
+      <SpeedMin>4</SpeedMin>
+      <Speed>6</Speed>
+      <StartPlayPoint>6</StartPlayPoint>
+      <MaxPlayPoint>6</MaxPlayPoint>
+      <SResist>Endure</SResist>
+      <PResist>Normal</PResist>
+      <HResist>Normal</HResist>
+      <SBResist>Endure</SBResist>
+      <PBResist>Normal</PBResist>
+      <HBResist>Normal</HBResist>
+    </EquipEffect>
+    <BookIcon>BlackSilence</BookIcon>
+    <Chapter>7</Chapter>
+    <Rarity>Unique</Rarity>
+    <CharacterSkin>TheHead</CharacterSkin>
+  </Book>
+<Book ID="4">
+    <Name>Baral</Name>
+    <TextId>270321</TextId>
+    <Option>Basic</Option>
+    <Category>DeckFixed</Category>
+    <EquipEffect>
+      <HP>250</HP>
+      <Break>75</Break>
+      <SpeedMin>1</SpeedMin>
+      <Speed>8</Speed>
+      <StartPlayPoint>6</StartPlayPoint>
+      <MaxPlayPoint>6</MaxPlayPoint>
+      <SResist>Normal</SResist>
+      <PResist>Endure</PResist>
+      <HResist>Normal</HResist>
+      <SBResist>Normal</SBResist>
+      <PBResist>Endure</PBResist>
+      <HBResist>Normal</HBResist>
+    </EquipEffect>
+    <BookIcon>BlackSilence</BookIcon>
+    <Chapter>7</Chapter>
+    <Rarity>Unique</Rarity>
+    <CharacterSkin>TheClaw</CharacterSkin>
+  </Book>
+</BookXmlRoot>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RarityChangeXmlRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <RarityChange Rarity="SampleRed">
+        <ItemType>Card</ItemType>
+        <ID Pid="@origin">607003</ID>
+        <ID Pid="@origin">607004</ID>
+        <ID Pid="@origin">607005</ID>
+        <ID Pid="@origin">607006</ID>
+        <ID Pid="@origin">607007</ID>
+    </RarityChange>
+</RarityChangeXmlRoot>

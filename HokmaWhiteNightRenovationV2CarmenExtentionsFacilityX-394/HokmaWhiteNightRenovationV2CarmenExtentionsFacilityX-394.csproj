@@ -136,9 +136,72 @@
     <Compile Include="PassiveAbility_theClaw.cs" />
     <Compile Include="PassiveAbility_theProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xml\SampleCode\SampleCode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="xml\Assemblies\0Harmony.dll" />
+    <Content Include="xml\Assemblies\Mono.Cecil.dll" />
+    <Content Include="xml\Assemblies\Mono.Cecil.Mdb.dll" />
+    <Content Include="xml\Assemblies\Mono.Cecil.Pdb.dll" />
+    <Content Include="xml\Assemblies\Mono.Cecil.Rocks.dll" />
+    <Content Include="xml\Assemblies\MonoMod.RuntimeDetour.dll" />
+    <Content Include="xml\Assemblies\MonoMod.Utils.dll" />
+    <Content Include="xml\Color\Artwork\Default\DefaultLeftPage_Base.png" />
+    <Content Include="xml\Color\Artwork\Default\DefaultRightPage_Base.png" />
+    <Content Include="xml\Color\Artwork\Default\LeftPage_MeleeAttack.png" />
+    <Content Include="xml\Color\Artwork\Default\UIBattlePage_Cover.png" />
+    <Content Include="xml\Color\CardInfo.xml" />
+    <Content Include="xml\Color\EquipPageInfo.xml" />
+    <Content Include="xml\Color\PassiveList.xml" />
+    <Content Include="xml\Color\RarityChangeInfo.xml" />
+    <Content Include="xml\Color\RarityInfo.xml" />
+    <Content Include="xml\Data\BattleCardAbilityText.xml" />
+    <Content Include="xml\Data\BookStory.xml" />
+    <Content Include="xml\Data\CardDropTable.xml" />
+    <Content Include="xml\Data\CardInfo.xml" />
+    <Content Include="xml\Data\Combat_Dialog.xml" />
+    <Content Include="xml\Data\Deck_Enemy.xml" />
+    <Content Include="xml\Data\Dropbook.xml" />
+    <Content Include="xml\Data\EnemyUnitInfo.xml" />
+    <Content Include="xml\Data\EquipPage_Enemy.xml" />
+    <Content Include="xml\Data\EquipPage_Librarian.xml" />
+    <Content Include="xml\Data\PassiveList.xml" />
+    <Content Include="xml\Data\StageInfo.xml" />
+    <Content Include="xml\Data\StoryEffect\Story1.xml" />
+    <Content Include="xml\Data\StoryEffect\Story2.xml" />
+    <Content Include="xml\Data\StoryText\Story1.xml" />
+    <Content Include="xml\Data\StoryText\Story2.xml" />
+    <Content Include="xml\Resource\BufIcons\Binah.png" />
+    <Content Include="xml\Resource\BufIcons\Chesed.png" />
+    <Content Include="xml\Resource\BufIcons\Gebruh.png" />
+    <Content Include="xml\Resource\BufIcons\Growing_Resentment.png" />
+    <Content Include="xml\Resource\BufIcons\Hod.png" />
+    <Content Include="xml\Resource\BufIcons\Hokma.png" />
+    <Content Include="xml\Resource\BufIcons\Keter.png" />
+    <Content Include="xml\Resource\BufIcons\Malkuth.png" />
+    <Content Include="xml\Resource\BufIcons\Netzach.png" />
+    <Content Include="xml\Resource\BufIcons\Sanity.png" />
+    <Content Include="xml\Resource\BufIcons\Tiph.png" />
+    <Content Include="xml\Resource\BufIcons\Yesod.png" />
+    <Content Include="xml\Resource\CombatPageArtwork\Arbiter1.png" />
+    <Content Include="xml\Resource\CombatPageArtwork\Arbiter2.png" />
+    <Content Include="xml\Resource\CombatPageArtwork\Arbiter3.png" />
+    <Content Include="xml\Resource\CombatPageArtwork\Claw1.png" />
+    <Content Include="xml\Resource\CombatPageArtwork\Claw2.png" />
+    <Content Include="xml\Resource\CombatPageArtwork\Claw3.png" />
+    <Content Include="xml\Resource\CombatPageArtwork\Claw4.png" />
+    <Content Include="xml\Resource\CombatPageArtwork\Claw5.png" />
+    <Content Include="xml\Resource\CombatPageArtwork\LongBird_Scale.png" />
+    <Content Include="xml\Resource\CombatPageArtwork\LongBird_Sin.png" />
+    <Content Include="xml\Resource\CombatPageArtwork\SmallBird_Beak.png" />
+    <Content Include="xml\StageModInfo.xml" />
+    <Content Include="xml\StageModLocalizeInfo.xml" />
+    <Content Include="xml\StageModRarityInfo.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

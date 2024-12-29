@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PassiveXmlRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Passive ID="1">
+    <Negative>false</Negative>
+    <IsHide>false</IsHide>
+    <Rarity>Unique</Rarity>
+    <Lock>false</Lock>
+    <CanGivePassive>false</CanGivePassive>
+    <CanReceivePassive>false</CanReceivePassive>
+    <InnerType>-1</InnerType>
+    <Cost>6</Cost>
+    <Script>brokenArbiter</Script>
+    <Name>An Arbiter</Name>
+    <Desc>At the start of the Scene, draw until 4 pages are in hand. On Hit Inflict 1 Fairy, inflict an additional 1 Fairy and 1 Bleed at Personal Emotion Level 3.</Desc>
+  </Passive>
+  <Passive ID="20">
+    <Rarity>Unique</Rarity>
+    <InnerType>1</InnerType>
+    <Cost>8</Cost>
+    <Script>Speed4</Script>
+    <Name>Speed IV</Name>
+    <Desc>Speed Dice Slot +2. Gain an additional Speed die at Emotion Level 3. (Cannot Overlap)</Desc>
+  </Passive>
+  <Passive ID="22">
+    <Rarity>Unique</Rarity>
+    <InnerType>-1</InnerType>
+    <Cost>0</Cost>
+    <Script>Overbreathing</Script>
+    <Name>Overbreathing</Name>
+    <Desc>Restore 2 Light upon using a page whose original Cost is 4 or higher</Desc>
+  </Passive>
+  <Passive ID="23">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Unique</Rarity>
+    <InnerType>-1</InnerType>
+    <Cost>44</Cost>
+    <Script>EyeOfDeath</Script>
+    <Name>Eye Of Death / Boundary Of Death</Name>
+    <Desc>All dice gain +4 Power / If the Card used is "Boundary Of Death" and its natural roll is Max, and is 4 or higher, Draw 2 Pages and recover 4 Light</Desc>
+  </Passive>
+  <Passive ID="24">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Unique</Rarity>
+    <InnerType>-1</InnerType>
+    <Cost>13</Cost>
+    <Script>theClaw</Script>
+    <Name>A Claw</Name>
+    <Desc>???</Desc>
+  </Passive>
+  <Passive ID="26">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Unique</Rarity>
+    <InnerType>-1</InnerType>
+    <Cost>4</Cost>
+    <Script>theProxy</Script>
+    <Name>The Messenger</Name>
+    <Desc>???</Desc>
+  </Passive>
+
+<Passive ID="1001">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Common</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic1</Script>
+    <Name>Panic: Fear</Name>
+    <Desc>Upon reaching -45 SP, Gain 1 Feeble, 2 Disarm, and 3 Bind</Desc>
+  </Passive>
+<Passive ID="1002">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Rare</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic2</Script>
+    <Name>Panic: Revenge</Name>
+    <Desc>Upon reaching -45 SP, Gain 1 Strength, 3 Damage Up, 3 Fragile, and 6 Bind</Desc>
+  </Passive>
+<Passive ID="1003">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Common</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic3</Script>
+    <Name>Panic: Slowdown</Name>
+    <Desc>Upon reaching -45 SP, Gain 1 Fragile, 3 Bind</Desc>
+  </Passive>
+<Passive ID="1004">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Rare</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic4</Script>
+    <Name>Panic: Bloodthirst</Name>
+    <Desc>Upon reaching -45 SP, Gain 2 Fragile, 2 Damage Up</Desc>
+  </Passive>
+  <Passive ID="1005">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Uncommon</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic5</Script>
+    <Name>Panic: Anger</Name>
+    <Desc>Upon reaching -45 SP, Gain 1 Strength, 2 Fragile</Desc>
+  </Passive>
+  <Passive ID="1006">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Uncommon</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic6</Script>
+    <Name>Panic: Standoff</Name>
+    <Desc>Upon reaching -45 SP, Recover 5 Hp and gain 1 Fragile this scene, and next scene gain 2 Damage Up</Desc>
+  </Passive>
+  <Passive ID="1007">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Rare</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic7</Script>
+    <Name>Panic: Decisive Break</Name>
+    <Desc>Upon reaching -45 SP, Recover 10 Hp and fully restore Stagger, and next scene gain 2 Damage Up and 2 Fragile</Desc>
+  </Passive>
+  <Passive ID="1008">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Rare</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic8</Script>
+    <Name>Panic: Gamble</Name>
+    <Desc>Upon reaching -45 SP, Activate one of the following effects:
+    - Restore 5 Hp
+    - Restore 10 Stagger
+    - Gain 2 Damage Up next scene
+    - Gain 1 Fragile next scene</Desc>
+  </Passive>
+  <Passive ID="1009">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Uncommon</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic9</Script>
+    <Name>Panic: Protector</Name>
+    <Desc>Upon reaching -45 SP, Give all other allies 2 Protection, and 2 Disarm</Desc>
+  </Passive>
+  <Passive ID="1010">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Uncommon</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic10</Script>
+    <Name>Panic: Burning Passion</Name>
+    <Desc>Upon reaching -45 SP, Gain 5 Burn, 5 Disarm, 2 Strength and 3 Bind</Desc>
+  </Passive>
+  <Passive ID="1011">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Rare</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic11</Script>
+    <Name>Panic: Burning Passion</Name>
+    <Desc>Upon reaching -45 SP, Gain 3 Paralyze and 2 Haste</Desc>
+  </Passive>
+  <Passive ID="1012">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Common</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic12</Script>
+    <Name>Panic: Bleeding Heart</Name>
+    <Desc>Upon reaching -45 SP, Gain 7 Bleed, 2 Damage Up and 1 Slash Power Up</Desc>
+  </Passive>
+  <Passive ID="1013">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Common</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic13</Script>
+    <Name>Panic: Corpse Liquidification</Name>
+    <Desc>Upon reaching -45 SP, Lose 25 Hp, and 25 Stagger</Desc>
+  </Passive>
+  <Passive ID="1014">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Uncommon</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic14</Script>
+    <Name>Panic: Exhaustion</Name>
+    <Desc>Upon reaching -45 SP, Break All Speed Dice, and gain 2 Fragile</Desc>
+  </Passive>
+  <Passive ID="1015">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Rare</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic15</Script>
+    <Name>Panic: Chronic Lung Cancer</Name>
+    <Desc>Upon reaching -45 SP, Lose all Smoke on self and die</Desc>
+  </Passive>
+  <Passive ID="1016">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Unique</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>1</Cost>
+    <Script>panic16</Script>
+    <Name>Panic: Fate of the Prescript</Name>
+    <Desc>Upon reaching -45 SP, Become untargetable for this turn, Next turn gain 5 Protection</Desc>
+  </Passive>
+  <Passive ID="1017">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Unique</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>12</Cost>
+    <Script>panic17</Script>
+    <Name>Ensemble partiellement ordonné</Name>
+    <Desc>Upon reaching -45 SP, Gain 5 Dmg Up, Strength and Fragile</Desc>
+  </Passive>
+  <Passive ID="1018">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Unique</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>12</Cost>
+    <Script>panic18</Script>
+    <Name>The Red Mist</Name>
+    <Desc>Upon reaching -45 SP, Gain 5 Dmg Up, Strength and Set this Unit's SP to the Max</Desc>
+  </Passive>
+  <Passive ID="1019">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Unique</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>4</Cost>
+    <Script>panic19</Script>
+    <Name>Reverse Panic</Name>
+    <Desc>Upon reaching -45 SP, Gain 2 Dmg Up, Strength and Protection</Desc>
+  </Passive>
+  <Passive ID="1020">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Unique</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>12</Cost>
+    <Script>panic19</Script>
+    <Name>Forceful Arbitration</Name>
+    <Desc>Upon reaching 45 SP, Gain 3 Haste</Desc>
+  </Passive>
+  <Passive ID="1021">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Unique</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>7</Cost>
+    <Script>panic19</Script>
+    <Name>Sorrow and despair</Name>
+    <Desc>Upon reaching -45 SP, Gain 3 Strength and Protection</Desc>
+  </Passive>
+
+  <Passive ID="2001">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Rare</Rarity>
+    <InnerType>3</InnerType>
+    <Cost>3</Cost>
+    <Script>hm_1</Script>
+    <Name>Shattered Blade</Name>
+    <Desc>On Hit Inflict Bleed equal to owner's SP/9 to target</Desc>
+  </Passive>
+  <Passive ID="2002">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Unique</Rarity>
+    <InnerType>3</InnerType>
+    <Cost>5</Cost>
+    <Script>hm_2</Script>
+    <Name>Extreme Edge</Name>
+    <Desc>On Hit deal (Damage Dealt/5) SP Damage to target</Desc>
+  </Passive>
+  <Passive ID="2003">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Unique</Rarity>
+    <InnerType>2</InnerType>
+    <Cost>12</Cost>
+    <Script>hm_3</Script>
+    <Name>Will of The City</Name>
+    <Desc>On Hit deal 2 Fixed SP Damage to target and gain 1 Damage Up next scene</Desc>
+  </Passive>
+
+  <Passive ID="3001">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Unique</Rarity>
+    <InnerType>-1</InnerType>
+    <Cost>6</Cost>
+    <Script>shiSP</Script>
+    <Name>Shi</Name>
+    <Desc>This unit does not gain positive SP On Clash Win, Instead they lose SP On Clash Win and they Gain SP On Clash Lose (This passive does not change Unit Death SP mechanics)</Desc>
+  </Passive>
+
+  <Passive ID="4001">
+    <CanGivePassive>false</CanGivePassive>
+    <Rarity>Unique</Rarity>
+    <InnerType>-1</InnerType>
+    <Cost>7</Cost>
+    <Script>rrr_commander</Script>
+    <Name>The Commander</Name>
+    <Desc>If the character has 11 or more Charge at the start of the Scene, give 1 Strength, Protection and Endurance to all allies. At the end of each Scene, enter "Disposal" mode if no other allies are present Deal 2% additional Damage and Break Damage per Charge this unit has.</Desc>
+  </Passive>
+</PassiveXmlRoot>
