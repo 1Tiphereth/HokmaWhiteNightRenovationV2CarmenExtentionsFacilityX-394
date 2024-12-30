@@ -1,32 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DeckXmlRoot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Version>1.1</Version>
-  <Deck ID="2">
-    <Card>607202</Card>
-    <Card>607202</Card>
-    <Card>607202</Card>
+	<Version>1.1</Version>
+	<!--<Deck ID="3">
+		<Card>607202</Card>
+		<Card>607202</Card>
+		<Card>607202</Card>
 
-    <Card>607205</Card>
-    <Card>607205</Card>
+		<Card>607205</Card>
+		<Card>607205</Card>
 
-    <Card>607201</Card>
-    <Card>607201</Card>
+		<Card>607201</Card>
+		<Card>607201</Card>
 
-    <Card>607204</Card>
-    <Card>607204</Card>
-  </Deck>
-  <Deck ID="3">
-    <Card>11</Card>
-    <Card>11</Card>
-    <Card>11</Card>
+		<Card>607204</Card>
+		<Card>607204</Card>
+	</Deck>-->
+	<Deck ID="3">
+		<Card>11</Card>
+		<Card>11</Card>
+		<Card>11</Card>
 
-    <Card>12</Card>
-    <Card>12</Card>
+		<Card>12</Card>
+		<Card>12</Card>
 
-    <Card>13</Card>
-    <Card>13</Card>
+		<Card>13</Card>
+		<Card>13</Card>
 
-    <Card>14</Card>
-    <Card>15</Card>
-  </Deck>
+		<Card>14</Card>
+		<Card>15</Card>
+	</Deck>
+	<Deck ID="4">
+		<Card Pid="@origin">706001</Card>
+		<Card Pid="@origin">706001</Card>
+		<Card Pid="@origin">706001</Card>
+		<Card Pid="@origin">706002</Card>
+		<Card Pid="@origin">706002</Card>
+		<Card Pid="@origin">706003</Card>
+		<Card Pid="@origin">706004</Card>
+		<Card Pid="@origin">706005</Card>
+		<Card Pid="@origin">706006</Card>
+	</Deck>
 </DeckXmlRoot>

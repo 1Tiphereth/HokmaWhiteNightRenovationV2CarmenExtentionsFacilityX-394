@@ -16,7 +16,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
         public override void OnRoundStart()
         {
             int count = owner.allyCardDetail.GetHand().Count;
-            int num = 4 - count;
+            int num = 6 - count;
             if (num > 0)
             {
                 owner.allyCardDetail.DrawCards(num);
@@ -25,7 +25,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             if (!_hasShockWave)
             {
                 _hasShockWave = true;
-                owner.personalEgoDetail.AddCard(706203);
+                owner.personalEgoDetail.AddCard(new LorId(HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394.Init.packageName, 706203));
             }
 
             if (owner.emotionDetail.EmotionLevel >= 3 && !_hasZena)

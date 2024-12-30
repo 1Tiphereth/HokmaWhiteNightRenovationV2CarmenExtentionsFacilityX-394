@@ -268,17 +268,17 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
 
             // card patches
             {
-                ItemXmlDataList.instance.GetCardItem(new LorId(607201), false).optionList
-                    .Remove(CardOption.NoInventory);
-                ItemXmlDataList.instance.GetCardItem(new LorId(607202), false).optionList
-                    .Remove(CardOption.NoInventory);
-                ItemXmlDataList.instance.GetCardItem(new LorId(607203), false).optionList
-                    .Remove(CardOption.NoInventory);
-                ItemXmlDataList.instance.GetCardItem(new LorId(607204), false).optionList
-                    .Remove(CardOption.NoInventory);
-                ItemXmlDataList.instance.GetCardItem(new LorId(607205), false).optionList
-                    .Remove(CardOption.NoInventory);
-                ItemXmlDataList.instance.GetCardItem(new LorId(706203), false).optionList.Add(CardOption.EgoPersonal);
+                //ItemXmlDataList.instance.GetCardItem(new LorId(607201), false).optionList
+                //    .Remove(CardOption.NoInventory);
+                //ItemXmlDataList.instance.GetCardItem(new LorId(607202), false).optionList
+                //    .Remove(CardOption.NoInventory);
+                //ItemXmlDataList.instance.GetCardItem(new LorId(607203), false).optionList
+                //    .Remove(CardOption.NoInventory);
+                //ItemXmlDataList.instance.GetCardItem(new LorId(607204), false).optionList
+                //    .Remove(CardOption.NoInventory);
+                //ItemXmlDataList.instance.GetCardItem(new LorId(607205), false).optionList
+                //    .Remove(CardOption.NoInventory);
+                //ItemXmlDataList.instance.GetCardItem(new LorId(706203), false).optionList.Add(CardOption.EgoPersonal);
 
                 ItemXmlDataList.instance.GetCardItem(new LorId(408009), false).DiceBehaviourList[0].Script = "atksp7";
                 ItemXmlDataList.instance.GetCardItem(new LorId(408008), false).DiceBehaviourList[0].Script = "atksp2";
@@ -487,7 +487,6 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                 //ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[3].MotionDetail = MotionDetail.Z;
                 //ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[3].EffectRes = "Thumb_Z";
                 //ItemXmlDataList.instance.GetCardItem(new LorId(602010), false).DiceBehaviourList[3].Detail = BehaviourDetail.Penetrate;
-
                 Singleton<BookXmlList>.Instance.GetData(150023).EquipEffect.PassiveList.Remove(new LorId(250023));
                 Singleton<BookXmlList>.Instance.GetData(150023).EquipEffect.PassiveList
                     .Add(new LorId(packageName, 4001));
@@ -991,10 +990,11 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     if (x.BookId == 8)
                     {
                         x._classInfo.EquipEffect.Hp = 30 + (LibraryModel.Instance.GetChapter() * 43);
-                        x._classInfo.EquipEffect.Break = 15 + (LibraryModel.Instance.GetChapter() * 32);
-                        x._classInfo.speedDiceNumber = 1 + (LibraryModel.Instance.GetChapter() / 2);
-                        x._classInfo.EquipEffect.StartPlayPoint = 4 + (LibraryModel.Instance.GetChapter() / 2);
-                        x._classInfo.EquipEffect.MaxPlayPoint = 4 + (LibraryModel.Instance.GetChapter() / 2);
+                        x._classInfo.EquipEffect.Break = 23 + (LibraryModel.Instance.GetChapter() * 32);
+                        x._classInfo.speedDiceNumber = 2 + (LibraryModel.Instance.GetChapter() / 2);
+                        int ll = 4 + (LibraryModel.Instance.GetChapter() / 2);
+                        x._classInfo.EquipEffect.StartPlayPoint = ll;
+                        x._classInfo.EquipEffect.MaxPlayPoint = ll;
                         x.SetOriginalStat();
                         x.SetOriginalPlayPoint();
                         x.SetOriginalSpeedNum();
@@ -1041,49 +1041,43 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
                     }
                     else
                     {
-                        int chapter = Singleton<BookXmlList>.Instance.GetData(x.BookId).Chapter;
-                        Rarity rarity = Singleton<BookXmlList>.Instance.GetData(x.BookId).Rarity;
+                        if (x.BookId.id != 8)
+                        {
+                            int chapter = Singleton<BookXmlList>.Instance.GetData(x.BookId).Chapter;
+                            Rarity rarity = Singleton<BookXmlList>.Instance.GetData(x.BookId).Rarity;
 
-                        int hp, br;
-                        if (x.BookId == 8)
-                        {
-                            hp = x.equipeffect.Hp;
-                            br = x.equipeffect.Break;
-                        }
-                        else
-                        {
-                            hp = x.equipeffect.Hp;
-                            br = x.equipeffect.Break;
-                            //hp = (int)(x.equipeffect.Hp * (1 + chapter * 0.04));
-                            //br = (int)(x.equipeffect.Break * (1 + chapter * 0.02));
-                        }
+                            int hp, br;
+                            //hp = x.equipeffect.Hp;
+                            //br = x.equipeffect.Break;
+                            hp = (int)(x.equipeffect.Hp * (1 + chapter * 0.04));
+                            br = (int)(x.equipeffect.Break * (1 + chapter * 0.02));
 
-                        int sp = (int)(chapter / 4);
-
-                        int ll = 3;
-                        if (x.equipeffect.MaxPlayPoint != 3 && rarity != Rarity.Unique)
-                        {
-                            ll = x.equipeffect.MaxPlayPoint;
-                        }
-                        else
-                        {
-                            if (rarity == Rarity.Unique)
+                            int sp = (int)(chapter / 4);
+                            int ll = 3;
+                            if (x.equipeffect.MaxPlayPoint != 3 && rarity != Rarity.Unique)
                             {
-                                if (ll < 4)
+                                ll = x.equipeffect.MaxPlayPoint;
+                            }
+                            else
+                            {
+                                if (rarity == Rarity.Unique)
                                 {
-                                    ll = 4;
+                                    if (ll < 4)
+                                    {
+                                        ll = 4;
+                                    }
                                 }
                             }
-                        }
 
-                        ll += chapter / 2;
-                        x.equipeffect.Hp = hp;
-                        x.equipeffect.Break = br;
-                        x.equipeffect.SpeedDiceNum += sp;
-                        x.equipeffect.MaxPlayPoint = ll;
-                        x.equipeffect.StartPlayPoint = ll;
-                        x.SetOriginalStat();
-                        books.Add(x.BookId, (hp, br, sp));
+                            ll += chapter / 2;
+                            x.equipeffect.Hp = hp;
+                            x.equipeffect.Break = br;
+                            x.equipeffect.SpeedDiceNum += sp;
+                            x.equipeffect.MaxPlayPoint = ll;
+                            x.equipeffect.StartPlayPoint = ll;
+                            x.SetOriginalStat();
+                            books.Add(x.BookId, (hp, br, sp));
+                        }
                     }
                 }
 

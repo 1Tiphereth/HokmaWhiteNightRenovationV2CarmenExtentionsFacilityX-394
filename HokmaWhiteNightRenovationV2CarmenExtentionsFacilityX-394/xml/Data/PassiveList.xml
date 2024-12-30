@@ -11,7 +11,7 @@
     <Cost>6</Cost>
     <Script>brokenArbiter</Script>
     <Name>An Arbiter</Name>
-    <Desc>At the start of the Scene, draw until 4 pages are in hand. On Hit Inflict 1 Fairy, inflict an additional 1 Fairy and 1 Bleed at Personal Emotion Level 3.</Desc>
+    <Desc>At the start of the Scene, draw until 6 pages are in hand. On Hit Inflict 1 Fairy, inflict an additional 1 Fairy and 1 Bleed at Personal Emotion Level 3.</Desc>
   </Passive>
   <Passive ID="20">
     <Rarity>Unique</Rarity>

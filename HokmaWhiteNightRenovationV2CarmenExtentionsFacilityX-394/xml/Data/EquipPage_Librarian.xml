@@ -8,17 +8,17 @@
     <Category>DeckFixed</Category>
     <EquipEffect>
       <HP>125</HP>
-      <Break>65</Break>
+      <Break>67</Break>
       <SpeedMin>4</SpeedMin>
       <Speed>6</Speed>
       <StartPlayPoint>6</StartPlayPoint>
       <MaxPlayPoint>6</MaxPlayPoint>
-      <SResist>Endure</SResist>
+      <SResist>Normal</SResist>
       <PResist>Normal</PResist>
-      <HResist>Normal</HResist>
+      <HResist>Endure</HResist>
       <SBResist>Endure</SBResist>
       <PBResist>Normal</PBResist>
-      <HBResist>Normal</HBResist>
+      <HBResist>Resist</HBResist>
     </EquipEffect>
     <BookIcon>BlackSilence</BookIcon>
     <Chapter>7</Chapter>
@@ -32,7 +32,7 @@
     <Category>DeckFixed</Category>
     <EquipEffect>
       <HP>250</HP>
-      <Break>75</Break>
+      <Break>83</Break>
       <SpeedMin>1</SpeedMin>
       <Speed>8</Speed>
       <StartPlayPoint>6</StartPlayPoint>

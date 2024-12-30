@@ -428,4 +428,20 @@
     <Chapter>6</Chapter>
     <Priority>15</Priority>
   </Card>
+	<Card ID="706203">
+		<Name>Shockwave</Name>
+		<Artwork>BinahCard3</Artwork>
+		<Rarity>Unique</Rarity>
+		<Option>EgoPersonal</Option>
+		<Spec Range="FarAreaEach" Cost="5" Affection="Team" />
+		<Script>binahArea</Script>
+		<ScriptDesc></ScriptDesc>
+		<BehaviourList>
+			<Behaviour Min="7" Dice="10" Type="Atk" Detail="Hit" Motion="S4" EffectRes="" Script="binahShockwaveDice1" ActionScript="Binah_Shockwave_Up" Desc="" />
+			<Behaviour Min="7" Dice="9" Type="Atk" Detail="Hit" Motion="S4" EffectRes="" Script="binahShockwaveDice1" ActionScript="Binah_Shockwave_Up" Desc="" />
+			<Behaviour Min="7" Dice="9" Type="Atk" Detail="Hit" Motion="S4" EffectRes="" Script="binahShockwaveDice2" ActionScript="Binah_Shockwave_Up" Desc="" />
+		</BehaviourList>
+		<Chapter>7</Chapter>
+		<Priority>0</Priority>
+	</Card>
 </DiceCardXmlRoot>
