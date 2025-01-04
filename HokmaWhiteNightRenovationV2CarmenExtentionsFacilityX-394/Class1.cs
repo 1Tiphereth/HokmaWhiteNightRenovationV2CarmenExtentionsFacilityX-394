@@ -2162,137 +2162,137 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
             //int sp = (int)[ids];
         }
 
-        [HarmonyPatch(typeof(BattleDiceBehavior), "UpdateDiceFinalValue")]
-        [HarmonyPrefix]
-        public static bool nrollPatch3(BattleDiceBehavior __instance)
-        {
-            if (__instance.abilityList.Exists((DiceCardAbilityBase x) => x.Invalidity))
-            {
-                __instance._diceFinalResultValue = 91;
-                return false;
-            }
+        //[HarmonyPatch(typeof(BattleDiceBehavior), "UpdateDiceFinalValue")]
+        //[HarmonyPrefix]
+        //public static bool nrollPatch3(BattleDiceBehavior __instance)
+        //{
+        //    if (__instance.abilityList.Exists((DiceCardAbilityBase x) => x.Invalidity))
+        //    {
+        //        __instance._diceFinalResultValue = 91;
+        //        return false;
+        //    }
 
-            int num = __instance._diceResultValue;
-            if (__instance._statBonus.ignorePower)
-            {
-                return false;
-            }
+        //    int num = __instance._diceResultValue;
+        //    if (__instance._statBonus.ignorePower)
+        //    {
+        //        return false;
+        //    }
 
-            if (__instance.card != null)
-            {
-                if (__instance.card.ignorePower)
-                {
-                    __instance._diceFinalResultValue = num;
-                    return false;
-                }
+        //    if (__instance.card != null)
+        //    {
+        //        if (__instance.card.ignorePower)
+        //        {
+        //            __instance._diceFinalResultValue = num;
+        //            return false;
+        //        }
 
-                if (__instance.owner != null && __instance.owner.IsNullifyPower())
-                {
-                    __instance._diceFinalResultValue = num;
-                    return false;
-                }
-            }
+        //        if (__instance.owner != null && __instance.owner.IsNullifyPower())
+        //        {
+        //            __instance._diceFinalResultValue = num;
+        //            return false;
+        //        }
+        //    }
 
-            int num2 = __instance._statBonus.power;
-            if (__instance.abilityList.Find((DiceCardAbilityBase x) => x.IsDoublePower()) != null)
-            {
-                num2 += __instance._statBonus.power;
-            }
+        //    int num2 = __instance._statBonus.power;
+        //    if (__instance.abilityList.Find((DiceCardAbilityBase x) => x.IsDoublePower()) != null)
+        //    {
+        //        num2 += __instance._statBonus.power;
+        //    }
 
-            if (__instance.owner != null && __instance.owner.IsHalfPower())
-            {
-                num2 /= 2;
-            }
+        //    if (__instance.owner != null && __instance.owner.IsHalfPower())
+        //    {
+        //        num2 /= 2;
+        //    }
 
-            num += num2;
-            __instance._diceFinalResultValue = num;
+        //    num += num2;
+        //    __instance._diceFinalResultValue = num;
 
-            return false;
-        }
+        //    return false;
+        //}
 
-        [HarmonyPatch(typeof(BattleDiceBehavior), "RollDice")]
-        [HarmonyPrefix]
-        public static bool nrollPatch5(BattleDiceBehavior __instance)
-        {
-            int min = __instance.behaviourInCard.Min;
-            min += __instance._statBonus.min;
+        //[HarmonyPatch(typeof(BattleDiceBehavior), "RollDice")]
+        //[HarmonyPrefix]
+        //public static bool nrollPatch5(BattleDiceBehavior __instance)
+        //{
+        //    int min = __instance.behaviourInCard.Min;
+        //    min += __instance._statBonus.min;
 
-            int max = __instance.behaviourInCard.Dice;
-            max += __instance._statBonus.face * 3;
-            max += __instance._statBonus.max;
+        //    int max = __instance.behaviourInCard.Dice;
+        //    max += __instance._statBonus.face * 3;
+        //    max += __instance._statBonus.max;
 
-            int diceMin = min;
-            int diceMax = max;
-            int num = Mathf.Min(diceMin, diceMax);
-            //Debug.Log("rolldice: min: " + min + " max: " + max);
-            if (diceMin <= 0)
-            {
-                if (__instance.owner.bufListDetail.GetActivatedBuf(KeywordBuf.IndexRelease) != null)
-                {
-                    __instance._diceResultValue = max;
-                }
-                else
-                {
-                    if (MinusRollCalc(GetSP(GetOwnId(__instance.owner))))
-                    {
-                        __instance._diceResultValue = max;
-                    }
-                    else
-                    {
-                        __instance._diceResultValue = max + min;
-                    }
-                }
-            }
-            else
-            {
-                __instance._diceResultValue = DiceStatCalculator.MakeDiceResult(diceMin, diceMax, 0);
-            }
+        //    int diceMin = min;
+        //    int diceMax = max;
+        //    int num = Mathf.Min(diceMin, diceMax);
+        //    //Debug.Log("rolldice: min: " + min + " max: " + max);
+        //    if (diceMin <= 0)
+        //    {
+        //        if (__instance.owner.bufListDetail.GetActivatedBuf(KeywordBuf.IndexRelease) != null)
+        //        {
+        //            __instance._diceResultValue = max;
+        //        }
+        //        else
+        //        {
+        //            if (MinusRollCalc(GetSP(GetOwnId(__instance.owner))))
+        //            {
+        //                __instance._diceResultValue = max;
+        //            }
+        //            else
+        //            {
+        //                __instance._diceResultValue = max + min;
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        __instance._diceResultValue = DiceStatCalculator.MakeDiceResult(diceMin, diceMax, 0);
+        //    }
 
-            __instance.owner.passiveDetail.ChangeDiceResult(__instance, ref __instance._diceResultValue);
-            __instance.owner.emotionDetail.ChangeDiceResult(__instance, ref __instance._diceResultValue);
-            __instance.owner.bufListDetail.ChangeDiceResult(__instance, ref __instance._diceResultValue);
-            if (__instance._diceResultValue < num)
-            {
-                __instance._diceResultValue = num;
-            }
+        //    __instance.owner.passiveDetail.ChangeDiceResult(__instance, ref __instance._diceResultValue);
+        //    __instance.owner.emotionDetail.ChangeDiceResult(__instance, ref __instance._diceResultValue);
+        //    __instance.owner.bufListDetail.ChangeDiceResult(__instance, ref __instance._diceResultValue);
+        //    if (__instance._diceResultValue < num)
+        //    {
+        //        __instance._diceResultValue = num;
+        //    }
 
-            int num2 = 0;
-            int num3 = 0;
-            if (num != diceMax)
-            {
-                if (__instance._diceResultValue >= diceMax)
-                {
-                    num2++;
-                }
-                else if (__instance._diceResultValue <= num)
-                {
-                    num3++;
-                }
-            }
+        //    int num2 = 0;
+        //    int num3 = 0;
+        //    if (num != diceMax)
+        //    {
+        //        if (__instance._diceResultValue >= diceMax)
+        //        {
+        //            num2++;
+        //        }
+        //        else if (__instance._diceResultValue <= num)
+        //        {
+        //            num3++;
+        //        }
+        //    }
 
-            if (__instance._diceResultValue < 1)
-            {
-                __instance._diceResultValue = 1;
-            }
+        //    if (__instance._diceResultValue < 1)
+        //    {
+        //        __instance._diceResultValue = 1;
+        //    }
 
-            if (num2 > 0)
-            {
-                int count = __instance.owner.emotionDetail.CreateEmotionCoin(EmotionCoinType.Positive, num2);
-                BattleCardTotalResult battleCardResultLog = __instance.owner.battleCardResultLog;
-                battleCardResultLog?.AddEmotionCoin(EmotionCoinType.Positive, count);
-            }
-            else if (num3 > 0)
-            {
-                int count2 = __instance.owner.emotionDetail.CreateEmotionCoin(EmotionCoinType.Negative, num3);
-                BattleCardTotalResult battleCardResultLog2 = __instance.owner.battleCardResultLog;
-                battleCardResultLog2?.AddEmotionCoin(EmotionCoinType.Negative, count2);
-            }
+        //    if (num2 > 0)
+        //    {
+        //        int count = __instance.owner.emotionDetail.CreateEmotionCoin(EmotionCoinType.Positive, num2);
+        //        BattleCardTotalResult battleCardResultLog = __instance.owner.battleCardResultLog;
+        //        battleCardResultLog?.AddEmotionCoin(EmotionCoinType.Positive, count);
+        //    }
+        //    else if (num3 > 0)
+        //    {
+        //        int count2 = __instance.owner.emotionDetail.CreateEmotionCoin(EmotionCoinType.Negative, num3);
+        //        BattleCardTotalResult battleCardResultLog2 = __instance.owner.battleCardResultLog;
+        //        battleCardResultLog2?.AddEmotionCoin(EmotionCoinType.Negative, count2);
+        //    }
 
-            __instance.card.OnRollDice(__instance);
-            __instance.OnEventDiceAbility(DiceCardAbilityBase.DiceCardPassiveType.RollDice, null);
-            __instance.isUsed = true;
-            return false;
-        }
+        //    __instance.card.OnRollDice(__instance);
+        //    __instance.OnEventDiceAbility(DiceCardAbilityBase.DiceCardPassiveType.RollDice, null);
+        //    __instance.isUsed = true;
+        //    return false;
+        //}
 
 
         [HarmonyPatch(typeof(BattleUnitModel), "OnDieOtherUnit")]
