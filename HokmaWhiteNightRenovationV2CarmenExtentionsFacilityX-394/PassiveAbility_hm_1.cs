@@ -11,7 +11,7 @@ namespace HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394
         public override void OnSucceedAttack(BattleDiceBehavior behavior)
         {
             base.OnSucceedAttack(behavior);
-            behavior.owner.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Bleeding, HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394.Init.GetSP(HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394.Init.GetOwnId(owner)) / 9);
+            behavior.TargetDice?.owner?.bufListDetail.AddKeywordBufThisRoundByEtc(KeywordBuf.Bleeding, HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394.Init.GetSP(HokmaWhiteNightRenovationV2CarmenExtentionsFacilityX_394.Init.GetOwnId(owner)) / 9);
         }
     }
 }
